@@ -1,0 +1,14 @@
+---
+- name: create container
+  docker:
+    name: mintsns-mariadb
+    image: mariadb
+    state: started
+    use_tls: "encrypt"
+    # volumes:
+    #   - "{{ mariadb_lib }}:/var/lib/mysql"
+    env:
+      MYSQL_ROOT_PASSWORD: "{{db_password}}"
+      TERM: "xterm"
+
+

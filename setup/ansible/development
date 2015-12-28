@@ -1,0 +1,10 @@
+[servers]
+127.0.0.1
+
+[mintsns-web]
+mintsns-web
+
+[development:children]
+servers
+mintsns-web
+

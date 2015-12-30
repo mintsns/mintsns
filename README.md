@@ -40,7 +40,14 @@ npm install -g gulp
 npm install -g bower
 ```
 
-### 5. FIXME: write
+### 5. Please install the `babel` to your development environment
+
+```
+npm install -g babel
+npm install -g eslint babel-eslint
+```
+
+### 6. FIXME: write
 
 ## Features
 

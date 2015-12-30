@@ -2,4 +2,6 @@
 /setup/ansible/group_vars/production.yml
 /setup/ansible/group_vars/staging.yml
 .DS_Store
+/frontend/node_modules
+
 

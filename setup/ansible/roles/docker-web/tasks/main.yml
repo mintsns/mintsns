@@ -1,8 +1,15 @@
 ---
+- name: build container => {{role_path}}/docker/
+  docker_image: 
+    path: "{{role_path}}/docker/"
+    name: "mintsns-web"
+    use_tls: "encrypt"
+    state: present
+
 - name: create container
   docker:
     name: mintsns-web
-    image: centos
+    image: mintsns-web
     state: started
     use_tls: "encrypt"
     tty: yes
@@ -12,3 +19,4 @@
       - "{{ www_dir }}:/var/www/"
     env:
       TERM: "xterm"
+      TZ: JST-9

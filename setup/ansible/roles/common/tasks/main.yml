@@ -1,0 +1,2 @@
+- name: common
+  yum: name=initscripts state=latest

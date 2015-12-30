@@ -1,2 +1,6 @@
 - name: hello world
   template: src=helloworld.j2 dest=/root/helloworld mode=0655
+
+- name: apache install
+  yum: name=httpd state=latest
+

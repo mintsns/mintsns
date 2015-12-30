@@ -10,5 +10,6 @@
     env:
       MYSQL_ROOT_PASSWORD: "{{db_password}}"
       TERM: "xterm"
+      TZ: JST-9
 
 

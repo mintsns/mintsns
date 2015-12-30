@@ -1,6 +1,9 @@
 {
   "parser": "babel-eslint",
-  "rules": {
-    "strict": 0
+  "env": {
+    "es6": true
+  },
+  "ecmaFeatures": {
+    "modules": true
   }
 }

@@ -31,6 +31,7 @@ sudo chown -R <username>:staff /usr/local/lib/node_modules
 ### 3. Please install the `gulp` to your development environment
 
 ```
+npm install -g gulp-cli
 npm install -g gulp
 ```
 

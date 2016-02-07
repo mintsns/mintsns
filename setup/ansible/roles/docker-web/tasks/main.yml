@@ -1,5 +1,5 @@
 ---
-- name: build container => {{role_path}}/docker/
+- name: build mintsns-web image => {{role_path}}/docker/
   docker_image: 
     path: "{{role_path}}/docker/"
     name: "mintsns-web"
@@ -8,11 +8,10 @@
 
 - name: create container
   docker:
-    name: mintsns-web
+    name: mintsns-web-001
     image: mintsns-web
     state: started
     use_tls: "encrypt"
-    tty: yes
     links:
       - "mintsns-mariadb"
     volumes:
@@ -20,3 +19,23 @@
     env:
       TERM: "xterm"
       TZ: JST-9
+    expose: 80
+    ports:
+      - 0.0.0.0:8080:8080
+
+- name: create container
+  docker:
+    name: mintsns-web-002
+    image: mintsns-web
+    state: started
+    use_tls: "encrypt"
+    links:
+      - "mintsns-mariadb"
+    volumes:
+      - "{{ www_dir }}:/var/www/"
+    env:
+      TERM: "xterm"
+      TZ: JST-9
+    expose: 80
+    ports:
+      - 0.0.0.0:8080:8080

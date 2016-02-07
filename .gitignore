@@ -4,5 +4,6 @@
 .DS_Store
 /frontend/node_modules
 /frontend/dist
-
-
+/node_modules/
+.idea
+*.iml

@@ -1,9 +1,0 @@
-- name: create swarm container
-  docker:
-    name: swarm
-    image: swarm
-    state: started
-    use_tls: "encrypt"
-    env:
-      TERM: "xterm"
-      TZ: JST-9

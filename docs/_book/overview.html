@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>mintsnsとは？ | mintsns 設計仕様書</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./model.html" />
+    
+    
+    <link rel="prev" href="./index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="1"
+        data-chapter-title="mintsnsとは？"
+        data-filepath="overview.md"
+        data-basepath="."
+        data-revision="Sun Feb 07 2016 15:09:44 GMT+0900 (JST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1" data-path="overview.html">
+            
+                
+                    <a href="./overview.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        mintsnsとは？
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="model.html">
+            
+                
+                    <a href="./model.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        モデル設計
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="old.html">
+            
+                
+                    <a href="./old.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        過去の資料
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >mintsns 設計仕様書</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="mintsns&#x3068;&#x306F;&#xFF1F;">mintsns&#x3068;&#x306F;&#xFF1F;</h1>
+<h2 id="&#x306F;&#x3058;&#x3081;&#x306B;">&#x306F;&#x3058;&#x3081;&#x306B;</h2>
+<p>mintsns&#x306F;&#x3001;Google+ &#x306E;&#x4F4F;&#x4EBA;&#x304C; &#x6539;&#x60AA;&#x3055;&#x308C;&#x3066;&#x3044;&#x304F;Google&#xFF0B;&#x306B;&#x4E0D;&#x6E80;&#x3092;&#x6301;&#x3061;&#x3001;&#x904E;&#x3054;&#x3057;&#x3084;&#x3059;&#x3044;SNS&#x3092;&#x4F5C;&#x308D;&#x3046;&#x3068;&#x601D;&#x3044;&#x7ACB;&#x3063;&#x3066;&#x958B;&#x767A;&#x3092;&#x958B;&#x59CB;&#x3057;&#x305F;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x3059;&#x3002;
+&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306F;2012&#x5E74;&#x304B;&#x3089;&#x59CB;&#x307E;&#x308A;&#x3001;Yammer&#x3067;&#x958B;&#x767A;&#x3092;&#x9032;&#x3081;&#x3066;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x306A;&#x304B;&#x306A;&#x304B;&#x4ED5;&#x69D8;&#x8A2D;&#x8A08;&#x306E;&#x6642;&#x9593;&#x3070;&#x304B;&#x308A;&#x306B;&#x6642;&#x9593;&#x3092;&#x88C2;&#x3044;&#x3066;&#x3057;&#x307E;&#x3044;&#x3001;&#x307B;&#x3068;&#x3093;&#x3069;&#x958B;&#x767A;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;&#x307E;&#x307E;&#x6570;&#x5E74;&#x306E;&#x6642;&#x304C;&#x6D41;&#x308C;&#x307E;&#x3057;&#x305F;&#x3002;
+&#x305D;&#x3057;&#x3066;&#x3001;2016&#x5E74;&#x3001;&#x3084;&#x3063;&#x3068;&#x52D5;&#x304D;&#x51FA;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<h2 id="&#x30B3;&#x30F3;&#x30BB;&#x30D7;&#x30C8;">&#x30B3;&#x30F3;&#x30BB;&#x30D7;&#x30C8;</h2>
+<p>&#x307F;&#x3093;&#x306A;&#x3067;&#x4F5C;&#x308B;SNS&#x304C;&#x30B3;&#x30F3;&#x30BB;&#x30D7;&#x30C8;&#x3067;&#x3059;&#x3002; &#x300E;Minna de Tsukuru SNS&#x300F; &#x3092;&#x7121;&#x7406;&#x3084;&#x308A;&#x8A33;&#x3057;&#x3066; &#x300E;mintsns&#x300F;&#x3068;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;
+&#x3053;&#x306E;&#x30B3;&#x30F3;&#x30BB;&#x30D7;&#x30C8;&#x306F;&#x4ECA;&#x3067;&#x3082;&#x5909;&#x308F;&#x3063;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<h2 id="2012&#x5E74;&#x306E;&#x8A2D;&#x8A08;--&#x5730;&#x56F3;">2012&#x5E74;&#x306E;&#x8A2D;&#x8A08; --&gt; &#x5730;&#x56F3;</h2>
+<p>&#x5F53;&#x521D;&#x306E;&#x8A2D;&#x8A08;&#x3067;&#x306F;&#x3001;&#x4EEE;&#x60F3;&#x7A7A;&#x9593;&#xFF08;&#x5730;&#x56F3;&#xFF09;&#x3092;SNS&#x4E0A;&#x306B;&#x69CB;&#x7BC9;&#x3057;&#x3001;&#x305D;&#x306E;&#x7A7A;&#x9593;&#x3092;&#x79FB;&#x52D5;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x81EA;&#x5206;&#x304C;&#x3044;&#x308B;&#x5834;&#x6240;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x3001;&#x8FD1;&#x304F;&#x306B;&#x3044;&#x308B;&#x4EBA;&#x306E;&#x767A;&#x8A00;&#x304C;&#x30BF;&#x30A4;&#x30E0;&#x30E9;&#x30A4;&#x30F3;&#x306B;
+&#x6D41;&#x308C;&#x3066;&#x304F;&#x308B;&#x3088;&#x3046;&#x306A;&#x8A2D;&#x8A08;&#x3067;&#x3057;&#x305F;&#x3002;&#x73FE;&#x5728;&#x3067;&#x306F;&#x5909;&#x308F;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="2016&#x5E74;&#x306E;&#x8A2D;&#x8A08;--google-&#x306E;&#x30B5;&#x30FC;&#x30AF;&#x30EB;&#x306E;&#x6982;&#x5FF5;&#x3092;&#x53D6;&#x308A;&#x5165;&#x308C;">2016&#x5E74;&#x306E;&#x8A2D;&#x8A08; --&gt; Google+ &#x306E;&#x30B5;&#x30FC;&#x30AF;&#x30EB;&#x306E;&#x6982;&#x5FF5;&#x3092;&#x53D6;&#x308A;&#x5165;&#x308C;</h2>
+<p>&#x73FE;&#x5728;&#x3067;&#x306F;&#x3001;Google+&#x306E;&#x3088;&#x3046;&#x306A;&#x30B5;&#x30FC;&#x30AF;&#x30EB;&#x306E;&#x6982;&#x5FF5;&#x3092;&#x53D6;&#x308A;&#x5165;&#x308C;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;&#x9577;&#x3044;&#x8B70;&#x8AD6;(&#x9577;&#x671F;&#x7684;&#x306A;&#x307E;&#x3063;&#x305F;&#x308A;&#x3068;&#x3057;&#x305F;&#x8B70;&#x8AD6;)&#x3067;&#x3001;&#x30B5;&#x30FC;&#x30AF;&#x30EB;&#x306E;&#x3088;&#x3046;&#x306A;&#x6982;&#x5FF5;&#x3067;
+&#x30BE;&#x30FC;&#x30CB;&#x30F3;&#x30B0;&#x3092;&#x3046;&#x307E;&#x304F;&#x3067;&#x304D;&#x306A;&#x3044;&#x304B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x304C;&#x691C;&#x8A0E;&#x3055;&#x308C;&#x3001;&#x30BE;&#x30FC;&#x30CB;&#x30F3;&#x30B0;&#x3092;&#x884C;&#x3046;&#x306B;&#x3042;&#x305F;&#x308A;&#x3001;&#x305D;&#x306E;&#x632F;&#x308A;&#x5206;&#x3051;&#x3092;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3067;&#x304D;&#x308C;&#x3070;&#x826F;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<h2 id="&#x30BF;&#x30B0;&#x4ED8;&#x3051;">&#x30BF;&#x30B0;&#x4ED8;&#x3051;</h2>
+<p>SNS&#x5229;&#x7528;&#x8005;&#x306F;&#x3001;&#x4ED6;&#x306E;&#x4EBA;&#x304B;&#x3089;&#x30BF;&#x30B0;&#x304C;&#x3064;&#x3051;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x30BF;&#x30B0;&#x304C;&#x305D;&#x306E;&#x4EBA;&#x306E;&#x5C5E;&#x6027;&#x3092;&#x8868;&#x3057;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x30BF;&#x30B0;&#x306F;&#x81EA;&#x5206;&#x3067;&#x81EA;&#x5206;&#x306B;&#x3064;&#x3051;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;
+&#x30BF;&#x30B0;&#x306B;&#x306F;&#x6295;&#x7968;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3001;&#x306F;&#x3058;&#x3081;&#x306B;&#x3064;&#x3051;&#x3089;&#x308C;&#x305F;&#x30BF;&#x30B0;&#x306F;&#x5FC5;&#x305A;1&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x540C;&#x3058;&#x30BF;&#x30B0;&#x306B;&#x4E8C;&#x4EBA;&#x306E;&#x4EBA;&#x304C;&#x6295;&#x7968;&#x3059;&#x308C;&#x3070;&#x3001;2&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
+&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x304C;&#x9AD8;&#x3044;&#x307B;&#x3069;&#x3001;&#x305D;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306F;&#x305D;&#x306E;&#x30BF;&#x30B0;&#x306E;&#x5C5E;&#x6027;&#x5024;&#x304C;&#x9AD8;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30BE;&#x30FC;&#x30F3;&#x4EEE;">&#x30BE;&#x30FC;&#x30F3;(&#x4EEE;)</h2>
+<p>mintsns&#x306E;Google+&#x306E;&#x3088;&#x3046;&#x306A;&#x30B5;&#x30FC;&#x30AF;&#x30EB;&#x306E;&#x540D;&#x79F0;&#x3092;&#x30BE;&#x30FC;&#x30F3;(&#x4EEE;)&#x3068;&#x547C;&#x3073;&#x307E;&#x3059;&#x3002;&#x30BE;&#x30FC;&#x30F3;&#x306F;&#x3001;&#x6295;&#x7A3F;&#x3092;&#x884C;&#x3046;&#x969B;&#x306B;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30BE;&#x30FC;&#x30F3;&#x306F;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x3001;&#x8AD6;&#x7406;&#x548C;&#x3084;&#x8AD6;&#x7406;&#x7A4D;&#x3001;&#x6392;&#x4ED6;&#x7684;&#x8AD6;&#x7406;&#x548C;&#x306A;&#x3069;&#x3067;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x8A08;&#x7B97;&#x3055;&#x308C;&#x3001;&#x8AB0;&#x304C;&#x6295;&#x7A3F;&#x3092;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x304B;&#x3092;&#x6C7A;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;">&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;</h2>
+<p>Twitter&#x306E;&#x30BF;&#x30A4;&#x30E0;&#x30E9;&#x30A4;&#x30F3;&#x306E;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x306F;&#x3001;&#x6642;&#x7CFB;&#x5217;&#x8868;&#x793A;&#x3055;&#x308C;&#x3001;&#x6C7A;&#x3057;&#x3066;&#x9593;&#x5F15;&#x304B;&#x308C;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;<br>&#x307E;&#x305F;&#x3001;&#x30BE;&#x30FC;&#x30F3;&#x304C;&#x9650;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x6295;&#x7A3F;&#x306F;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x306A;&#x3044;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30D5;&#x30A9;&#x30ED;&#x30FC;">&#x30D5;&#x30A9;&#x30ED;&#x30FC;</h2>
+<p>&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3092;&#x30D5;&#x30A9;&#x30ED;&#x30FC;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x3001;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x306B;&#x6D41;&#x3059;&#x4E8B;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x30B9;&#x30DE;&#x30FC;&#x30C8;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;">&#x30B9;&#x30DE;&#x30FC;&#x30C8;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;</h2>
+<p>mintsns&#x306B;&#x306F;&#x901A;&#x5E38;&#x306E;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x306E;&#x4ED6;&#x306B;&#x3001;&#x30B9;&#x30DE;&#x30FC;&#x30C8;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x30BE;&#x30FC;&#x30F3;&#x306B;&#x3088;&#x3063;&#x3066;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x306B;&#x6D41;&#x3059;&#x4EBA;&#x3092;&#x6C7A;&#x3081;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x6A5F;&#x80FD;&#x3067;&#x3059;&#x3002;
+&#x3053;&#x308C;&#x306F;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x30BF;&#x30B0;&#x3092;&#x5143;&#x306B;&#x8AB0;&#x306E;&#x6295;&#x7A3F;&#x3092;&#x6D41;&#x3059;&#x304B;&#x3092;&#x6C7A;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;&#x30BE;&#x30FC;&#x30F3;&#x304C;&#x9650;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x6295;&#x7A3F;&#x306F;&#x898B;&#x307E;&#x305B;&#x3093;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x30BE;&#x30FC;&#x30F3;&#x304C;&#x9650;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x6295;&#x7A3F;&#x3092;&#x89A7;&#x308B;&#x6A29;&#x5229;&#x304C;&#x81EA;&#x8EAB;&#x306B;&#x3042;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;&#x305D;&#x306E;
+&#x6295;&#x7A3F;&#x304C;&#x6D41;&#x308C;&#x308B;&#x6642;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x30B9;&#x30DE;&#x30FC;&#x30C8;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x306F;&#x3044;&#x304F;&#x3064;&#x3067;&#x3082;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x306F;&#x3001;&#x30BF;&#x30D6;&#x3067;&#x7BA1;&#x7406;&#x3055;&#x308C;&#x3001;&#x5207;&#x308A;&#x66FF;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
+&#x3061;&#x3087;&#x3046;&#x3069;&#x3001;HootSuite&#x3084;TweetDeck&#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x30BF;&#x30B0;&#x306F;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x6570;&#x3092;&#x6307;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;</p>
+<h3 id="&#x30B9;&#x30DE;&#x30FC;&#x30C8;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x306E;&#x4F8B;">&#x30B9;&#x30DE;&#x30FC;&#x30C8;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;&#x306E;&#x4F8B;</h3>
+<ul>
+<li>&#x30D5;&#x30A9;&#x30ED;&#x30FC;&#x4E2D; &amp; &#x30C7;&#x30B6;&#x30A4;&#x30F3;(5point&#x4EE5;&#x4E0A;)</li>
+<li>&#x30B2;&#x30FC;&#x30E0;(5point&#x4EE5;&#x4E0A;) &amp; &#x30DE;&#x30A4;&#x30F3;&#x30AF;&#x30E9;&#x30D5;&#x30C8;(10point &#x4EE5;&#x4E0A;)</li>
+</ul>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./model.html" class="navigation navigation-next " aria-label="Next page: モデル設計"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

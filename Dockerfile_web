@@ -1,0 +1,6 @@
+FROM django:python3
+EXPOSE 80
+
+RUN pip install djangorestframework
+RUN pip install markdown
+RUN pip install django-filter

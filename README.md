@@ -24,6 +24,33 @@ npm install
 
 Download URL: https://www.docker.com/products/docker-toolbox
 
+## Docker
+
+```
+docker-machine             create \
+    --driver               virtualbox \
+    --virtualbox-memory    4096 \
+    --virtualbox-disk-size 20000 \
+    dev
+docker-machine start dev2
+eval $(docker-machine env dev2)
+docker ps
+docker-compose build
+docker-compose up
+```
+
+### Rebuild
+```
+docker-compose stop
+docker-compose build
+docker-compose up
+```
+
+### Migrate
+```
+docker-compose run web /usr/local/bin/python manage.py migrate
+```
+
 ### FIXME: next
 
 ## Features
@@ -49,6 +76,9 @@ gitbook build
 cd docs
 gitbook serve
 ```
+
+## Reference URL
+* [Django Development With Docker Compose and Machine](https://realpython.com/blog/python/django-development-with-docker-compose-and-machine/)
 
 ## Contributing
 We are looking for now developed members. We are carrying out activities on the Google Hangouts, please message <nacika.inscatolare@gmail.com>

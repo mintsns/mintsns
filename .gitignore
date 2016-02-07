@@ -7,3 +7,8 @@
 /node_modules/
 .idea
 *.iml
+*.db
+.DS_Store
+venv
+env
+__pycache__

@@ -1,0 +1,66 @@
+version: '2'
+services:
+  web:
+    restart: always
+    build: ./web
+    # build:
+    #   context: .
+    #   dockerfile: ./Dockerfile_web
+    expose:
+      - "8000"
+    # ports:
+    #     - 80:8000
+    environment:
+        - MODULE=myapp
+    depends_on:
+      # - db
+      - postgres
+      - redis
+    volumes:
+      # - ./app:/usr/src/app:rw
+      # - /usr/src/app/docker_django
+      - /usr/src/app/static
+    env_file: .env
+    command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :8000
+  # redis:
+  #   image: redis
+  # db:
+  #   image: postgres
+
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+    volumes:
+      - /www/static
+    volumes_from:
+      - web
+    depends_on:
+      - web
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    volumes_from:
+      - data
+    ports:
+      - "5432:5432"
+
+  redis:
+    restart: always
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  data:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - /var/lib/postgresql
+    command: "true"
+
+
+
+
+

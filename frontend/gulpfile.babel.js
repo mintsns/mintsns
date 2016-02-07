@@ -23,12 +23,12 @@ import del from 'del';
 // 		.pipe(babel({
 // 			presets: ['es2015']
 // 		}))
-// 		.pipe(gulp.dest('../data/www/js'));
+// 		.pipe(gulp.dest('../data/www/html/js'));
 // });
 
 gulp.task('copy', () => {
   return gulp.src('src/index.html')
-    .pipe(gulp.dest('../data/www/'));
+    .pipe(gulp.dest('../data/www/html/'));
 });
 
 gulp.task('build', ['copy'], () => {
@@ -47,7 +47,7 @@ gulp.task('watch', () => {
 });
 
 gulp.task('clean', () => {
-  return del('../data/www/*', {force: true});
+  return del('../data/www/html/*', {force: true});
 });
 
 gulp.task('default', ['copy', 'watch']);
@@ -61,5 +61,5 @@ function bundle(b) {
     .pipe(buffer())
     .pipe(sourcemaps.init({ loadMaps: true }))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('../data/www/js'));
+    .pipe(gulp.dest('../data/www/html/js'));
 }

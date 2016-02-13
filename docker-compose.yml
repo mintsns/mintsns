@@ -1,34 +1,56 @@
 version: '2'
 services:
 
+  # python django rest api server
   web:
     restart: always
     build: ./web
     expose:
       - "8000"
-    environment:
-        - MODULE=myapp
     depends_on:
       - postgres
       - redis
     volumes:
       - ./web/docker_django:/usr/src/app/docker_django # to Development
-      - /usr/src/app/static
+    volumes_from:
+      - www_data
     env_file: .env
-    command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :8000
+    command: /entrypoint.sh
 
+  # nginx router
   nginx:
     restart: always
     build: ./nginx/
     ports:
       - "80:80"
-    volumes:
-      - ./nginx/static/:/www/static # nginxには static がないため DataVolumeを作成
     volumes_from:
       - web
+      - www_data
     depends_on:
       - web
+    expose:
+      - "80"
 
+  # h2o router
+  h2o:
+    restart: always
+    build: ./h2o/
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+      - "443:8081"
+    volumes_from:
+      - web
+      - www_data
+    depends_on:
+      - web
+    expose:
+      - "80"
+      - "443"
+      - "8080"
+      - "8081"
+
+  # database
   postgres:
     restart: always
     image: postgres:latest
@@ -36,15 +58,28 @@ services:
       - data
     ports:
       - "5432:5432"
+    expose:
+      - "5342"
 
+  # cache
   redis:
     restart: always
     image: redis:latest
     ports:
       - "6379:6379"
+    expose:
+      - "6379"
 
+  # static file storage
+  www_data:
+    image: postgres:latest
+    volumes:
+      - ./data/www/static:/www/static
+      - ./data/www/html:/www/html
+    command: "true"
+
+  # db data storage
   data:
-    restart: always
     image: postgres:latest
     volumes:
       - ./data/postgresql:/var/lib/postgresql

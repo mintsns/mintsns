@@ -17,3 +17,16 @@ H2Oは現在ディー・エヌ・エーに勤める奥一穂氏を中心に、20
 https://github.com/tatsuhiro-t/nghttp2
 
 通信処理が要求される箇所は、上記ライブラリの使用を検討する
+
+## staticファイルの配信
+* staticファイルの配信はすべてh2oから行う。
+
+## 認証、ドメインモデル
+* ユーザーのログイン認証や、ドメインモデル等の管理は、`h2o -> django-rest-framework` で行う
+
+## 処理速度が求められる部分について
+* EXPERIMENTAL: `grpc --> go` で行う    
+
+## 認証基盤
+* redisで行う
+

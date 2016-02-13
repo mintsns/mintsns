@@ -1,0 +1,11 @@
+FROM grpc/go
+COPY protos src/protos
+
+# build protos
+RUN cd src/protos && protoc --go_out=plugins=grpc:. customer_service.proto
+
+# go get
+RUN go get github.com/mattn/sc
+
+# run server
+COPY *.go src/

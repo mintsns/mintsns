@@ -10,6 +10,7 @@ services:
     depends_on:
       - postgres
       - redis
+      - grpc-go-server
     volumes:
       - ./web/docker_django:/usr/src/app/docker_django # to Development
     volumes_from:
@@ -84,6 +85,23 @@ services:
     volumes:
       - ./data/postgresql:/var/lib/postgresql
     command: "true"
+
+  # grpc go server
+  grpc-go-server:
+    build: ./grpc-go
+    expose:
+      - 11111
+    ports:
+      - "11111:11111"
+    command: go run src/server.go
+
+  # grpc go client sample
+  grpc-go-client-sample:
+    build: ./grpc-go
+    command: go run src/client-sample.go
+    depends_on:
+      - grpc-go-server
+
 
 
 

@@ -12,3 +12,6 @@
 venv
 env
 __pycache__
+/data/postgresql/*
+/data/www/static/*
+!/data/www/static/.gitkeep

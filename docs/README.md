@@ -18,6 +18,7 @@ https://drive.google.com/drive/folders/0B6ilEvfUxQRiWXRubUExdVphYWs
   * \#idea    -- アイデアタスク
   * \#feature -- 機能
   * アカウント設定でデフォルトが「タスクの下」にタスクを追加するようになっているので「タスクの上」に修正をお願いします。
+  * 仕様検討やタスクに関しての議論はWulderlist上のチャットかハングアウト上で行う。
 * 2つの Google ハングアウトで行う
     * mint cafe -- mintsns の関わるメンバー全員がjoinしているハングアウト
     * mint develop -- mintsnsの開発者のみのハングアウト

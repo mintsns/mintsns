@@ -40,10 +40,14 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.1",
-    "zone.js": "^0.5.10"
+    "zone.js": "^0.5.10",
+    "gulp-watch": "^4.3.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "watch": "gulp"
+
   },
   "author": "",
   "license": "MIT"

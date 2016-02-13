@@ -5,4 +5,5 @@ RUN pip install djangorestframework
 RUN pip install markdown
 RUN pip install django-filter 
 
-RUN cp -rf /usr/local/lib/python3.5/site-packages/rest_framework/static/rest_framework /usr/src/app/static/
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh

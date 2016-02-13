@@ -10,6 +10,7 @@ import assign from 'object-assign';
 import browserify from 'browserify';
 import watchify from 'watchify';
 import babelify from 'babelify';
+import watch from 'gulp-watch';
 
 import del from 'del';
 
@@ -27,7 +28,7 @@ import del from 'del';
 // });
 
 gulp.task('copy', () => {
-  return gulp.src('src/index.html')
+  return gulp.src('src/view/*')
     .pipe(gulp.dest('../data/www/html/'));
 });
 
@@ -38,12 +39,19 @@ gulp.task('build', ['copy'], () => {
 });
 
 gulp.task('watch', () => {
-  const b = browserify('src/index.js', assign({ debug: true }, watchify.args))
+
+  // watch view
+  gulp.watch("src/view/index.html", ['copy']);
+
+
+  // watchify
+  const b = browserify('src/js/index.js', assign({ debug: true }, watchify.args))
     .transform(babelify);
   const w = watchify(b)
     .on('update', () => bundle(w))
     .on('log', gutil.log);
   return bundle(w)
+
 });
 
 gulp.task('clean', () => {

@@ -83,7 +83,23 @@ cd docs
 gitbook serve
 ```
 
+## Frontend
+
+### build
+```
+cd frontend
+npm run build 
+```
+
+### watch
+```
+cd frontend
+npm run watch
+```
+
+
 ## Reference URL
+* [Django REST framework](http://www.django-rest-framework.org/)
 * [Django Development With Docker Compose and Machine](https://realpython.com/blog/python/django-development-with-docker-compose-and-machine/)
 
 ## Contributing

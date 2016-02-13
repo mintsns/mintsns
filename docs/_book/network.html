@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>モデル設計 | mintsns 設計仕様書</title>
+        <title>ネットワーク設計 | mintsns 設計仕様書</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -39,10 +39,10 @@
         
     
     
-    <link rel="next" href="./routes.html" />
+    <link rel="next" href="./model.html" />
     
     
-    <link rel="prev" href="./network.html" />
+    <link rel="prev" href="./develop.html" />
     
 
         
@@ -51,9 +51,9 @@
         
         
     <div class="book"
-        data-level="4"
-        data-chapter-title="モデル設計"
-        data-filepath="model.md"
+        data-level="3"
+        data-chapter-title="ネットワーク設計"
+        data-filepath="network.md"
         data-basepath="."
         data-revision="Sun Feb 14 2016 05:55:19 GMT+0900 (JST)"
         data-innerlanguage="">
@@ -114,7 +114,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3" data-path="network.html">
+        <li class="chapter active" data-level="3" data-path="network.html">
             
                 
                     <a href="./network.html">
@@ -129,7 +129,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4" data-path="model.html">
+        <li class="chapter " data-level="4" data-path="model.html">
             
                 
                     <a href="./model.html">
@@ -207,7 +207,16 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p>FIXME</p>
+                        <h1 id="&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;">&#x30CD;&#x30C3;&#x30C8;&#x30EF;&#x30FC;&#x30AF;</h1>
+<h2 id="&#x30EA;&#x30A2;&#x30EB;&#x30BF;&#x30A4;&#x30E0;&#x901A;&#x4FE1;&#x306E;&#x5B9F;&#x73FE;&#x306B;&#x3064;&#x3044;&#x3066;">&#x30EA;&#x30A2;&#x30EB;&#x30BF;&#x30A4;&#x30E0;&#x901A;&#x4FE1;&#x306E;&#x5B9F;&#x73FE;&#x306B;&#x3064;&#x3044;&#x3066;</h2>
+<p>&#x3067;&#x304D;&#x308B;&#x3060;&#x3051;&#x5C11;&#x306A;&#x3044;&#x30B3;&#x30CD;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x6570;&#x3092;&#x7DAD;&#x6301;&#x3057;&#x3064;&#x3064;&#x30EA;&#x30A2;&#x30EB;&#x30BF;&#x30A4;&#x30E0;&#x901A;&#x4FE1;&#x3092;&#x5B9F;&#x73FE;&#x3059;&#x308B;&#x3002;&#x3053;&#x306E;&#x305F;&#x3081;&#x306B;HTTP1&#x3067;&#x306E;&#x901A;&#x4FE1;&#x3092;&#x906E;&#x65AD;&#x3057;&#x3001;HTTP2
+&#x306E;&#x307F;&#x3068;&#x901A;&#x4FE1;&#x3092;&#x884C;&#x3046;&#x3002;  </p>
+<h2 id="h2o&#x306B;&#x3088;&#x308B;&#x9AD8;&#x901F;&#x901A;&#x4FE1;">h2o&#x306B;&#x3088;&#x308B;&#x9AD8;&#x901F;&#x901A;&#x4FE1;</h2>
+<pre><code>H2O&#x306F;&#x73FE;&#x5728;&#x30C7;&#x30A3;&#x30FC;&#x30FB;&#x30A8;&#x30CC;&#x30FB;&#x30A8;&#x30FC;&#x306B;&#x52E4;&#x3081;&#x308B;&#x5965;&#x4E00;&#x7A42;&#x6C0F;&#x3092;&#x4E2D;&#x5FC3;&#x306B;&#x3001;2014&#x5E74;&#x304B;&#x3089;&#x958B;&#x767A;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;Web&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x3002;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x76EE;&#x7684;&#x3068;&#x3057;&#x3066;&#x3001;&#x300C;&#x30AF;&#x30E9;&#x30A6;&#x30C9;&#x3001;HTTP/2&#x3001;&#x5E38;&#x6642;TLS&#x6642;&#x4EE3;&#x306B;&#x6700;&#x9069;&#x5316;&#x3055;&#x308C;&#x305F;HTTP&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x3092;&#x76EE;&#x6307;&#x3059;&#x300D;&#x3068;&#x3057;&#x3066;&#x3044;&#x308B;&#x3002;H2O&#x306F;MIT&#x30E9;&#x30A4;&#x30BB;&#x30F3;&#x30B9;&#x3092;&#x63A1;&#x7528;&#x3057;&#x305F;&#x30AA;&#x30FC;&#x30D7;&#x30F3;&#x30BD;&#x30FC;&#x30B9;&#x30D7;&#x30ED;&#x30C0;&#x30AF;&#x30C8;&#x3067;&#x3001;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x306F;GitHub&#x3067;&#x516C;&#x958B;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3002;
+</code></pre><p><a href="http://www.atmarkit.co.jp/ait/articles/1512/08/news037.html" target="_blank">&#x51FA;&#x5178;: Nginx&#x3088;&#x308A;&#x9AD8;&#x901F;&#x3001;HTTP/2&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x300C;H2O&#x300D;</a></p>
+<h3 id="experimental-nghttp2-&#x306E;&#x4F7F;&#x7528;&#x306B;&#x3064;&#x3044;&#x3066;">EXPERIMENTAL: nghttp2 &#x306E;&#x4F7F;&#x7528;&#x306B;&#x3064;&#x3044;&#x3066;</h3>
+<p><a href="https://github.com/tatsuhiro-t/nghttp2" target="_blank">https://github.com/tatsuhiro-t/nghttp2</a></p>
+<p>&#x901A;&#x4FE1;&#x51E6;&#x7406;&#x304C;&#x8981;&#x6C42;&#x3055;&#x308C;&#x308B;&#x7B87;&#x6240;&#x306F;&#x3001;&#x4E0A;&#x8A18;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x306E;&#x4F7F;&#x7528;&#x3092;&#x691C;&#x8A0E;&#x3059;&#x308B;</p>
 
                     
                     </section>
@@ -218,10 +227,10 @@
         </div>
 
         
-        <a href="./network.html" class="navigation navigation-prev " aria-label="Previous page: ネットワーク設計"><i class="fa fa-angle-left"></i></a>
+        <a href="./develop.html" class="navigation navigation-prev " aria-label="Previous page: 開発系コマンド"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./routes.html" class="navigation navigation-next " aria-label="Next page: ルーティング設計"><i class="fa fa-angle-right"></i></a>
+        <a href="./model.html" class="navigation navigation-next " aria-label="Next page: モデル設計"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

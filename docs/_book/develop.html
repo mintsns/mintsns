@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>モデル設計 | mintsns 設計仕様書</title>
+        <title>開発系コマンド | mintsns 設計仕様書</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -39,10 +39,10 @@
         
     
     
-    <link rel="next" href="./routes.html" />
+    <link rel="next" href="./network.html" />
     
     
-    <link rel="prev" href="./network.html" />
+    <link rel="prev" href="./overview.html" />
     
 
         
@@ -51,9 +51,9 @@
         
         
     <div class="book"
-        data-level="4"
-        data-chapter-title="モデル設計"
-        data-filepath="model.md"
+        data-level="2"
+        data-chapter-title="開発系コマンド"
+        data-filepath="develop.md"
         data-basepath="."
         data-revision="Sun Feb 14 2016 05:55:19 GMT+0900 (JST)"
         data-innerlanguage="">
@@ -99,7 +99,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2" data-path="develop.html">
+        <li class="chapter active" data-level="2" data-path="develop.html">
             
                 
                     <a href="./develop.html">
@@ -129,7 +129,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4" data-path="model.html">
+        <li class="chapter " data-level="4" data-path="model.html">
             
                 
                     <a href="./model.html">
@@ -207,8 +207,23 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p>FIXME</p>
-
+                        <h1 id="&#x958B;&#x767A;&#x7CFB;&#x30B3;&#x30DE;&#x30F3;&#x30C9;">&#x958B;&#x767A;&#x7CFB;&#x30B3;&#x30DE;&#x30F3;&#x30C9;</h1>
+<h2 id="extension">extension</h2>
+<ul>
+<li>HTTP2&#x5BFE;&#x5FDC;&#x3057;&#x3066;&#x3044;&#x308B;&#x304B;&#x8ABF;&#x3079;&#x308B;Chrome&#x62E1;&#x5F35;
+<a href="https://chrome.google.com/webstore/detail/http2-and-spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin" target="_blank">HTTP/2 and SPDY indicator</a></li>
+</ul>
+<h2 id="dockercompose">docker-compose</h2>
+<h3 id="&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x8D77;&#x52D5;">&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x8D77;&#x52D5;</h3>
+<pre><code>docker-compose kill &amp;&amp; docker-compose up
+</code></pre><h3 id="ip&#x3092;&#x8ABF;&#x3079;&#x308B;">IP&#x3092;&#x8ABF;&#x3079;&#x308B;</h3>
+<pre><code>docker-machine ls
+</code></pre><h2 id="&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x7528;&#x30B3;&#x30DE;&#x30F3;&#x30C9;">&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x7528;&#x30B3;&#x30DE;&#x30F3;&#x30C9;</h2>
+<h3 id="http&#x901A;&#x4FE1;&#x7528;">HTTP&#x901A;&#x4FE1;&#x7528;</h3>
+<pre><code>echo -en &quot;GET / HTTP/1.1\n\n&quot; | nc localhost 80
+</code></pre><h3 id="nginx-&#x306B;&#x5165;&#x308B;">nginx &#x306B;&#x5165;&#x308B;</h3>
+<pre><code>docker exec -it mintsns_nginx_1 /bin/bash
+</code></pre>
                     
                     </section>
                 
@@ -218,10 +233,10 @@
         </div>
 
         
-        <a href="./network.html" class="navigation navigation-prev " aria-label="Previous page: ネットワーク設計"><i class="fa fa-angle-left"></i></a>
+        <a href="./overview.html" class="navigation navigation-prev " aria-label="Previous page: mintsnsとは？"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./routes.html" class="navigation navigation-next " aria-label="Next page: ルーティング設計"><i class="fa fa-angle-right"></i></a>
+        <a href="./network.html" class="navigation navigation-next " aria-label="Next page: ネットワーク設計"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

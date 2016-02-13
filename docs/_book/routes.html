@@ -5,9 +5,9 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Introduction | mintsns 設計仕様書</title>
+        <title>ルーティング設計 | mintsns 設計仕様書</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="このドキュメントは、みんなで作るSNS『mintsns』のfixされた設計仕様書です。このドキュメントを元に開発を進めていきます。開発環境の構築については、ルートディレクトリにあるREADME.mdをお読みください。">
+        <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
         
         
@@ -39,8 +39,10 @@
         
     
     
-    <link rel="next" href="./overview.html" />
+    <link rel="next" href="./old.html" />
     
+    
+    <link rel="prev" href="./model.html" />
     
 
         
@@ -49,9 +51,9 @@
         
         
     <div class="book"
-        data-level="0"
-        data-chapter-title="Introduction"
-        data-filepath="README.md"
+        data-level="5"
+        data-chapter-title="ルーティング設計"
+        data-filepath="routes.md"
         data-basepath="."
         data-revision="Sun Feb 14 2016 05:55:19 GMT+0900 (JST)"
         data-innerlanguage="">
@@ -69,7 +71,7 @@
 
             
     
-        <li class="chapter active" data-level="0" data-path="index.html">
+        <li class="chapter " data-level="0" data-path="index.html">
             
                 
                     <a href="./index.html">
@@ -142,7 +144,7 @@
             
         </li>
     
-        <li class="chapter " data-level="5" data-path="routes.html">
+        <li class="chapter active" data-level="5" data-path="routes.html">
             
                 
                     <a href="./routes.html">
@@ -205,77 +207,98 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="mintsns-&#x8A2D;&#x8A08;&#x4ED5;&#x69D8;&#x66F8;">mintsns &#x8A2D;&#x8A08;&#x4ED5;&#x69D8;&#x66F8;</h1>
-<p>&#x3053;&#x306E;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306F;&#x3001;&#x307F;&#x3093;&#x306A;&#x3067;&#x4F5C;&#x308B;SNS&#x300E;mintsns&#x300F;&#x306E;fix&#x3055;&#x308C;&#x305F;&#x8A2D;&#x8A08;&#x4ED5;&#x69D8;&#x66F8;&#x3067;&#x3059;&#x3002;
-&#x3053;&#x306E;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x5143;&#x306B;&#x958B;&#x767A;&#x3092;&#x9032;&#x3081;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;
-&#x958B;&#x767A;&#x74B0;&#x5883;&#x306E;&#x69CB;&#x7BC9;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3001;&#x30EB;&#x30FC;&#x30C8;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x306B;&#x3042;&#x308B;README.md&#x3092;&#x304A;&#x8AAD;&#x307F;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
-<h2 id="fix&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306E;&#x8CC7;&#x6599;&#x7F6E;&#x304D;&#x5834;">fix&#x3055;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x305D;&#x308C;&#x4EE5;&#x5916;&#x306E;&#x8CC7;&#x6599;&#x7F6E;&#x304D;&#x5834;</h2>
-<p>&#x6A29;&#x9650;&#x306A;&#x3044;&#x65B9;&#x306F;&#x3001;&#x30CF;&#x30F3;&#x30B0;&#x30A2;&#x30A6;&#x30C8;&#x3067;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x4E0B;&#x3055;&#x3044;
-<a href="https://drive.google.com/drive/folders/0B6ilEvfUxQRiWXRubUExdVphYWs" target="_blank">https://drive.google.com/drive/folders/0B6ilEvfUxQRiWXRubUExdVphYWs</a></p>
-<h2 id="&#x958B;&#x767A;&#x306E;&#x3059;&#x3059;&#x3081;&#x65B9;">&#x958B;&#x767A;&#x306E;&#x3059;&#x3059;&#x3081;&#x65B9;</h2>
-<ul>
-<li>&#x30BF;&#x30B9;&#x30AF;&#x7BA1;&#x7406;<ul>
-<li>&#x30BF;&#x30B9;&#x30AF;&#x7BA1;&#x7406;&#x306F; <a href="https://www.wunderlist.com/webapp#/lists/inbox" target="_blank">Wunderlist</a>&#x306B;&#x3066;&#x884C;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x3061;&#x3089;&#x3082;&#x62DB;&#x5F85;&#x3059;&#x308B;&#x306E;&#x3067;&#x9023;&#x7D61;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</li>
-<li>&#x512A;&#x5148;&#x5EA6; #1 &#x301C; #10 &#x307E;&#x3067;&#x306E;&#x512A;&#x5148;&#x5EA6;&#x3092;&#x3064;&#x3051;&#x307E;&#x3059;&#x3002;</li>
-<li>#infra   -- &#x30A4;&#x30F3;&#x30D5;&#x30E9;&#x30BF;&#x30B9;&#x30AF;</li>
-<li>#idea    -- &#x30A2;&#x30A4;&#x30C7;&#x30A2;&#x30BF;&#x30B9;&#x30AF;</li>
-<li>#feature -- &#x6A5F;&#x80FD;</li>
-</ul>
-</li>
-<li>2&#x3064;&#x306E; Google &#x30CF;&#x30F3;&#x30B0;&#x30A2;&#x30A6;&#x30C8;&#x3067;&#x884C;&#x3046;<ul>
-<li>mint cafe -- mintsns &#x306E;&#x95A2;&#x308F;&#x308B;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x5168;&#x54E1;&#x304C;join&#x3057;&#x3066;&#x3044;&#x308B;&#x30CF;&#x30F3;&#x30B0;&#x30A2;&#x30A6;&#x30C8;</li>
-<li>mint develop -- mintsns&#x306E;&#x958B;&#x767A;&#x8005;&#x306E;&#x307F;&#x306E;&#x30CF;&#x30F3;&#x30B0;&#x30A2;&#x30A6;&#x30C8;</li>
-<li>mint design -- &#x30C7;&#x30B6;&#x30A4;&#x30F3;&#x5C02;&#x7528;</li>
-<li>mint active -- mintsns&#x3067;&#x4ECA;&#x3044;&#x308B;&#x4EBA;&#x3060;&#x3051;&#x306E;&#x90E8;&#x5C4B;&#xFF08;&#x4E00;&#x6642;&#x90E8;&#x5C4B;&#xFF09;</li>
-</ul>
-</li>
-<li>github issue<ul>
-<li>&#x57FA;&#x672C;&#x7684;&#x306B;&#x30D0;&#x30B0;&#x5831;&#x544A;&#x7528;&#x306B;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;</li>
-<li>&#x3053;&#x3053;&#x306B;&#x3042;&#x3052;&#x3089;&#x308C;&#x305F;issue&#x306B;&#x7740;&#x624B;&#x3059;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;Wunderlist&#x306B;&#x30BF;&#x30B9;&#x30AF;&#x3092;&#x767B;&#x9332;&#x3059;&#x308B; <strong>&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;</strong></li>
-</ul>
-</li>
-</ul>
-<h2 id="&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;">&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;</h2>
-<p>&#x3053;&#x306E;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306B;&#x306F;&#x6240;&#x3005;&#x306B;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;&#x304C;&#x51FA;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30D7;&#x30EC;&#x30D5;&#x30A3;&#x30C3;&#x30AF;&#x30B9;&#x306B;&#x3088;&#x3063;&#x3066;&#x610F;&#x5473;&#x304C;&#x5909;&#x308F;&#x3063;&#x3066;&#x304F;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;&#x5404;&#x6240;&#x3064;&#x3051;&#x308B;&#x3053;&#x3068;&#x3002;</p>
+                        <h1 id="&#x30EB;&#x30FC;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x8A2D;&#x8A08;">&#x30EB;&#x30FC;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x8A2D;&#x8A08;</h1>
+<h2 id="&#x30DA;&#x30FC;&#x30B8;">&#x30DA;&#x30FC;&#x30B8;</h2>
 <table>
 <thead>
 <tr>
-<th>prefix</th>
-<th>description      </th>
+<th>&#x30A2;&#x30C9;&#x30EC;&#x30B9;</th>
+<th>&#x8AAC;&#x660E;     </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>EXPERIMENTAL</td>
-<td>&#x5B9F;&#x9A13;&#x7684;&#x306A;&#x4ED5;&#x69D8;&#x691C;&#x8A0E;&#x6BB5;&#x968E;&#x306B;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;&#x3002;&#x3084;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;&#x3057;&#x3001;&#x3084;&#x3089;&#x306A;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;</td>
+<td>/</td>
+<td>&#x30EB;&#x30FC;&#x30C8;</td>
 </tr>
 <tr>
-<td>NOFIX</td>
-<td>FIX&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x793A;&#x3059;</td>
+<td>/login</td>
+<td>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x753B;&#x9762;</td>
 </tr>
 <tr>
-<td>IDEA</td>
-<td>&#x63D0;&#x6848;&#x3092;&#x3059;&#x308B;&#x3068;&#x304D;&#x306B;&#x4F7F;&#x7528;</td>
+<td>/stream/</td>
+<td>&#x30E1;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;</td>
 </tr>
 <tr>
-<td>DEPRECATED</td>
-<td>&#x975E;&#x63A8;&#x5968;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x793A;&#x3059;</td>
+<td>/stream/:hash</td>
+<td>&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x90E8;&#x5206;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;">&#x90E8;&#x5206;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x30A2;&#x30C9;&#x30EC;&#x30B9;</th>
+<th>&#x8AAC;&#x660E;     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">API</h2>
+<table>
+<thead>
+<tr>
+<th>&#x30A2;&#x30C9;&#x30EC;&#x30B9;</th>
+<th style="text-align:center">&#x30E1;&#x30BD;&#x30C3;&#x30C9;</th>
+<th>&#x8AAC;&#x660E;     </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>_/</td>
+<td style="text-align:center">GET</td>
+<td>API&#x30EB;&#x30FC;&#x30C8;</td>
 </tr>
 <tr>
-<td>FIXME</td>
-<td>&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x76F4;&#x3057;&#x3066;&#x307B;&#x3057;&#x3044;</td>
+<td>_/authentication</td>
+<td style="text-align:center">POST</td>
+<td>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x51E6;&#x7406;</td>
 </tr>
 <tr>
-<td>TODO</td>
-<td>&#x5F8C;&#x3067;&#x66F8;&#x304F;</td>
+<td>_/post</td>
+<td style="text-align:center">POST</td>
+<td>&#x6295;&#x7A3F;</td>
 </tr>
 <tr>
-<td>NOTE</td>
-<td>&#x6CE8;&#x91C8;</td>
+<td>_/notification</td>
+<td style="text-align:center">POST</td>
+<td>&#x901A;&#x77E5;&#x306E;&#x53D6;&#x5F97;</td>
 </tr>
 <tr>
-<td>WARNING</td>
-<td>&#x30BB;&#x30AD;&#x30E5;&#x30EA;&#x30C6;&#x30A3;&#x30EA;&#x30B9;&#x30AF;&#x3042;&#x308B;&#x306E;&#x3067;&#x6C17;&#x3092;&#x3064;&#x3051;&#x3066;&#x307B;&#x3057;&#x3044;</td>
+<td>_/nc</td>
+<td style="text-align:center">POST</td>
+<td>&#x65B0;&#x3057;&#x3044;&#x901A;&#x77E5;&#x304C;&#x306A;&#x3044;&#x304B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;</td>
+</tr>
+<tr>
+<td>_/mar</td>
+<td style="text-align:center">POST</td>
+<td>&#x901A;&#x77E5;&#x3092;&#x3059;&#x3079;&#x3066;&#x65E2;&#x8AAD;</td>
+</tr>
+<tr>
+<td>_/pc</td>
+<td style="text-align:center">POST</td>
+<td>&#x65B0;&#x3057;&#x3044;&#x6295;&#x7A3F;&#x304C;&#x306A;&#x3044;&#x304B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;</td>
+</tr>
+<tr>
+<td>_/watch</td>
+<td style="text-align:center">POST(commet)</td>
+<td>&#x65B0;&#x3057;&#x3044;&#x6295;&#x7A3F;&#x3084;&#x901A;&#x77E5;&#x304C;&#x306A;&#x3044;&#x304B;&#x3092;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x76E3;&#x8996;&#x3092;&#x884C;&#x3046; </td>
 </tr>
 </tbody>
 </table>
@@ -289,8 +312,10 @@
         </div>
 
         
+        <a href="./model.html" class="navigation navigation-prev " aria-label="Previous page: モデル設計"><i class="fa fa-angle-left"></i></a>
         
-        <a href="./overview.html" class="navigation navigation-next navigation-unique" aria-label="Next page: mintsnsとは？"><i class="fa fa-angle-right"></i></a>
+        
+        <a href="./old.html" class="navigation navigation-next " aria-label="Next page: 過去の資料"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

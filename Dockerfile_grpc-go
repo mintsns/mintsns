@@ -8,4 +8,4 @@ RUN cd src/protos && protoc --go_out=plugins=grpc:. customer_service.proto
 RUN go get github.com/mattn/sc
 
 # run server
-COPY *.go src/
+COPY grpc-go/*.go src/

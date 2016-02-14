@@ -4,7 +4,9 @@ services:
   # python django rest api server
   web:
     restart: always
-    build: ./web
+    build:
+      dockerfile: Dockerfile_web
+      context: ./
     expose:
       - "8000"
     depends_on:
@@ -12,7 +14,7 @@ services:
       - redis
       - grpc-go-server
     volumes:
-      - ./web/docker_django:/usr/src/app/docker_django # to Development
+      - ./docker_django:/usr/src/app/docker_django # to Development
     volumes_from:
       - www_data
     env_file: .env
@@ -88,7 +90,9 @@ services:
 
   # grpc go server
   grpc-go-server:
-    build: ./grpc-go
+    build:
+      dockerfile: Dockerfile_grpc-go
+      context: ./
     expose:
       - 11111
     ports:
@@ -97,7 +101,9 @@ services:
 
   # grpc go client sample
   grpc-go-client-sample:
-    build: ./grpc-go
+    build:
+      dockerfile: Dockerfile_grpc-go
+      context: ./
     command: go run src/client-sample.go
     depends_on:
       - grpc-go-server

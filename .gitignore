@@ -16,3 +16,4 @@ __pycache__
 /data/www/static/*
 !/data/www/static/.gitkeep
 npm-debug.log
+/tmp

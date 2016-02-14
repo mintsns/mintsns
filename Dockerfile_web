@@ -1,37 +1,21 @@
 FROM python:3.5-onbuild
 
-RUN apt-get update
-RUN apt-get install -y unzip gzip
-
-RUN cd /usr/local/src && \
-    wget https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz && \
-    tar xzvf go1.5.3.linux-amd64.tar.gz && \
-    mv go /usr/local/ && \
-    echo 'export GOROOT=/usr/local/go' >> /etc/profile && \
-    echo 'export GOPATH=/go' >> /etc/profile && \
-    echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> /etc/profile && \
-    . /etc/profile && \
-    mkdir /go
-
-RUN source /etc/profile && source ~/.bashrc && go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
-
-RUN cd /usr/local/src && \
-    wget https://github.com/google/protobuf/releases/download/v3.0.0-beta-2/protoc-3.0.0-beta-2-linux-x86_64.zip && \
-    unzip protoc-3.0.0-beta-2-linux-x86_64.zip && \
-    mv protoc /usr/local/bin/protoc
+COPY tmp/protoc /usr/local/bin/protoc
 
 # build protos
-RUN cd /usr/src/app/protos && protoc --python_out=plugins=grpc:. customer_service.proto
-
 COPY protos src/protos
-# build protos
-RUN cd src/protos && protoc --go_out=plugins=grpc:. customer_service.proto
+RUN bash -c "source /etc/profile && source ~/.bashrc && cd /usr/src/app/protos && protoc --python_out=plugins=grpc:. customer_service.proto"
 
-# go get
-RUN go get github.com/mattn/sc
+COPY tmp/protobuf-3.0.0-beta-2/python/google google
+RUN cp google/protobuf/descriptor.py google/protobuf/descriptor_pb2.py
 
-# run server
-COPY grpc-go/*.go src/
+COPY tmp/release-0_12_0 release-0_12_0
+# FIXME: grpcを pythonからimportできるようにする
+
+# RUN cd protobuf-3.0.0-beta-2 && \
+#     ./configure && \
+#     make && \
+#     make intall
 
 RUN pip install django
 RUN pip install djangorestframework

@@ -1,10 +1,91 @@
 /*! Stylesheet for MintSNS by YukiTANABE | pm8.jp */
+
+/** MEMO
+  * (Default = 16px)
+  *  6px =  .3750rem
+  *  8px =  .5000rem
+  * 10px =  .6250rem
+  * 12px =  .7500rem
+  * 13px =  .8125rem
+  * 14px =  .8750rem
+  * 15px =  .9375rem
+  * 16px = 1.0000rem [default]
+  * 17px = 1.0625rem
+  * 18px = 1.1250rem
+  * 20px = 1.2500rem
+  * 21px = 1.3125rem
+  * 22px = 1.3750rem
+  * 24px = 1.5000rem
+  * 26px = 1.6250rem
+  * 28px = 1.7500rem
+  * 30px = 1.8750rem
+  * 32px = 2.0000rem
+  * 34px = 2.1250rem
+  * 36px = 2.2500rem
+  * 40px = 2.5000rem
+  * 50px = 3.1250rem
+  **/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=4.5.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$mintKeyGreen:#0f9d58;
+$lightGreenGrey:#eef3ee;
+$lightGreenBorderGrey:#dde3dd;
+
+$lightGreenHeavyGrey:#f3f9f3;
+
+html{ background-color:$lightGreenGrey; font-size:16px;}
 .cf::after{ content: ""; clear: both; display: block; }
-article:first-of-type{
-  ol{
-    li{ cursor:pointer;
-      &:hover{ background:#ffc;
-        &::after{ content:'(知ってた。'; font-size:80%; font-style:italic;}
+i.fa{margin-right:.375rem; overflow:hidden;}
+a[role=button]{-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; cursor:pointer;}
+.pachun[role=button]{ background-color:transparent; border:1px solid $lightGreenBorderGrey; color:$mintKeyGreen; display:inline-block; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; text-decoration:none;
+  &:hover{ background-color:$mintKeyGreen; color:#fff; text-decoration:none; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out;}
+  i.fa{margin:.25rem 1rem;}
+}
+
+header[role=header]{
+  h1{text-align:center;}
+}
+
+#main[role=main]{box-sizing:border-box; padding:0 3rem;
+  article[role=post]{ background-color:#fff; border:1px solid $lightGreenBorderGrey; box-sizing:border-box; margin:1rem;
+    .main{padding:1rem;
+      header{
+        img.ico{ border-radius:5px; float:left; height:3.125rem; width:3.125rem; }
+        .info{ float:left; margin-left:1rem;
+          h2{ font-size:.875rem; margin:0; }
+          time{ color:#ccc; font-size:.75rem; }
+          small{ color:#999; margin-right:.5rem; }
+        }
+      }
+      section.detail{
+        p{ font-size:.875rem; }
+      }
+      div.aside{padding-top:1rem;
+        .pachun[role=button]{ float:right; }
+      }
+    }
+    .comments{ background-color:$lightGreenHeavyGrey; border-top:1px solid $lightGreenBorderGrey; box-sizing:border-box; padding:0 1rem;
+      &>article{position:relative; padding-top:1rem;
+        &:not(:first-of-type){border-top:1px solid $lightGreenBorderGrey;}
+        &:not(:last-of-type){padding-bottom:1rem;}
+        header{
+          img.ico{ border-radius:5px; float:left; height:3.125rem; width:3.125rem; }
+          .pachun[role=button]{ position:absolute; right:0; z-index:999;}
+        }
+        section.detail{margin-left:66px; position:absolute; top:1rem;
+          h2{ font-size:.875rem; margin:0; }
+          p{ font-size:.875rem; }
+        }
+        div.aside{ bottom:0; padding:1rem 0; position:absolute; width:100%;
+          time{ color:#ccc; font-size:.75rem; float:right; }
+          .pachun[role=button]{ float:right; }
+        }
       }
     }
   }

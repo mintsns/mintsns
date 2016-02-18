@@ -1,5 +1,5 @@
 /**!
- @license JavaScript for MintSNS by YukiTANABE | pm8.jp
+ * @license JavaScript for MintSNS by YukiTANABE | pm8.jp
  */
 (function($){
  var $window=$(window);

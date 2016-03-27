@@ -3,7 +3,7 @@
  */
 (function($){
  var $window=$(window);
- var $articleCommentArr = $('article[role=comment]');
+ var $articleCommentArr = $('article.comment');
  $window.on({
   'load': function(){
    fix();
@@ -13,9 +13,12 @@
   }
  });
  function fix(){
-  $articleCommentArr.each(function(e){
-       var h = $(this).find('.detail').outerHeight()+$(this).find('.aside').outerHeight();
-       $(this).css({'height':h});
+  fixHeight($articleCommentArr);
+ }
+ function fixHeight(elems){
+ elems.each(function(e){
+   var h = $(this).find('.detail').outerHeight()+$(this).find('aside').outerHeight();
+   $(this).css({'height':h});
   });
  }
 })(jQuery);

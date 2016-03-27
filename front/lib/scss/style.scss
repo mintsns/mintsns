@@ -29,24 +29,35 @@
 $mintKeyGreen:#0f9d58;
 $lightGreenGrey:#eef3ee;
 $lightGreenBorderGrey:#dde3dd;
-
 $lightGreenHeavyGrey:#f3f9f3;
 
 html{ background-color:$lightGreenGrey; font-size:16px;}
 .cf::after{ content: ""; clear: both; display: block; }
 i.fa{margin-right:.375rem; overflow:hidden;}
 a[role=button]{-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; cursor:pointer;}
-.pachun[role=button]{ background-color:transparent; border:1px solid $lightGreenBorderGrey; color:$mintKeyGreen; display:inline-block; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; text-decoration:none;
+[role=button]{ background-color:transparent; border:1px solid $lightGreenBorderGrey; color:$mintKeyGreen; display:inline-block; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; text-decoration:none;
   &:hover{ background-color:$mintKeyGreen; color:#fff; text-decoration:none; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out;}
   i.fa{margin:.25rem 1rem;}
 }
+.buttons{ float:right; list-style:none; margin:0; padding:0;
+  &>*{ float:left;
+    &:not(:first-of-type){ margin-left:.5rem;}
+  }
+}
+.wrap{ margin:0 auto; width:90%;}
+textarea{border:1px solid $lightGreenBorderGrey; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; padding:.5rem;}
 
-header[role=header]{
+header[role=banner]{
   h1{text-align:center;}
 }
-
-#main[role=main]{box-sizing:border-box; padding:0 3rem;
-  article[role=post]{ background-color:#fff; border:1px solid $lightGreenBorderGrey; box-sizing:border-box; margin:1rem;
+#postfield{ bottom:0; left:0; position:fixed; width:100%; z-index:999;
+  input{ font-size:.75rem; padding:.25rem; width:100%;
+    &:focus{outline:none;}
+  }
+}
+#main[role=main]{ margin:0 auto; width:90%;
+  article:not(.img) section.img{display:none;}
+  article.post{ background-color:#fff; border:1px solid $lightGreenBorderGrey; box-sizing:border-box; margin:1rem;
     .main{padding:1rem;
       header{
         img.ico{ border-radius:5px; float:left; height:3.125rem; width:3.125rem; }
@@ -58,27 +69,35 @@ header[role=header]{
       }
       section.detail{
         p{ font-size:.875rem; }
+        section.img{ margin-bottom:.5rem;
+          img{ float:left; max-height:250px; max-width:100%;}
+        }
       }
-      div.aside{padding-top:1rem;
+      div.aside{
         .pachun[role=button]{ float:right; }
       }
     }
     .comments{ background-color:$lightGreenHeavyGrey; border-top:1px solid $lightGreenBorderGrey; box-sizing:border-box; padding:0 1rem;
+      &>article aside, section.input{ bottom:0; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; padding:0 0 .5rem 66px; width:100%; }
       &>article{position:relative; padding-top:1rem;
         &:not(:first-of-type){border-top:1px solid $lightGreenBorderGrey;}
         &:not(:last-of-type){padding-bottom:1rem;}
         header{
           img.ico{ border-radius:5px; float:left; height:3.125rem; width:3.125rem; }
-          .pachun[role=button]{ position:absolute; right:0; z-index:999;}
         }
-        section.detail{margin-left:66px; position:absolute; top:1rem;
-          h2{ font-size:.875rem; margin:0; }
-          p{ font-size:.875rem; }
+        section.detail, aside, section.input{ position:absolute;}
+        section.detail{top:1rem; margin-left:66px; width:auto;
+          h2{ display:inline-block; font-size:.875rem; margin:0 .5rem 0 0; }
+          time{ color:#ccc; font-size:.75rem;}
+          p{ font-size:.875rem; margin:.5rem 0; }
+          section.img{
+            img{ max-height:200px; max-width:100%;}
+          }
         }
-        div.aside{ bottom:0; padding:1rem 0; position:absolute; width:100%;
-          time{ color:#ccc; font-size:.75rem; float:right; }
-          .pachun[role=button]{ float:right; }
-        }
+      }
+      .input{ position:relative;
+        textarea{ padding-right:2.5rem; width:100%;}
+        .fa.fa-camera{ bottom:1rem; color:$lightGreenBorderGrey; cursor:pointer; position:absolute; right:.5rem;}
       }
     }
   }

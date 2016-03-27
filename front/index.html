@@ -8,11 +8,25 @@
 	<title>MintSNS</title>
 </head>
 <body>
-<header id="header" role="header">
+<header id="header" role="banner">
 	<h1>進捗なんてしない(Shinchoku Nante Shinai = SNS)</h1>
 </header>
-<div class="cf" id="main" role="main">
-	<article role="post">
+<section id="postfield">
+	<input type="text" placeholder="type &quot;$sns -h&quot; to show what this is." />
+</section>
+<section id="help">
+	<div class="wrap">
+		<ul>
+			<li>&quot;$sns -h&quot; to show help.</li>
+			<li>&quot;$sns -p&quot; to post article.
+				<ul>&quot;$sns -p [txt|img] -t [post text] -i [/path/to/post/image.png]</ul>
+			</li>
+		</ul>
+		angularとかつかえば、一番下の固定inputの変更検知できるから面白いもんつくれんじゃね的な。
+	</div>
+</section>
+<section class="cf" id="main" role="main">
+	<article class="post">
 		<section class="main">
 			<header class="cf">
 				<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
@@ -24,55 +38,73 @@
 			</header>
 			<section class="detail">
 				<p>進捗してるわけがないじゃないですか。</p>
+				<section class="img cf">
+					<img src="/lib/img/img_dummy001.jpg" alt="dummy" />
+				</section>
 			</section>
 			<div class="aside cf">
-				<a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i> </a>
+				<ul class="buttons">
+					<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
+					<li><a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i></a></li>
+				</ul>
 			</div>
 		</section>
 		<section class="comments">
-			<article role="comment">
+			<article class="comment">
 				<header class="cf">
 					<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
-					<a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i> </a>
 				</header>
 				<section class="detail">
-					<h2>YukiTANABE</h2>
-					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
+					<h2>YukiTANABE</h2><time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
+					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
+					<section class="img cf">
+						<img src="/lib/img/img_dummy002.gif" alt="dummy" />
+					</section>
 				</section>
-				<div class="aside cf">
-					<time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
-				</div>
+				<aside class="cf">
+					<ul class="buttons">
+						<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
+						<li><a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i></a></li>
+					</ul>
+				</aside>
 			</article>
-			<article role="comment">
+			<article class="comment">
 				<header class="cf">
 					<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
-					<a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i> </a>
 				</header>
 				<section class="detail">
-					<h2>YukiTANABE</h2>
-					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
+					<h2>YukiTANABE</h2><time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
+					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
 				</section>
-				<div class="aside cf">
-					<time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
-				</div>
+				<aside class="cf">
+					<ul class="buttons">
+						<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
+						<li><a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i></a></li>
+					</ul>
+				</aside>
 			</article>
-			<article role="comment">
+			<article class="comment">
 				<header class="cf">
 					<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
-					<a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i> </a>
 				</header>
 				<section class="detail">
-					<h2>YukiTANABE</h2>
-					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
+					<h2>YukiTANABE</h2><time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
+					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
 				</section>
-				<div class="aside cf">
-					<time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
-				</div>
+				<aside class="cf">
+					<ul class="buttons">
+						<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
+						<li><a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i></a></li>
+					</ul>
+				</aside>
 			</article>
+			<section class="input">
+				<textarea placeholder="comment..."></textarea>
+				<i class="fa fa-camera"></i>
+			</section>
 		</section>
 	</article>
-
-	<article role="post">
+	<article class="post img">
 		<section class="main">
 			<header class="cf">
 				<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
@@ -84,41 +116,73 @@
 			</header>
 			<section class="detail">
 				<p>進捗してるわけがないじゃないですか。</p>
+				<section class="img cf">
+					<img src="/lib/img/img_dummy001.jpg" alt="dummy" />
+				</section>
 			</section>
 			<div class="aside cf">
-				<a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i> </a>
+				<ul class="buttons">
+					<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
+					<li><a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i></a></li>
+				</ul>
 			</div>
 		</section>
 		<section class="comments">
-			<article role="comment">
+			<article class="comment img">
 				<header class="cf">
 					<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
-					<a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i> </a>
 				</header>
 				<section class="detail">
-					<h2>YukiTANABE</h2>
-					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
+					<h2>YukiTANABE</h2><time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
+					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
+					<section class="img cf">
+						<img src="/lib/img/img_dummy002.gif" alt="dummy" />
+					</section>
 				</section>
-				<div class="aside cf">
-					<time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
-				</div>
+				<aside class="cf">
+					<ul class="buttons">
+						<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
+						<li><a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i></a></li>
+					</ul>
+				</aside>
 			</article>
-			<article role="comment">
+			<article class="comment">
 				<header class="cf">
 					<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
-					<a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i> </a>
 				</header>
 				<section class="detail">
-					<h2>YukiTANABE</h2>
-					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
+					<h2>YukiTANABE</h2><time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
+					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
 				</section>
-				<div class="aside cf">
-					<time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
-				</div>
+				<aside class="cf">
+					<ul class="buttons">
+						<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
+						<li><a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i></a></li>
+					</ul>
+				</aside>
 			</article>
+			<article class="comment">
+				<header class="cf">
+					<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
+				</header>
+				<section class="detail">
+					<h2>YukiTANABE</h2><time datetime="2016-02-28T00:01:58+09:00">Feb 28, 2016 00:01</time>
+					<p>進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。進捗してるわけがないじゃないですか。</p>
+				</section>
+				<aside class="cf">
+					<ul class="buttons">
+						<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
+						<li><a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i></a></li>
+					</ul>
+				</aside>
+			</article>
+			<section class="input">
+				<textarea placeholder="comment..."></textarea>
+				<i class="fa fa-camera"></i>
+			</section>
 		</section>
 	</article>
-</div>
+</section>
 <script src="/lib/js/jquery-2.2.0.min.js" type="text/javascript"></script>
 <script src="/lib/js/script.min.js" type="text/javascript"></script>
 </body>

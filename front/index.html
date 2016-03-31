@@ -11,24 +11,30 @@
 <header id="header" role="banner">
 	<h1>進捗なんてしない(Shinchoku Nante Shinai = SNS)</h1>
 </header>
-<section id="postfield">
+<section id="console">
 	<input type="text" placeholder="type &quot;$sns -h&quot; to show what this is." />
 </section>
 <section id="help">
 	<div class="wrap">
 		<ul>
-			<li>&quot;$sns -h&quot; to show help.</li>
-			<li>&quot;$sns -p&quot; to post article.
-				<ul>&quot;$sns -p [txt|img] -t [post text] -i [/path/to/post/image.png]</ul>
-			</li>
+			<li><a role="button" data-act="question">?</a> to show/hide help</li>
+			<li><a role="button" data-act="colon">:</a> and <a role="button" data-act="slash">/</a> to target console</li>
+			<li><a role="button" data-act="escape">esc</a> to release from console</li>
 		</ul>
-		angularとかつかえば、一番下の固定inputの変更検知できるから面白いもんつくれんじゃね的な。
+		jsからapiコマンドたたいて投稿できるとか技術屋ターゲットにするってなら面白そうじゃない？的な。別に普通の投稿欄でもいいんだけれど。
 	</div>
 </section>
 <section class="cf" id="main" role="main">
 	<article class="post">
 		<section class="main">
 			<header class="cf">
+				<i class="fa menu fa-sort-desc"></i>
+				<nav role="navigation">
+					<ul>
+						<li><i class="fa fa-pencil-square-o"></i>edit</li>
+						<li><i class="fa fa-times"></i>delete</li>
+					</ul>
+				</nav>
 				<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
 				<section class="cf info">
 					<h2>YukiTANABE</h2>
@@ -107,6 +113,13 @@
 	<article class="post img">
 		<section class="main">
 			<header class="cf">
+				<i class="fa menu fa-sort-desc"></i>
+				<nav role="navigation">
+					<ul>
+						<li><i class="fa fa-pencil-square-o"></i>edit</li>
+						<li><i class="fa fa-times"></i>delete</li>
+					</ul>
+				</nav>
 				<img class="ico" src="/lib/img/icon.jpg" alt="yukitanabe" />
 				<section class="cf info">
 					<h2>YukiTANABE</h2>

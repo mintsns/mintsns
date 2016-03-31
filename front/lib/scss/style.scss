@@ -30,13 +30,17 @@ $mintKeyGreen:#0f9d58;
 $lightGreenGrey:#eef3ee;
 $lightGreenBorderGrey:#dde3dd;
 $lightGreenHeavyGrey:#f3f9f3;
+$black:#333933;
+$txtGrey:#9a9;
+$txtLightGrey:#cdc;
+$white:#fff;
 
-html{ background-color:$lightGreenGrey; font-size:16px;}
+html{ background-color:$lightGreenGrey; color:$black; font-size:16px;}
 .cf::after{ content: ""; clear: both; display: block; }
 i.fa{margin-right:.375rem; overflow:hidden;}
 a[role=button]{-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; cursor:pointer;}
 [role=button]{ background-color:transparent; border:1px solid $lightGreenBorderGrey; color:$mintKeyGreen; display:inline-block; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out; text-decoration:none;
-  &:hover{ background-color:$mintKeyGreen; color:#fff; text-decoration:none; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out;}
+  &:hover{ background-color:$mintKeyGreen; color:$white; text-decoration:none; -webkit-transition:all 0.3s ease-in-out; -moz-transition:all 0.3s ease-in-out; -o-transition:all 0.3s ease-in-out; transition:all 0.3s ease-in-out;}
   i.fa{margin:.25rem 1rem;}
 }
 .buttons{ float:right; list-style:none; margin:0; padding:0;
@@ -44,27 +48,44 @@ a[role=button]{-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:
     &:not(:first-of-type){ margin-left:.5rem;}
   }
 }
+nav ul{ list-style:none; margin:0; padding:0;}
 .wrap{ margin:0 auto; width:90%;}
 textarea{border:1px solid $lightGreenBorderGrey; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; padding:.5rem;}
+input,textarea{
+  &:focus{outline:none;}
+}
 
 header[role=banner]{
   h1{text-align:center;}
 }
-#postfield{ bottom:0; left:0; position:fixed; width:100%; z-index:999;
-  input{ font-size:.75rem; padding:.25rem; width:100%;
-    &:focus{outline:none;}
+#console{ bottom:0; left:0; position:fixed; width:100%; z-index:999;
+  input{ font-size:.75rem; padding:.25rem; width:100%;}
+}
+#help{
+  li{ padding:.5rem 0;
+    [role=button]{ padding:.5rem 1rem;}
   }
 }
 #main[role=main]{ margin:0 auto; width:90%;
   article:not(.img) section.img{display:none;}
-  article.post{ background-color:#fff; border:1px solid $lightGreenBorderGrey; box-sizing:border-box; margin:1rem;
+  article.post{ background-color:$white; border:1px solid $lightGreenBorderGrey; box-sizing:border-box; margin:1rem;
     .main{padding:1rem;
-      header{
+      header{ position:relative;
+        .menu.fa{ color:$txtGrey; cursor:pointer; float:right; margin:0;}
+        >nav{background-color:$white; -webkit-box-shadow:0 0 2px 1px rgba(0,0,0,.2); -moz-box-shadow: 0 0 2px 1px rgba(0,0,0,.2); box-shadow:0 0 2px 1px rgba(0,0,0,.2); display:none; font-size:.75rem; position:absolute; right:0; top:1rem;
+          &.active{display:block;}
+          ul{
+            li{ border-bottom:1px solid $lightGreenBorderGrey; cursor:pointer; padding:.5rem .75rem;
+              &:last-of-type{ border-bottom:none;}
+              &:hover{background-color:$lightGreenGrey;}
+            }
+          }
+        }
         img.ico{ border-radius:5px; float:left; height:3.125rem; width:3.125rem; }
         .info{ float:left; margin-left:1rem;
           h2{ font-size:.875rem; margin:0; }
-          time{ color:#ccc; font-size:.75rem; }
-          small{ color:#999; margin-right:.5rem; }
+          time{ color:$txtLightGrey; font-size:.75rem; }
+          small{ color:$txtGrey; margin-right:.5rem; }
         }
       }
       section.detail{
@@ -88,7 +109,7 @@ header[role=banner]{
         section.detail, aside, section.input{ position:absolute;}
         section.detail{top:1rem; margin-left:66px; width:auto;
           h2{ display:inline-block; font-size:.875rem; margin:0 .5rem 0 0; }
-          time{ color:#ccc; font-size:.75rem;}
+          time{ color:$txtLightGrey; font-size:.75rem;}
           p{ font-size:.875rem; margin:.5rem 0; }
           section.img{
             img{ max-height:200px; max-width:100%;}

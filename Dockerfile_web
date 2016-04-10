@@ -1,0 +1,31 @@
+FROM python:3.5-onbuild
+
+COPY tmp/protoc /usr/local/bin/protoc
+
+# build protos
+COPY protos src/protos
+RUN bash -c "source /etc/profile && source ~/.bashrc && cd /usr/src/app/protos && protoc --python_out=plugins=grpc:. customer_service.proto"
+
+COPY tmp/protobuf-3.0.0-beta-2/python/google google
+RUN cp google/protobuf/descriptor.py google/protobuf/descriptor_pb2.py
+
+COPY tmp/grpc-release-0_12_0 grpc-release-0_12_0
+RUN grpc-release-0_12_0 && \
+    python setup.py install
+# COPY tmp/grpc-release-0_12_0/src/python/grpcio/grpc grpc
+# FIXME: grpcを pythonからimportできるようにする
+
+# RUN cd protobuf-3.0.0-beta-2 && \
+#     ./configure && \
+#     make && \
+#     make intall
+
+RUN pip install django
+RUN pip install djangorestframework
+RUN pip install markdown
+RUN pip install django-filter 
+RUN pip install six
+
+COPY web/entrypoint.sh /entrypoint.sh
+COPY web/* .
+RUN chmod +x /entrypoint.sh

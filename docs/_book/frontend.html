@@ -1,0 +1,285 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>フロントエンド設計 | mintsns 設計仕様書</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+        <link rel="stylesheet" href="./styles/website.css">
+    
+
+        
+    
+    
+    <link rel="next" href="./overview.html" />
+    
+    
+    <link rel="prev" href="./index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="1"
+        data-chapter-title="フロントエンド設計"
+        data-filepath="frontend.md"
+        data-basepath="."
+        data-revision="Sun Apr 10 2016 16:47:31 GMT+0900 (JST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="1" data-path="frontend.html">
+            
+                
+                    <a href="./frontend.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        フロントエンド設計
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="overview.html">
+            
+                
+                    <a href="./overview.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        mintsnsとは？
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="develop.html">
+            
+                
+                    <a href="./develop.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        開発系コマンド
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="network.html">
+            
+                
+                    <a href="./network.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        ネットワーク設計
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="model.html">
+            
+                
+                    <a href="./model.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        モデル設計
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" data-path="routes.html">
+            
+                
+                    <a href="./routes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                        ルーティング設計
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="old.html">
+            
+                
+                    <a href="./old.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        過去の資料
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >mintsns 設計仕様書</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="&#x30D5;&#x30ED;&#x30F3;&#x30C8;&#x30A8;&#x30F3;&#x30C9;&#x8A2D;&#x8A08;">&#x30D5;&#x30ED;&#x30F3;&#x30C8;&#x30A8;&#x30F3;&#x30C9;&#x8A2D;&#x8A08;</h1>
+<h2 id="&#x30D5;&#x30ED;&#x30F3;&#x30C8;&#x30A8;&#x30F3;&#x30C9;&#x3067;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;">&#x30D5;&#x30ED;&#x30F3;&#x30C8;&#x30A8;&#x30F3;&#x30C9;&#x3067;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;</h2>
+<p>Angular2</p>
+<h2 id="&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;">&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;</h2>
+<p>views &#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x306B;&#x307E;&#x3068;&#x3081;&#x308B;</p>
+<h2 id="&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;">&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;</h2>
+<p>components &#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x306B;&#x307E;&#x3068;&#x3081;&#x308B;</p>
+<h2 id="&#x30B5;&#x30FC;&#x30D3;&#x30B9;">&#x30B5;&#x30FC;&#x30D3;&#x30B9;</h2>
+<p>services &#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x306B;&#x307E;&#x3068;&#x3081;&#x308B;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./overview.html" class="navigation navigation-next " aria-label="Next page: mintsnsとは？"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"all":["facebook","google","instapaper","twitter","weibo"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"fontsettings":{"family":"sans","size":2,"theme":"white"},"livereload":{}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

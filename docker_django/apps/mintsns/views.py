@@ -3,7 +3,11 @@ from django.http import HttpResponse
 from .models import Item
 from redis import Redis
 
+from grpc.beta import implementations
+
 from protos import customer_service_pb2
+
+
 
 redis = Redis(host='redis', port=6379)
 

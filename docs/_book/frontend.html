@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>ルーティング設計 | mintsns 設計仕様書</title>
+        <title>フロントエンド設計 | mintsns 設計仕様書</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.7">
@@ -39,10 +39,10 @@
         
     
     
-    <link rel="next" href="./old.html" />
+    <link rel="next" href="./overview.html" />
     
     
-    <link rel="prev" href="./model.html" />
+    <link rel="prev" href="./index.html" />
     
 
         
@@ -51,9 +51,9 @@
         
         
     <div class="book"
-        data-level="6"
-        data-chapter-title="ルーティング設計"
-        data-filepath="routes.md"
+        data-level="1"
+        data-chapter-title="フロントエンド設計"
+        data-filepath="frontend.md"
         data-basepath="."
         data-revision="Sun Apr 10 2016 16:47:31 GMT+0900 (JST)"
         data-innerlanguage="">
@@ -84,7 +84,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1" data-path="frontend.html">
+        <li class="chapter active" data-level="1" data-path="frontend.html">
             
                 
                     <a href="./frontend.html">
@@ -159,7 +159,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="6" data-path="routes.html">
+        <li class="chapter " data-level="6" data-path="routes.html">
             
                 
                     <a href="./routes.html">
@@ -222,107 +222,15 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="&#x30EB;&#x30FC;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x8A2D;&#x8A08;">&#x30EB;&#x30FC;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x8A2D;&#x8A08;</h1>
-<h2 id="&#x30DA;&#x30FC;&#x30B8;">&#x30DA;&#x30FC;&#x30B8;</h2>
-<table>
-<thead>
-<tr>
-<th>&#x30A2;&#x30C9;&#x30EC;&#x30B9;</th>
-<th>&#x8AAC;&#x660E;     </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/</td>
-<td>&#x30EB;&#x30FC;&#x30C8;</td>
-</tr>
-<tr>
-<td>/login</td>
-<td>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x753B;&#x9762;</td>
-</tr>
-<tr>
-<td>/stream/</td>
-<td>&#x30E1;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;</td>
-</tr>
-<tr>
-<td>/stream/:hash</td>
-<td>&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30E0;</td>
-</tr>
-</tbody>
-</table>
-<h2 id="&#x90E8;&#x5206;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;">&#x90E8;&#x5206;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;</h2>
-<table>
-<thead>
-<tr>
-<th>&#x30A2;&#x30C9;&#x30EC;&#x30B9;</th>
-<th>&#x8AAC;&#x660E;     </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<h2 id="api">API</h2>
-<table>
-<thead>
-<tr>
-<th>&#x30A2;&#x30C9;&#x30EC;&#x30B9;</th>
-<th style="text-align:center">&#x30E1;&#x30BD;&#x30C3;&#x30C9;</th>
-<th>&#x8AAC;&#x660E;     </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>_/</td>
-<td style="text-align:center">GET</td>
-<td>API&#x30EB;&#x30FC;&#x30C8;</td>
-</tr>
-<tr>
-<td>_/authentication</td>
-<td style="text-align:center">POST</td>
-<td>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x51E6;&#x7406;</td>
-</tr>
-<tr>
-<td>_/post</td>
-<td style="text-align:center">POST</td>
-<td>&#x6295;&#x7A3F;</td>
-</tr>
-<tr>
-<td>_/notification</td>
-<td style="text-align:center">POST</td>
-<td>&#x901A;&#x77E5;&#x306E;&#x53D6;&#x5F97;</td>
-</tr>
-<tr>
-<td>_/nc</td>
-<td style="text-align:center">POST</td>
-<td>&#x65B0;&#x3057;&#x3044;&#x901A;&#x77E5;&#x304C;&#x306A;&#x3044;&#x304B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3059;&#x308B;</td>
-</tr>
-<tr>
-<td>_/mar</td>
-<td style="text-align:center">POST</td>
-<td>&#x901A;&#x77E5;&#x3092;&#x3059;&#x3079;&#x3066;&#x65E2;&#x8AAD;</td>
-</tr>
-<tr>
-<td>_/pc</td>
-<td style="text-align:center">POST</td>
-<td>&#x65B0;&#x3057;&#x3044;&#x6295;&#x7A3F;&#x304C;&#x306A;&#x3044;&#x304B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;</td>
-</tr>
-<tr>
-<td>_/watch</td>
-<td style="text-align:center">POST(commet)</td>
-<td>&#x65B0;&#x3057;&#x3044;&#x6295;&#x7A3F;&#x3084;&#x901A;&#x77E5;&#x304C;&#x306A;&#x3044;&#x304B;&#x3092;&#x30B9;&#x30C8;&#x30EA;&#x30FC;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x76E3;&#x8996;&#x3092;&#x884C;&#x3046; </td>
-</tr>
-<tr>
-<td>_/is_login</td>
-<td style="text-align:center">POST</td>
-<td>&#x30ED;&#x30B0;&#x30A4;&#x30F3;&#x3057;&#x3066;&#x3044;&#x308B;&#x5834;&#x5408;&#x306F;&#x3001;1 &#x304C;&#x8FD4;&#x308B;</td>
-</tr>
-</tbody>
-</table>
-<p>_/ </p>
+                        <h1 id="&#x30D5;&#x30ED;&#x30F3;&#x30C8;&#x30A8;&#x30F3;&#x30C9;&#x8A2D;&#x8A08;">&#x30D5;&#x30ED;&#x30F3;&#x30C8;&#x30A8;&#x30F3;&#x30C9;&#x8A2D;&#x8A08;</h1>
+<h2 id="&#x30D5;&#x30ED;&#x30F3;&#x30C8;&#x30A8;&#x30F3;&#x30C9;&#x3067;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;">&#x30D5;&#x30ED;&#x30F3;&#x30C8;&#x30A8;&#x30F3;&#x30C9;&#x3067;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x30D5;&#x30EC;&#x30FC;&#x30E0;&#x30EF;&#x30FC;&#x30AF;</h2>
+<p>Angular2</p>
+<h2 id="&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;">&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;</h2>
+<p>views &#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x306B;&#x307E;&#x3068;&#x3081;&#x308B;</p>
+<h2 id="&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;">&#x30B3;&#x30F3;&#x30DD;&#x30FC;&#x30CD;&#x30F3;&#x30C8;</h2>
+<p>components &#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x306B;&#x307E;&#x3068;&#x3081;&#x308B;</p>
+<h2 id="&#x30B5;&#x30FC;&#x30D3;&#x30B9;">&#x30B5;&#x30FC;&#x30D3;&#x30B9;</h2>
+<p>services &#x30D5;&#x30A9;&#x30EB;&#x30C0;&#x306B;&#x307E;&#x3068;&#x3081;&#x308B;</p>
 
                     
                     </section>
@@ -333,10 +241,10 @@
         </div>
 
         
-        <a href="./model.html" class="navigation navigation-prev " aria-label="Previous page: モデル設計"><i class="fa fa-angle-left"></i></a>
+        <a href="./index.html" class="navigation navigation-prev " aria-label="Previous page: Introduction"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="./old.html" class="navigation navigation-next " aria-label="Next page: 過去の資料"><i class="fa fa-angle-right"></i></a>
+        <a href="./overview.html" class="navigation navigation-next " aria-label="Next page: mintsnsとは？"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

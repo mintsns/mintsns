@@ -9,7 +9,10 @@ RUN bash -c "source /etc/profile && source ~/.bashrc && cd /usr/src/app/protos &
 COPY tmp/protobuf-3.0.0-beta-2/python/google google
 RUN cp google/protobuf/descriptor.py google/protobuf/descriptor_pb2.py
 
-COPY tmp/release-0_12_0 release-0_12_0
+COPY tmp/grpc-release-0_12_0 grpc-release-0_12_0
+RUN grpc-release-0_12_0 && \
+    python setup.py install
+# COPY tmp/grpc-release-0_12_0/src/python/grpcio/grpc grpc
 # FIXME: grpcを pythonからimportできるようにする
 
 # RUN cd protobuf-3.0.0-beta-2 && \

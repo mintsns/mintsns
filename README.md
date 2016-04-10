@@ -1,11 +1,15 @@
 # MintSNS
 
 ## OverView
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5002fa30de893d2cd39a207d5650a13d90efca53
 SNS to make with everyone!
 
 ## Setup
 
+<<<<<<< HEAD
 ### Install the `node` and `npm` to your development environment
 
 Download URL: https://nodejs.org/en/
@@ -101,6 +105,9 @@ npm run watch
 ## Reference URL
 * [Django REST framework](http://www.django-rest-framework.org/)
 * [Django Development With Docker Compose and Machine](https://realpython.com/blog/python/django-development-with-docker-compose-and-machine/)
+
+## Features
+TODO: write
 
 ## Contributing
 We are looking for now developed members. We are carrying out activities on the Google Hangouts, please message <nacika.inscatolare@gmail.com>

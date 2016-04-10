@@ -1,15 +1,11 @@
 # MintSNS
 
 ## OverView
-<<<<<<< HEAD
 
-=======
->>>>>>> 5002fa30de893d2cd39a207d5650a13d90efca53
 SNS to make with everyone!
 
 ## Setup
 
-<<<<<<< HEAD
 ### Install the `node` and `npm` to your development environment
 
 Download URL: https://nodejs.org/en/

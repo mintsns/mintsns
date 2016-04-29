@@ -28,3 +28,12 @@ echo -en "GET / HTTP/1.1\n\n" | nc localhost 80
 ```
 docker exec -it mintsns_nginx_1 /bin/bash
 ```
+
+## フロントエンド
+
+## 開発用サーバー
+```
+cd frontend
+npm start
+```
+サーバーが起動したら、 `localhost:3000` にアクセスしてください

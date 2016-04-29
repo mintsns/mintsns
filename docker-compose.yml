@@ -47,6 +47,7 @@ services:
       - www_data
     depends_on:
       - web
+      - grpc-go-server
     expose:
       - "80"
       - "443"
@@ -78,7 +79,7 @@ services:
     image: postgres:latest
     volumes:
       - ./data/www/static:/www/static
-      - ./data/www/html:/www/html
+      - ./frontend:/www/html
     command: "true"
 
   # db data storage

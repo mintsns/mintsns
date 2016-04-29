@@ -41,13 +41,21 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.1",
     "zone.js": "^0.5.10",
-    "gulp-watch": "^4.3.5"
+    "gulp-watch": "^4.3.5",
+    "angular2": "2.0.0-beta.13",
+    "rxjs": "5.0.0-beta.2",
+    "systemjs": "^0.19.25",
+    "typescript": "^1.8.9"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build",
-    "watch": "gulp"
-
+    "watch": "gulp",
+    "start": "npm run serve",
+    "serve": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.1.0"
   },
   "author": "",
   "license": "MIT"

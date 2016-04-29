@@ -4,27 +4,11 @@ import { Router } from 'angular2/router';
 import { Post } from '../models/post';
 import { TimelineService } from '../services/timeline.service';
 
-
-import { PostComponent } from "../components/post.component":
-
 @Component({
-  selector: "my-timeline",
-  templateUrl: "views/timeline.html",
-  // template: `
-  //   <h3>Top Heroes</h3>
-  //   <div>
-  //       <div *ngFor="let post of posts" (click)="gotoDetail(post)">
-  //           <div>
-  //               <h4>{{post.name}}</h4>
-  //           </div>
-  //       </div>
-  //   </div>
-  // `,
-  directives: [
-    PostComponent
-  ]
+  selector: "post",
+  templateUrl: "views/post.html",
 })
-export class TimelineComponent implements OnInit {
+export class PostComponent implements OnInit {
 
   posts: Post[] = [];
 

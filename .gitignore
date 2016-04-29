@@ -18,3 +18,4 @@ __pycache__
 npm-debug.log
 /tmp
 /docs/_book
+node_modules

@@ -3,26 +3,33 @@
   "version": "1.0.0",
   "scripts": {
     "start": "npm run serve",
-    "serve": "node_modules/lite-server/bin/lite-server"
+    "serve": "node_modules/lite-server/bin/lite-server",
+    "webpack": "node_modules/webpack/bin/webpack.js --watch",
+    "build": "node_modules/webpack/bin/webpack.js"
   },
   "contributors": [
-      "info@mintsns.com <info@mintsns.com>"
+    "info@mintsns.com <info@mintsns.com>"
   ],
   "license": "MIT",
   "dependencies": {
     "angular2": "2.0.0-beta.17",
-    "systemjs": "0.19.26",
+    "css-loader": "^0.23.1",
     "es6-shim": "^0.35.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.6.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
-    "zone.js": "0.6.12",
-    "typescript": "^1.8.9"
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "systemjs": "0.19.26",
+    "typescript": "^1.8.9",
+    "zone.js": "0.6.12"
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
     "typescript": "^1.8.10",
-    "typings":"^0.8.1",
+    "typings": "^0.8.1",
     "webpack": "latest"
   }
 }

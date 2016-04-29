@@ -3,20 +3,22 @@ import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/route
 import {Hero} from "./hero";
 import {HeroDetailComponent} from "./hero-detail.component";
 import {HeroService} from "./hero.service";
-import { DashboardComponent } from './dashboard.component';
+import { TimelineComponent } from './components/timeline.component';
 import { HeroesComponent } from './heroes.component';
+import {TimelineService} from "./services/timeline.service";
 
 @Component({
     selector: 'my-app',
-    template: `
-    
-        <h1>{{title}}</h1>
-        <nav>
-            <a [routerLink]="['Dashboard']">Dashboard</a>
-            <a [routerLink]="['Heroes']">Heroes</a>
-        </nav>
-        <router-outlet></router-outlet>
-    `,
+    // template: `
+    //
+    //     <h1>{{title}}</h1>
+    //     <nav>
+    //         <a [routerLink]="['Timeline']">Timeline</a>
+    //         <a [routerLink]="['Heroes']">Heroes</a>
+    //     </nav>
+    //     <router-outlet></router-outlet>
+    // `,
+    templateUrl: "views/layout.html",
     
     // <h1>Hello {{title}}</h1>
     //        <ul class="heroes" >
@@ -34,16 +36,17 @@ import { HeroesComponent } from './heroes.component';
     ],
     
     providers: [
-      HeroService,
-      ROUTER_PROVIDERS,
-    ],
+        TimelineService,
+        HeroService,
+        ROUTER_PROVIDERS
+    ]
 })
 
 @RouteConfig([
   {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: DashboardComponent,
+    path: '/timeline',
+    name: 'Timeline',
+    component: TimelineComponent,
     useAsDefault: true
   },
   {

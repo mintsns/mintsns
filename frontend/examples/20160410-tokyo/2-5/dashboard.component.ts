@@ -5,7 +5,7 @@ import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
 @Component({
-  selector: 'my-dashboard',
+  selector: 'my-timeline',
   template: `
     <h3>Top Heroes</h3>
     <div>
@@ -17,7 +17,7 @@ import { HeroService } from './hero.service';
     </div>
   `
 })
-export class DashboardComponent implements OnInit {
+export class TimelineComponent implements OnInit {
 
   heroes: Hero[] = [];
 

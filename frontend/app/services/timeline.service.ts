@@ -5,8 +5,8 @@ import {Injectable} from 'angular2/core';
 @Injectable()
 export class TimelineService {
 
-
-    getPosts(): Promise<Post[]> {
+  // 非同期で新着のタイムラインポストを取得する
+  getPosts(): Promise<Post[]> {
         return Promise.resolve(mockPosts);
     }
 

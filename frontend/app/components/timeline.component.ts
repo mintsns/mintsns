@@ -3,8 +3,6 @@ import { Router } from 'angular2/router';
 
 import { Post } from '../models/post';
 import { TimelineService } from '../services/timeline.service';
-
-
 import { PostComponent } from "../components/post.component":
 
 @Component({
@@ -29,17 +27,18 @@ export class TimelineComponent implements OnInit {
   posts: Post[] = [];
 
   constructor(
-    private _router: Router,
-    private _timelineService: TimelineService) {
+    private router: Router,
+    private timelineService: TimelineService) {
   }
 
   ngOnInit() {
-    this._timelineService.getPosts()
+
+    this.timelineService.getPosts()
       .then(posts => this.posts = posts.slice(1,5));
   }
 
   gotoDetail(post: Post) {
     let link = ['HeroDetail', { id: post.id }];
-    this._router.navigate(link);
+    this.router.navigate(link);
   }
 }

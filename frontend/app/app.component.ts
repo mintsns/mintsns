@@ -1,4 +1,5 @@
-import {Component, OnInit} from 'angular2/core';
+import {Component, OnInit, Input, Output} from 'angular2/core';
+import {Observable} from 'rxjs/Observable';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 import {Hero} from "./hero";
 import {HeroDetailComponent} from "./hero-detail.component";
@@ -6,29 +7,16 @@ import {HeroService} from "./hero.service";
 import { TimelineComponent } from './components/timeline.component';
 import { HeroesComponent } from './heroes.component';
 import {TimelineService} from "./services/timeline.service";
+import { User } from "./models/user";
+import { UserService } from "./services/user.service";
+
+import { AppSharedService } from "./shared_services/app.shared_service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: 'my-app',
-    // template: `
-    //
-    //     <h1>{{title}}</h1>
-    //     <nav>
-    //         <a [routerLink]="['Timeline']">Timeline</a>
-    //         <a [routerLink]="['Heroes']">Heroes</a>
-    //     </nav>
-    //     <router-outlet></router-outlet>
-    // `,
     templateUrl: "views/layout.html",
-    
-    // <h1>Hello {{title}}</h1>
-    //        <ul class="heroes" >
-    //          <!-- #は変数を宣言するための記号 -->
-    //          <!-- (hoge) はイベントハンドラ -->
-    //          <li [class.selected]="hero === selectedHero" [style.color]="hero === selectedHero" *ngFor="#hero of heroes" (click)="onSelectHero(hero)" >
-    //             <span class="badge">{{hero.id}}</span>{{ hero.name }}
-    //          </li>                     
-    //        </ul>
-    
+
     // 他から引っ張ってきたときはここで宣言をする
     directives: [
         HeroDetailComponent,
@@ -38,6 +26,7 @@ import {TimelineService} from "./services/timeline.service";
     providers: [
         TimelineService,
         HeroService,
+        UserService,
         ROUTER_PROVIDERS
     ]
 })
@@ -47,6 +36,9 @@ import {TimelineService} from "./services/timeline.service";
     path: '/timeline',
     name: 'Timeline',
     component: TimelineComponent,
+    data: {
+      "counter": false
+    },
     useAsDefault: true
   },
   {
@@ -61,32 +53,71 @@ import {TimelineService} from "./services/timeline.service";
   }
 ])
 export class AppComponent implements OnInit {
-    title = "Angular 2";
-    
-    hero: Hero = {
-        id: 1,
-        name: "Windstorm",
+
+  // サービス名
+  title = "mintsns";
+
+  // 使ってない
+  hero: Hero = {
+      id: 1,
+      name: "Windstorm",
+  };
+
+  // ログインユーザー
+  loginUser: User;
+
+  @Input() loginUser: User;
+  @Output() loginUser: User;
+
+  // ユーザーキャッシュ
+  users: User[] = [];
+
+  public hoge: string;
+
+  // 実験中
+  hige: Observable<number>;
+
+  constructor(
+    private userService: UserService,
+    private appSharedService: AppSharedService
+  ) { }
+
+  // 初期化
+  ngOnInit() {
+
+    // 実験中
+    this.hige = this.appSharedService.counter;
+
+    // ログインユーザー
+    this.loginUser = {
+      id: 1,
+      name: "mintsns",
+      iconUrl: "../images/samples/icons/niconico_seiga_im3861359.jpeg",
+      iconUrlLarge: "../images/samples/icons/niconico_seiga_im3861359.jpeg",
+      iconUrlMedium: "../images/samples/icons/niconico_seiga_im3861359.jpeg",
+      iconUrlSmall: "../images/samples/icons/niconico_seiga_im3861359.jpeg",
+      isMe: true,
+      email: "",
+      password: ""
     };
-       
-    
-    heroes: Hero[];
-    
-    selectedHero: Hero;
-    
-    constructor( private _heroService: HeroService ) { }
-    
-    ngOnInit() {
-        this.getHeroes();
-    }
-    
-    getHeroes() {
-        this._heroService.getHeroes().then((heroes) => this.heroes = heroes );
-    }
-    
-    /**
-     *  関数を選択する
-     */
-    onSelectHero(hero: Hero) {
-        this.selectedHero = hero;
-    }
+
+    // ログインしていることにする
+    this.userService.setLogin(true);
+
+
+    this.hoge = "hoge";
+
+
+  }
+
+  // カウンターテスト
+  @Input() counter: Observable<number>;
+  private counter = new Observable<number>((observer) => {
+    let i = 0;
+    observer.next(i);
+    setInterval(()=>{
+      observer.next(++i);
+    }, 1000);
+  });
+
 }

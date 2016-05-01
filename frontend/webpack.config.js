@@ -22,6 +22,7 @@ module.exports = {
       }
     ]
   },
+  devtool: "inline-source-map",
   plugins: [
     new ExtractTextPlugin("bundle.css"),
     new webpack.DefinePlugin({__CLIENT__: true, __SERVER__: false, __PRODUCTION__: true, __DEV__: false}),

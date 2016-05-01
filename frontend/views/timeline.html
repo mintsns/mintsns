@@ -1,17 +1,18 @@
-<!-- header -->
-<header id="header" role="banner">
-	<h1>進捗なんてしない(Shinchoku Nante Shinai = SNS)</h1>
-</header>
-<section id="console">
-	<input type="text" placeholder="type &quot;$sns -h&quot; to show what this is." />
-</section>
 
+<hr>
+timeline: {{loginUser | json}}
+<hr>
+counter: {{counter | async}}
+<hr>
+hige: {{hige | async}}
+<hr>
 
+<!-- 新規ポスト -->
+<post-input (newPost)="newPost($event)" ></post-input>
 
-<!-- timeline -->
+<!-- タイムライン -->
 <section class="cf" id="main" role="main">
-
-	<post *ngFor="let post of posts">
-	</post>
-
+    <post *ngFor="let post of posts">
+    </post>
 </section>
+

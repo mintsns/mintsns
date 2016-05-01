@@ -7,3 +7,4 @@
 * [モデル設計](model.md)
 * [ルーティング設計](routes.md)
 * [過去の資料](old.md)
+* [免責事項](legalnotice.md)

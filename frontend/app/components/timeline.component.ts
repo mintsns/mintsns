@@ -1,44 +1,80 @@
-import { Component, OnInit } from 'angular2/core';
-import { Router } from 'angular2/router';
-
+import { Component, OnInit, Input, Injector } from 'angular2/core';
+import { Router, RouteParams, RouteData} from 'angular2/router';
 import { Post } from '../models/post';
+import { User } from '../models/user';
+
 import { TimelineService } from '../services/timeline.service';
-import { PostComponent } from "../components/post.component":
+import { PostComponent } from "../components/post.component";
+import { PostInputComponent } from "../components/post_input.component";
+import { UserService } from "../services/user.service";
+
+import { AppSharedService } from "../shared_services/app.shared_service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: "my-timeline",
   templateUrl: "views/timeline.html",
-  // template: `
-  //   <h3>Top Heroes</h3>
-  //   <div>
-  //       <div *ngFor="let post of posts" (click)="gotoDetail(post)">
-  //           <div>
-  //               <h4>{{post.name}}</h4>
-  //           </div>
-  //       </div>
-  //   </div>
-  // `,
   directives: [
+    PostInputComponent,
     PostComponent
-  ]
+  ],
+  inputs: [ "loginUser" ],
+  providers: [
+    UserService
+  ],
 })
 export class TimelineComponent implements OnInit {
 
   posts: Post[] = [];
+  loginUser: User;
 
   constructor(
+    private data: RouteData,
+    private params: RouteParams,
     private router: Router,
-    private timelineService: TimelineService) {
-  }
+    private timelineService: TimelineService,
+    private userService: UserService,
+    private injector: Injector,
+    private appSharedService: AppSharedService
+  ) {}
+
+  @Input() loginUser: User;
+
+  // 実験中
+  hige: Observable<number>;
+
+
 
   ngOnInit() {
 
+    // 既存のタイムラインの読み込み
     this.timelineService.getPosts()
-      .then(posts => this.posts = posts.slice(1,5));
+      .then(posts => {
+        this.posts = [];
+      });
+
+    // 実験中
+    this.hige = this.appSharedService.counter;
+
   }
 
-  gotoDetail(post: Post) {
-    let link = ['HeroDetail', { id: post.id }];
-    this.router.navigate(link);
+  ngOnChange() {
+    debugger;
+  }
+
+  // 新しいポストが追加された
+  newPost($event) {
+
+    // 誰が投稿したか
+    //const user: User =
+    debugger;
+
+    // 新しいpost
+    const post: Post = $event.post;
+    console.log("--> 新しいポストが投稿された");
+
+    // タイムラインに追加
+    this.posts.push(post);
+
   }
 }

@@ -16,6 +16,7 @@
     "css-loader": "^0.23.1",
     "es6-shim": "^0.35.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "jquery": "^2.2.3",
     "node-sass": "^3.6.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",

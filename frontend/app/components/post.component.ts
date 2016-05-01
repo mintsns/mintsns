@@ -3,27 +3,25 @@ import { Router } from 'angular2/router';
 
 import { Post } from '../models/post';
 import { TimelineService } from '../services/timeline.service';
+import { CommentComponent } from "../components/comment.component";
 
+// 投稿ポストのコンポーネント
 @Component({
   selector: "post",
   templateUrl: "views/post.html",
+  directives: [ CommentComponent ]
 })
 export class PostComponent implements OnInit {
 
-  posts: Post[] = [];
+  post: Post = new Post;
 
   constructor(
     private _router: Router,
-    private _timelineService: TimelineService) {
-  }
+    private _timelineService: TimelineService
+  ) {}
 
   ngOnInit() {
-    this._timelineService.getPosts()
-      .then(posts => this.posts = posts.slice(1,5));
+    this.post.message = "test";
   }
 
-  gotoDetail(post: Post) {
-    let link = ['HeroDetail', { id: post.id }];
-    this._router.navigate(link);
-  }
 }

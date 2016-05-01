@@ -2520,21 +2520,21 @@ header[role=banner] h1 {
   width: 90%; }
   #main[role=main] article:not(.img) section.img {
     display: none; }
-  #main[role=main] article.post {
+  #main[role=main] post.post {
     background-color: #fff;
     border: 1px solid #dde3dd;
     box-sizing: border-box;
     margin: 1rem; }
-    #main[role=main] article.post .main {
+    #main[role=main] post.post .main {
       padding: 1rem; }
-      #main[role=main] article.post .main header {
+      #main[role=main] post.post .main header {
         position: relative; }
-        #main[role=main] article.post .main header .menu.fa {
+        #main[role=main] post.post .main header .menu.fa {
           color: #9a9;
           cursor: pointer;
           float: right;
           margin: 0; }
-        #main[role=main] article.post .main header > nav {
+        #main[role=main] post.post .main header > nav {
           background-color: #fff;
           -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
           -moz-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
@@ -2544,92 +2544,92 @@ header[role=banner] h1 {
           position: absolute;
           right: 0;
           top: 1rem; }
-          #main[role=main] article.post .main header > nav.active {
+          #main[role=main] post.post .main header > nav.active {
             display: block; }
-          #main[role=main] article.post .main header > nav ul li {
+          #main[role=main] post.post .main header > nav ul li {
             border-bottom: 1px solid #dde3dd;
             cursor: pointer;
             padding: .5rem .75rem; }
-            #main[role=main] article.post .main header > nav ul li:last-of-type {
+            #main[role=main] post.post .main header > nav ul li:last-of-type {
               border-bottom: none; }
-            #main[role=main] article.post .main header > nav ul li:hover {
+            #main[role=main] post.post .main header > nav ul li:hover {
               background-color: #eef3ee; }
-        #main[role=main] article.post .main header img.ico {
+        #main[role=main] post.post .main header img.ico {
           border-radius: 5px;
           float: left;
           height: 3.125rem;
           width: 3.125rem; }
-        #main[role=main] article.post .main header .info {
+        #main[role=main] post.post .main header .info {
           float: left;
           margin-left: 1rem; }
-          #main[role=main] article.post .main header .info h2 {
+          #main[role=main] post.post .main header .info h2 {
             font-size: .875rem;
             margin: 0; }
-          #main[role=main] article.post .main header .info time {
+          #main[role=main] post.post .main header .info time {
             color: #cdc;
             font-size: .75rem; }
-          #main[role=main] article.post .main header .info small {
+          #main[role=main] post.post .main header .info small {
             color: #9a9;
             margin-right: .5rem; }
-      #main[role=main] article.post .main section.detail p {
+      #main[role=main] post.post .main section.detail p {
         font-size: .875rem; }
-      #main[role=main] article.post .main section.detail section.img {
+      #main[role=main] post.post .main section.detail section.img {
         margin-bottom: .5rem; }
-        #main[role=main] article.post .main section.detail section.img img {
+        #main[role=main] post.post .main section.detail section.img img {
           float: left;
           max-height: 250px;
           max-width: 100%; }
-      #main[role=main] article.post .main div.aside .pachun[role=button] {
+      #main[role=main] post.post .main div.aside .pachun[role=button] {
         float: right; }
-    #main[role=main] article.post .comments {
+    #main[role=main] post.post .comments {
       background-color: #f3f9f3;
       border-top: 1px solid #dde3dd;
       box-sizing: border-box;
       padding: 0 1rem; }
-      #main[role=main] article.post .comments > article aside, #main[role=main] article.post .comments section.input {
+      #main[role=main] post.post .comments > comment aside, #main[role=main] post.post .comments section.input {
         bottom: 0;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         padding: 0 0 .5rem 66px;
         width: 100%; }
-      #main[role=main] article.post .comments > article {
+      #main[role=main] post.post .comments > comment {
         position: relative;
         padding-top: 1rem; }
-        #main[role=main] article.post .comments > article:not(:first-of-type) {
+        #main[role=main] post.post .comments > comment:not(:first-of-type) {
           border-top: 1px solid #dde3dd; }
-        #main[role=main] article.post .comments > article:not(:last-of-type) {
+        #main[role=main] post.post .comments > comment:not(:last-of-type) {
           padding-bottom: 1rem; }
-        #main[role=main] article.post .comments > article header img.ico {
+        #main[role=main] post.post .comments > comment header img.ico {
           border-radius: 5px;
           float: left;
           height: 3.125rem;
           width: 3.125rem; }
-        #main[role=main] article.post .comments > article section.detail, #main[role=main] article.post .comments > article aside, #main[role=main] article.post .comments > article section.input {
+        #main[role=main] post.post .comments > comment section.detail, #main[role=main] post.post .comments > comment aside, #main[role=main] post.post .comments > comment section.input {
           position: absolute; }
-        #main[role=main] article.post .comments > article section.detail {
+        #main[role=main] post.post .comments > comment section.detail {
           top: 1rem;
           margin-left: 66px;
           width: auto; }
-          #main[role=main] article.post .comments > article section.detail h2 {
+          #main[role=main] post.post .comments > comment section.detail h2 {
             display: inline-block;
             font-size: .875rem;
             margin: 0 .5rem 0 0; }
-          #main[role=main] article.post .comments > article section.detail time {
+          #main[role=main] post.post .comments > comment section.detail time {
             color: #cdc;
             font-size: .75rem; }
-          #main[role=main] article.post .comments > article section.detail p {
+          #main[role=main] post.post .comments > comment section.detail p {
             font-size: .875rem;
             margin: .5rem 0; }
-          #main[role=main] article.post .comments > article section.detail section.img img {
+          #main[role=main] post.post .comments > comment section.detail section.img img {
             max-height: 200px;
             max-width: 100%; }
-      #main[role=main] article.post .comments .input {
+      #main[role=main] post.post .comments .input {
         position: relative; }
-        #main[role=main] article.post .comments .input textarea {
+        #main[role=main] post.post .comments .input textarea {
           padding-right: 2.5rem;
           width: 100%; }
-        #main[role=main] article.post .comments .input .fa.fa-camera {
+        #main[role=main] post.post .comments .input .fa.fa-camera {
           bottom: 1rem;
           color: #dde3dd;
           cursor: pointer;

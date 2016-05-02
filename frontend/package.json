@@ -17,6 +17,7 @@
     "es6-shim": "^0.35.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "jquery": "^2.2.3",
+    "lodash": "^4.11.2",
     "node-sass": "^3.6.0",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "concurrently": "^2.0.0",
     "lite-server": "^2.2.0",
+    "tsd": "^0.6.5",
     "typescript": "^1.8.10",
     "typings": "^0.8.1",
     "webpack": "latest"

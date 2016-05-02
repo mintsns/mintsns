@@ -1,4 +1,4 @@
-import { Component, OnInit } from 'angular2/core';
+import {Component, OnInit, Input} from 'angular2/core';
 import { Router } from 'angular2/router';
 
 import { Post } from '../models/post';
@@ -13,15 +13,16 @@ import { CommentComponent } from "../components/comment.component";
 })
 export class PostComponent implements OnInit {
 
-  post: Post = new Post;
+  // 表示する投稿
+  post: Post;
+  @Input() post: Post;
 
   constructor(
-    private router: Router,
-    private timelineService: TimelineService
+    private router: Router
   ) {}
 
+
   ngOnInit() {
-    this.post.message = "test";
   }
 
 }

@@ -1,7 +1,10 @@
-import { Component, OnInit } from 'angular2/core';
+"use strict";
+// コメントコンポーネント
+import { Component, OnInit, Input } from 'angular2/core';
 import { Router } from 'angular2/router';
 
 import { Post } from '../models/post';
+import { Comment } from '../models/comment';
 import { TimelineService } from '../services/timeline.service';
 
 @Component({
@@ -10,6 +13,9 @@ import { TimelineService } from '../services/timeline.service';
 })
 
 export class CommentComponent implements OnInit {
+
+  comment: Comment;
+  @Input() comment: Comment;
 
   constructor(
     private router: Router

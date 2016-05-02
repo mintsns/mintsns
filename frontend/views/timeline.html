@@ -3,7 +3,6 @@
 
 <!-- タイムライン -->
 <section class="cf" id="main" role="main">
-    <post *ngFor="let post of posts">
-    </post>
+    <post *ngFor="let post of posts" [post]="post" ></post>
 </section>
 

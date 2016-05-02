@@ -33,7 +33,7 @@ export class AuthSharedService {
   }
 
   // ログインユーザーの取得
-  getLoginuser() {
+  getLoginUser() {
     return this.loginUser;
   }
 

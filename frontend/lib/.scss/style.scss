@@ -83,9 +83,14 @@ header[role=banner]{
 }
 
 post-input {
-  margin-top: 10px;
-  margin-left: 16px;
-  margin-right: 16px;
+
+  max-width: 569px;
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-top: 0px;
+  padding-top: 0px;
+  border-top: 10px solid $lightGreenGrey;
   font-size: 13px;
   display: block;
   position: relative;
@@ -126,11 +131,17 @@ post-input {
 }
 #main[role=main]{
 
+  post {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   position: absolute;
-  top: 160px;
+  top: 163px;
 
   margin:0 auto;
-  width:90%;
+  width:100%;
   article:not(.img) section.img{display:none;}
   article.post{
 

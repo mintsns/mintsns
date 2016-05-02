@@ -33,6 +33,11 @@ export class PostInputComponent implements OnInit {
   // 新規投稿が押されたボタンのイベント
   onSendPost($event) {
 
+    // メッセージが入力されていない
+    if ( !this.post.message ) {
+      return;
+    }
+
     // 親にイベントを伝達する
     this.newPost.emit({
       post: this.post

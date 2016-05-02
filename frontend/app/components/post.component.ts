@@ -16,8 +16,8 @@ export class PostComponent implements OnInit {
   post: Post = new Post;
 
   constructor(
-    private _router: Router,
-    private _timelineService: TimelineService
+    private router: Router,
+    private timelineService: TimelineService
   ) {}
 
   ngOnInit() {

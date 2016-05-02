@@ -9,6 +9,8 @@ import { PostInputComponent } from "../components/post_input.component";
 import { UserService } from "../services/user.service";
 
 import { AppSharedService } from "../shared_services/app.shared_service";
+import { AuthSharedService } from "../shared_services/auth.shared_service";
+
 import {Observable} from "rxjs/Observable";
 
 @Component({
@@ -18,7 +20,6 @@ import {Observable} from "rxjs/Observable";
     PostInputComponent,
     PostComponent
   ],
-  inputs: [ "loginUser" ],
   providers: [
     UserService
   ],
@@ -35,15 +36,11 @@ export class TimelineComponent implements OnInit {
     private timelineService: TimelineService,
     private userService: UserService,
     private injector: Injector,
-    private appSharedService: AppSharedService
+    private appSharedService: AppSharedService,
+    private authSharedService: AuthSharedService
   ) {}
 
   @Input() loginUser: User;
-
-  // 実験中
-  hige: Observable<number>;
-
-
 
   ngOnInit() {
 
@@ -53,13 +50,6 @@ export class TimelineComponent implements OnInit {
         this.posts = [];
       });
 
-    // 実験中
-    this.hige = this.appSharedService.counter;
-
-  }
-
-  ngOnChange() {
-    debugger;
   }
 
   // 新しいポストが追加された

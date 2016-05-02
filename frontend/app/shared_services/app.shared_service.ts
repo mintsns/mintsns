@@ -1,18 +1,16 @@
 import {Observable} from 'rxjs/Observable';
+import {Injectable} from 'angular2/core';
 
+@Injectable()
 export class AppSharedService {
 
   num: number;
 
   constructor() {
+
+    console.log("--> initialize --> appSharedService");
+
     this.num = parseInt(Math.random() * 1000);
   }
 
-  // 実験中
-  public counter = new Observable<number>((observer) => {
-    observer.next(this.num);
-    setInterval(()=>{
-      observer.next(++this.num);
-    }, 1000);
-  });
 }

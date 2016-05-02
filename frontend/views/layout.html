@@ -12,17 +12,7 @@
         <h1>{{title}}</h1>
     </header>
 
-    <hr>
-    layout --> counter : {{counter | async}}
-    <hr>
-    layout --> hige : {{hige | async}}
-    <hr>
-
-    <!--<section id="console">-->
-        <!--<input type="text" placeholder="type &quot;$sns -h&quot; to show what this is." />-->
-    <!--</section>-->
-
-    <router-outlet [loginUser]="loginUser" [counter]="counter" ></router-outlet>
-
+    <!-- この部分が各ページに切り替わる -->
+    <router-outlet></router-outlet>
 </body>
 </html>

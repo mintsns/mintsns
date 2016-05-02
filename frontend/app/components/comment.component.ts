@@ -8,11 +8,12 @@ import { TimelineService } from '../services/timeline.service';
   selector: "comment",
   templateUrl: "views/comment.html",
 })
+
 export class CommentComponent implements OnInit {
 
   constructor(
-    private _router: Router
-  )
+    private router: Router
+  ) {}
 
   ngOnInit() {
   }

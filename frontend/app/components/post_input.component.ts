@@ -1,9 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from 'angular2/core';
 import { Router } from 'angular2/router';
-
 import { Post } from '../models/post';
-import { TimelineService } from '../services/timeline.service';
 import { CommentComponent } from "../components/comment.component";
+import { TimelineService } from '../services/timeline.service';
+
 
 // 投稿入力欄のコンポーネント
 @Component({
@@ -18,10 +18,9 @@ export class PostInputComponent implements OnInit {
   // 新規ポストが押されたイベント
   @Output() newPost = new EventEmitter();
 
-  // コンストラクタ
   constructor(
     private router: Router
-  )
+  ) {}
 
   // 初期化
   ngOnInit() {

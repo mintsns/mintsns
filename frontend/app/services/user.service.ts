@@ -4,13 +4,9 @@ import {Injectable} from 'angular2/core';
 @Injectable()
 export class UserService {
 
-  // 実験中
-  private isLogin: boolean;
-
-
-  constructor () {
-    this.isLogin = false;
-  };
+  constructor() {
+    console.log("--> initialize --> UserService");
+  }
 
   // TODO: 非同期でIDを指定してユーザーの情報を取得する
   getUserWithId(id: number): Promise<User> {
@@ -24,16 +20,6 @@ export class UserService {
       isMe: true
     });
   };
-
-  // 実験中
-  setLogin(isLogin) {
-    this.isLogin = isLogin;
-  }
-
-  // 実験中
-  getLogin(isLogin) {
-    return this.isLogin;
-  }
 
 }
 

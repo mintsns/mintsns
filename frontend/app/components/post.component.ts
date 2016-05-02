@@ -62,7 +62,7 @@ export class PostComponent implements OnInit {
     }
     this.animation = this.animate.css()
       .setToStyles({
-        "opacity": "0.5",
+        "opacity": "0.3",
         "margin-top": "5"
       })
       .setDuration(300)

@@ -1,6 +1,6 @@
 "use strict";
 // タイムライン全体のコンポーネント
-import { Component, OnInit, Input, Injector } from 'angular2/core';
+import { Component, OnInit, Input, Injector, ViewChild, ElementRef, Renderer } from 'angular2/core';
 import { Router, RouteParams, RouteData} from 'angular2/router';
 import { Post } from '../models/post';
 import { User } from '../models/user';
@@ -12,7 +12,6 @@ import { UserService } from "../services/user.service";
 
 import { AppSharedService } from "../shared_services/app.shared_service";
 import { AuthSharedService } from "../shared_services/auth.shared_service";
-
 
 @Component({
   selector: "my-timeline",

@@ -65,8 +65,11 @@ header[role=banner]{
   border-bottom: 1px solid #DDE3DD;
   padding: 5px;
   height: 30px;
-  position: relative;
+  position: fixed;
+  left: 0;
+  top: 0;
   z-index: 2000;
+  width: 100%;
 
   h1{
     text-align:left;
@@ -80,6 +83,9 @@ header[role=banner]{
 
   }
 
+}
+.header-margin {
+  margin-top: 40px;
 }
 
 post-input {

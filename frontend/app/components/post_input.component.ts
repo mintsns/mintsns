@@ -4,7 +4,9 @@ import { Component, OnInit, Output, EventEmitter } from 'angular2/core';
 import { Router } from 'angular2/router';
 import { Post } from '../models/post';
 import { CommentComponent } from "../components/comment.component";
-import { TimelineService } from '../services/timeline.service';
+import { StreamService } from '../services/stream.service';
+import { AuthSharedService } from "../shared_services/auth.shared_service";
+import { User } from '../models/user';
 
 
 // 投稿入力欄のコンポーネント
@@ -17,17 +19,28 @@ export class PostInputComponent implements OnInit {
   // 新規ポスト
   post: Post;
 
+  // 投稿主
+  user: User;
+
+
   // 新規ポストが押されたイベント
   @Output() newPost = new EventEmitter();
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authSharedService: AuthSharedService
   ) {}
 
   // 初期化
   // TODO: ここでログインユーザーの情報を与えてしまってもいいかも（リスク --> 情報が古くなる）
   ngOnInit() {
     this.post = new Post;
+
+    if ( this.authSharedService.isLogin() ) {
+      const user: User = this.authSharedService.getLoginUser();
+      this.user = user;
+    }
+
   }
 
   // 新規投稿が押されたボタンのイベント

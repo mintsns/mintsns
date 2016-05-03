@@ -47,7 +47,7 @@ a[role=button]{-webkit-border-radius:5px; -moz-border-radius:5px; border-radius:
   clear: both;
 }
 
-post, comment, my-timeline, post-input {
+post, comment, my-stream, post-input {
   display: block;
 }
 
@@ -59,7 +59,7 @@ input,textarea{
   &:focus{outline:none;}
 }
 
-header[role=banner]{
+header[role=banner] {
 
   background-color: white;
   border-bottom: 1px solid #DDE3DD;
@@ -71,7 +71,7 @@ header[role=banner]{
   z-index: 2000;
   width: 100%;
 
-  h1{
+  h1 {
     text-align:left;
     margin: 0px;
     font-size: 19px;
@@ -80,10 +80,19 @@ header[role=banner]{
     .logo {
       height: 32px;
     }
+  }
 
+  .user-icon {
+    position: absolute;
+    top: 4px;
+    right: 21px;
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
   }
 
 }
+
 .header-margin {
   margin-top: 40px;
 }
@@ -104,6 +113,19 @@ post-input {
 
   textarea {
     width: 100%;
+    padding-left: 55px;
+    padding-top: 19px;
+    height: 60px;
+
+  }
+
+  .user-icon {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    border-radius: 5px;
   }
 
   .buttons {
@@ -123,6 +145,12 @@ post-input {
       vertical-align: -5px;
       margin-right: 0!important;
     }
+  }
+  .input-button.active {
+    background-color: white;
+  }
+  .input-button.active:hover {
+    background-color: $mintKeyGreen;
   }
 
 }

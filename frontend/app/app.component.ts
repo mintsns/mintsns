@@ -2,8 +2,8 @@ import {Component, OnInit, Input, Output} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {Observable} from "rxjs/Observable";
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
-import { TimelineComponent } from './components/timeline.component';
-import {TimelineService} from "./services/timeline.service";
+import { StreamComponent } from './components/stream.component';
+import {StreamService} from "./services/stream.service";
 import { User } from "./models/user";
 import { UserService } from "./services/user.service";
 
@@ -20,7 +20,7 @@ import { AuthSharedService } from "./shared_services/auth.shared_service";
     ],
     
     providers: [
-        TimelineService,
+        StreamService,
         UserService,
         ROUTER_PROVIDERS
     ]
@@ -28,9 +28,9 @@ import { AuthSharedService } from "./shared_services/auth.shared_service";
 
 @RouteConfig([
   {
-    path: '/timeline',
-    name: 'Timeline',
-    component: TimelineComponent,
+    path: '/stream',
+    name: 'Stream',
+    component: StreamComponent,
     data: {
       "counter": false
     },
@@ -40,7 +40,8 @@ import { AuthSharedService } from "./shared_services/auth.shared_service";
 export class AppComponent implements OnInit {
 
   // サービス名
-  title = "mintsns";
+  title: String;
+  user: User;
 
   constructor(
     private userService: UserService,
@@ -50,5 +51,13 @@ export class AppComponent implements OnInit {
 
   // 初期化
   ngOnInit() {
+
+    this.title = "Mint SNS";
+
+    // ログインチェック
+    if ( this.authSharedService.isLogin() ) {
+      const user: User = this.authSharedService.getLoginUser();
+      this.user = user;
+    }
   }
 }

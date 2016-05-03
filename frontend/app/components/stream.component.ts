@@ -5,7 +5,7 @@ import { Router, RouteParams, RouteData} from 'angular2/router';
 import { Post } from '../models/post';
 import { User } from '../models/user';
 
-import { TimelineService } from '../services/timeline.service';
+import { StreamService } from '../services/stream.service';
 import { PostComponent } from "../components/post.component";
 import { PostInputComponent } from "../components/post_input.component";
 import { UserService } from "../services/user.service";
@@ -14,8 +14,8 @@ import { AppSharedService } from "../shared_services/app.shared_service";
 import { AuthSharedService } from "../shared_services/auth.shared_service";
 
 @Component({
-  selector: "my-timeline",
-  templateUrl: "views/timeline.html",
+  selector: "my-stream",
+  templateUrl: "views/stream.html",
   directives: [
     PostInputComponent,
     PostComponent
@@ -24,7 +24,7 @@ import { AuthSharedService } from "../shared_services/auth.shared_service";
     UserService
   ],
 })
-export class TimelineComponent implements OnInit {
+export class StreamComponent implements OnInit {
 
   // タイムラインの投稿を保持
   // TODO: 複数のタイムラインになった場合のことを検討する
@@ -36,7 +36,7 @@ export class TimelineComponent implements OnInit {
     private router: Router,
     private userService: UserService,
     private injector: Injector,
-    private timelineService: TimelineService,
+    private streamService: StreamService,
     private appSharedService: AppSharedService,
     private authSharedService: AuthSharedService
   ) {}

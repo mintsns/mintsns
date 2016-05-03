@@ -5,7 +5,7 @@ import { Router } from 'angular2/router';
 
 import { Post } from '../models/post';
 import { Comment } from '../models/comment';
-import { TimelineService } from '../services/timeline.service';
+import { StreamService } from '../services/stream.service';
 
 @Component({
   selector: "comment",

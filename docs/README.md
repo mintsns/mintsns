@@ -14,9 +14,11 @@ https://drive.google.com/drive/folders/0B6ilEvfUxQRiWXRubUExdVphYWs
 * タスク管理
   * タスク管理は [Wunderlist](https://www.wunderlist.com/webapp#/lists/inbox)にて行っています。こちらも招待するので連絡ください。
   * 優先度 #1 〜 #10 までの優先度をつけます。
-  * \#infra   -- インフラタスク
-  * \#idea    -- アイデアタスク
-  * \#feature -- 機能
+  * \#infra     -- インフラ
+  * \#idea      -- アイデア
+  * \#feature   -- 機能
+  * \#design    -- デザイン
+  * \#frontend  -- フロントエンド
   * アカウント設定でデフォルトが「タスクの下」にタスクを追加するようになっているので「タスクの上」に修正をお願いします。
   * 仕様検討やタスクに関しての議論はWulderlist上のチャットかハングアウト上で行う。
 * 2つの Google ハングアウトで行う

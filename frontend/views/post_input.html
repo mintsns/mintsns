@@ -4,12 +4,20 @@
 
     </div>
     <div class="input" >
-        <textarea tabindex="1" [(ngModel)]="post.message" ></textarea>
+        <textarea tabindex="1" [(ngModel)]="post.message" placeholder="思いついたことを共有してみましょう" ></textarea>
+        <img class="user-icon" src="{{user.iconUrlMedium}}">
     </div>
 
 
 </div>
 <div class="buttons" >
-    <a  tabindex="1" class="input-button" role="button" (click)="onSendPost(post)" (keydown)=" $event.keyCode === 13 && onSendPost(post)" ><i class="fa fa-pencil"></i> 投稿</a>
+    <a
+        tabindex="1"
+        class="input-button"
+        role="button"
+        (click)="onSendPost(post)"
+        (keydown)=" $event.keyCode === 13 && onSendPost(post)"
+        [ngClass]="{active: post.message }"
+    ><i class="fa fa-pencil"></i> 投稿</a>
 </div>
 <div class="clearfix" ></div>

@@ -7,7 +7,7 @@ import { Animation } from 'angular2/src/animate/animation';
 
 
 import { Post } from '../models/post';
-import { TimelineService } from '../services/timeline.service';
+import { StreamService } from '../services/stream.service';
 import { CommentComponent } from "../components/comment.component";
 
 // 投稿ポストのコンポーネント

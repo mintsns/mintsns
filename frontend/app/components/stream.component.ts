@@ -22,7 +22,7 @@ import { AuthSharedService } from "../shared_services/auth.shared_service";
   ],
   providers: [
     UserService
-  ],
+  ]
 })
 export class StreamComponent implements OnInit {
 

@@ -22,7 +22,7 @@
 			</section>
 		</header>
 		<section class="detail">
-			<p>{{post.message}}</p>
+			<p [innerHTML]="post.message | message" ></p>
 
 			<!-- TODO: 画像 -->
 			<!--<section class="img cf">-->

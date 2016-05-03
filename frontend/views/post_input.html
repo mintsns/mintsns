@@ -4,7 +4,12 @@
 
     </div>
     <div class="input" >
-        <textarea tabindex="1" [(ngModel)]="post.message" placeholder="思いついたことを共有してみましょう" ></textarea>
+        <textarea
+                tabindex="1"
+                [(ngModel)]="post.message"
+                placeholder="思いついたことを共有してみましょう"
+                (keydown)="onInputAreaKeydown($event)"
+        ></textarea>
         <img class="user-icon" src="{{user.iconUrlMedium}}">
     </div>
 

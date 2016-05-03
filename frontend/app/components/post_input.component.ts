@@ -43,8 +43,8 @@ export class PostInputComponent implements OnInit {
 
   }
 
-  // 新規投稿が押されたボタンのイベント
-  onSendPost($event) {
+  // 投稿
+  sendPost() {
 
     // メッセージが入力されていない
     if ( !this.post.message ) {
@@ -57,7 +57,26 @@ export class PostInputComponent implements OnInit {
     });
 
     // 投稿フォームを消す
-    this.post = new Post;
+    setTimeout(() => {
+      this.post = new Post;
+    }, 1);
+
+
+  }
+
+  // 新規投稿が押されたボタンのイベント
+  onSendPost() {
+    this.sendPost();
+  }
+
+  // テキストエリアでキーダウン
+  onInputAreaKeydown($event) {
+
+    const isActKey = $event.ctrlKey || $event.shiftKey || $event.metaKey;
+    const isEnter $event.keyCode === 13;
+    if ( isActKey && isEnter ) {
+      this.sendPost();
+    }
 
   }
 

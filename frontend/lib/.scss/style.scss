@@ -79,6 +79,8 @@ header[role=banner] {
 
     .logo {
       height: 32px;
+      position: relative;
+      z-index: 3000;
     }
   }
 
@@ -90,6 +92,7 @@ header[role=banner] {
     height: 32px;
     border-radius: 5px;
     cursor: pointer;
+    z-index: 3000;
   }
 
   .notification-button {

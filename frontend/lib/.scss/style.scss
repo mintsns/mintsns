@@ -89,6 +89,28 @@ header[role=banner] {
     width: 32px;
     height: 32px;
     border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .notification-button {
+    cursor: pointer;
+    position: absolute;
+    top: 7px;
+    right: 65px;
+    width: 16px;
+    height: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #eef3ee;
+    font-size: 12px;
+    text-align: center;
+    font-family: monospace;
+    color: #B7B7B7;
+  }
+
+  .notification-button.active {
+    color: white;
+    background-color: #F5544B;
   }
 
 }

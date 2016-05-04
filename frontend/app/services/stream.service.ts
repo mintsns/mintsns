@@ -2,6 +2,7 @@ import {Post} from '../models/post';
 import {User} from '../models/user';
 import {Stream} from '../models/stream';
 import {Injectable, ElementRef, ViewChild, Renderer} from 'angular2/core';
+import { Router } from 'angular2/router';
 
 import { AnimationBuilder } from 'angular2/src/animate/animation_builder';
 import { Animation } from 'angular2/src/animate/animation';
@@ -157,7 +158,16 @@ export class StreamService {
     }
   }
 
- 
+  // ストリームのページ遷移を行う
+  navigateStream(router: Router, stream: Stream) {
+    if ( stream.isHome ) {
+      router.navigate(["Stream"]);
+    }
+    else {
+      router.navigate(["CustomStream", {id: stream.id} ]);
+    }
+  }
+
 
 }
 

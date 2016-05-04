@@ -1,11 +1,12 @@
 import {Component, OnInit, Input, Output, ElementRef, ViewChild, Renderer} from 'angular2/core';
 import {Observable} from 'rxjs/Observable';
 import {Observable} from "rxjs/Observable";
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router, RouteParams } from 'angular2/router';
 import { StreamComponent } from './components/stream.component';
 import {StreamService} from "./services/stream.service";
 import { User } from "./models/user";
 import { Stream } from "./models/stream";
+
 import { UserService } from "./services/user.service";
 
 import { AppSharedService } from "./shared_services/app.shared_service";
@@ -39,6 +40,15 @@ import { Animation } from 'angular2/src/animate/animation';
       "counter": false
     },
     useAsDefault: true
+  },
+  {
+    path: '/stream/:id',
+    name: 'CustomStream',
+    component: StreamComponent,
+    data: {
+      "counter": false
+    },
+    useAsDefault: false
   }
 ])
 
@@ -66,6 +76,8 @@ export class AppComponent implements OnInit {
   private animation: Animation;
   @ViewChild("target") target: ElementRef;
 
+  private routeParams: RouteParams;
+
   constructor(
     private userService: UserService,
     private streamService: StreamService,
@@ -73,12 +85,20 @@ export class AppComponent implements OnInit {
     private authSharedService: AuthSharedService,
     private animate: AnimationBuilder,
     private renderer: Renderer,
-  ) { }
+    private router: Router
+  ) {
+
+    // ページ遷移時のイベント
+    this.listenRouter();
+
+  }
 
   // 初期化
   ngOnInit() {
 
     this.title = "Mint SNS";
+
+    console.log("--> change page");
 
     // ログインチェック
     if ( this.authSharedService.isLogin() ) {
@@ -88,63 +108,98 @@ export class AppComponent implements OnInit {
       this.user = user;
 
       // ストリームリストの取得
-      this.streams = [
-        { id: 0, name: "ホーム" },
-        { id: 1, name: "お気に入り" },
-        { id: 2, name: "車" },
-        { id: 3, name: "ゲーム" },
-        { id: 4, name: "マンガ" },
-        { id: 5, name: "ゴルフ" },
-        { id: 6, name: "パソコン" },
-        { id: 7, name: "プログラミング" }
-      ];
+      this.streams = this.appSharedService.streams;
 
       // 現在のストリーム
       this.stream = this.streams[0];
 
-      // ホームに設定
+      // ビューストリームの取得
       this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
 
     }
   }
-
-  ngAfterViewInit() {
-    // this.animationInitialize();
-    // setTimeout(() => {  this.animationStart();  } , 0);
-  }
   
+  ngOnChange () {
+    console.log("--> change page");
+  }
+
+  listenRouter() {
+
+    this.router.subscribe( url => {
+      const match = url.match(/^stream\/(.+)$/);
+      const id = match ? url.match(/^stream\/(.+)$/)[1] : null;
+
+      const prevStream = this.streamService.getPrevViewStream(this.streams, this.stream);
+      const nextStream = this.streamService.getNextViewStream(this.streams, this.stream);
+
+      if ( id ) {
+        this.stream = this.appSharedService.stream = _(this.appSharedService.streams).find({ id: Number(id) });
+      }
+      else {
+        this.stream = this.appSharedService.stream = this.appSharedService.homeStream;
+      }
+
+      if ( prevStream === this.stream ) {
+        this.headerAnimationPrevStart().then( () => {
+          this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
+        });
+
+      }
+      else if (nextStream === this.stream) {
+        this.headerAnimationNextStart().then(() => {
+          this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
+        });
+      } else {
+        this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
+      }
+
+
+    });
+
+  }
+
+  // ストリームチェンジャーで前のボタンを押した
   onClickPrevStream() {
     this.stream = this.streamService.getPrevViewStream(this.streams, this.stream);
     this.headerAnimationPrevStart().then( () => {
       this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
+      
+      // 現在表示されているストリームの変更
+      this.appSharedService.stream = this.stream;
+
+      // ルーティングの変更
+      this.streamService.navigateStream(this.router, this.stream);
+
+      
     } );
   }
-  
+
+  // ストリームチェンジャーで次のボタンを押した
   onClickNextStream() {
     this.stream = this.streamService.getNextViewStream(this.streams, this.stream);
     this.headerAnimationNextStart().then( () => {
       this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
+
+      // 現在表示されているストリームの変更
+      this.appSharedService.stream = this.stream;
+
+      // ルーティングの変更
+      this.streamService.navigateStream(this.router, this.stream);
+
     } );
   }
 
-  headerAnimationInitialize() {
-    const height = this.target.nativeElement.clientHeight;
-    this.renderer.setElementStyle(this.target.nativeElement, "margin-top", "-"+height+"px");
-    this.renderer.setElementStyle(this.target.nativeElement, "opacity", "0");
-    this.renderer.setElementStyle(this.target.nativeElement, "transition-duration", null);
-  }
-
-
+  // ストリームチェンジャーのアニメーションをリセット
   headerAnimationReset() {
     this.animation = null;
     this.renderer.setElementStyle(this.target.nativeElement, "transition-duration", null);
     this.renderer.setElementStyle(this.target.nativeElement, "margin-left", "0");
   }
 
+  // ストリームチェンジャーが前へ移動時のアニメーション
   headerAnimationPrevStart(): Promise<void> {
     return new Promise<void>(
       resolve => {
-
         if (this.animation) {
           resolve();
           return;
@@ -160,15 +215,14 @@ export class AppComponent implements OnInit {
             this.animation = null;
             this.headerAnimationReset();
           });
-
       }
     );
   }
 
+  // ストリームチェンジャーが次へ移動時のアニメーション
   headerAnimationNextStart(): Promise<void> {
     return new Promise<void>(
       resolve => {
-
         if (this.animation) {
           resolve();
           return;
@@ -184,7 +238,6 @@ export class AppComponent implements OnInit {
             this.animation = null;
             this.headerAnimationReset();
           });
-
       }
     );
   }

@@ -4,6 +4,7 @@ import { Component, OnInit, Input, Injector, ViewChild, ElementRef, Renderer } f
 import { Router, RouteParams, RouteData} from 'angular2/router';
 import { Post } from '../models/post';
 import { User } from '../models/user';
+import { Stream } from '../models/stream';
 
 import { StreamService } from '../services/stream.service';
 import { PostComponent } from "../components/post.component";
@@ -30,6 +31,12 @@ export class StreamComponent implements OnInit {
   // TODO: 複数のタイムラインになった場合のことを検討する
   posts: Post[] = [];
 
+  // 投稿スコープ
+  postScope: Stream[];
+
+  // このストリームコンポーネントのストリームモデル
+  stream: Stream;
+
   constructor(
     private data: RouteData,
     private params: RouteParams,
@@ -44,6 +51,12 @@ export class StreamComponent implements OnInit {
 
   ngOnInit() {
     // TODO: 既存のタイムラインの読み込み
+
+    console.log("--> initialize --> stream component");
+
+    // このストリームで使用する
+    this.stream = this.appSharedService.homeStream;
+
   }
 
   // 新しいポストが追加された

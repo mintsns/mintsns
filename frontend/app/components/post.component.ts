@@ -10,7 +10,7 @@ import { Post } from '../models/post';
 import { StreamService } from '../services/stream.service';
 import { CommentComponent } from "../components/comment.component";
 
-import { MessagePipe } from "../pipes/message.pipe.ts":
+import { MessagePipe } from "../pipes/message.pipe.ts";
 
 // 投稿ポストのコンポーネント
 @Component({

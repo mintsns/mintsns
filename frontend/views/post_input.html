@@ -11,10 +11,16 @@
                 (keydown)="onInputAreaKeydown($event)"
         ></textarea>
         <div class="zone-select" >
-            <div class="zone-item public" >Public</div>
-            <div class="zone-item" >紳士クラスタ</div>
-            <div class="zone-item" >N88-BASIC</div>
+
+            <div class="zone-item" *ngFor="let stream of postScope" [ngClass]="{ public: stream.isPublic, 'your-zone': stream.isYourZone }" >{{stream.name}}</div>
+
+            <!--<div class="zone-item public" >Public</div>-->
+            <!--<div class="zone-item your-zone" >Your zone</div>-->
+            <!--<div class="zone-item" >紳士クラスタ</div>-->
+            <!--<div class="zone-item" >N88-BASIC</div>-->
+
             <div class="zone-plus" >+</div>
+
         </div>
         <img class="user-icon" src="{{user.iconUrlMedium}}">
     </div>
@@ -29,6 +35,6 @@
         (click)="onSendPost(post)"
         (keydown)=" $event.keyCode === 13 && onSendPost(post)"
         [ngClass]="{active: post.message }"
-    ><i class="fa fa-pencil"></i> 投稿</a>
+    ><i class="fa fa-pencil"></i> Post</a>
 </div>
 <div class="clearfix" ></div>

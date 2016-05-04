@@ -6,9 +6,11 @@ import { Post } from '../models/post';
 import { User } from '../models/user';
 import { Stream } from '../models/stream';
 
-import { StreamService } from '../services/stream.service';
 import { PostComponent } from "../components/post.component";
-import { PostInputComponent } from "../components/post_input.component";
+import { PostInputComponent } from "../components/post-input.component";
+import { ZoneEditorComponent } from "../components/zone-editor.component";
+
+import { StreamService } from '../services/stream.service';
 import { UserService } from "../services/user.service";
 
 import { AppSharedService } from "../shared_services/app.shared_service";
@@ -19,7 +21,8 @@ import { AuthSharedService } from "../shared_services/auth.shared_service";
   templateUrl: "views/stream.html",
   directives: [
     PostInputComponent,
-    PostComponent
+    PostComponent,
+    ZoneEditorComponent
   ],
   providers: [
     UserService

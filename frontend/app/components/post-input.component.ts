@@ -14,7 +14,7 @@ import { Stream } from '../models/stream';
 // 投稿入力欄のコンポーネント
 @Component({
   selector: "post-input",
-  templateUrl: "views/post_input.html"
+  templateUrl: "views/post-input.html"
 })
 export class PostInputComponent implements OnInit {
 

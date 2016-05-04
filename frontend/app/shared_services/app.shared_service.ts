@@ -1,9 +1,5 @@
-import {Observable} from 'rxjs/Observable';
-import {Injectable} from 'angular2/core';
-import { Stream } from "../models/stream";
-import { StreamZone } from "../models/stream_zone";
-import { Condition } from "../models/condition";
-import { OrCondition } from "../models/or_condition";
+import {Injectable} from "angular2/core";
+import {Stream} from "../models/stream";
 
 @Injectable()
 export class AppSharedService {

@@ -1,16 +1,11 @@
 "use strict";
-import { Component, OnInit, AfterContentInit, OnChanges, AfterViewChecked, Input, Injector, ViewChild, ElementRef, Renderer } from 'angular2/core';
-import { Router } from 'angular2/router';
-
-import { AnimationBuilder } from 'angular2/src/animate/animation_builder';
-import { Animation } from 'angular2/src/animate/animation';
-
-
-import { Post } from '../models/post';
-import { StreamService } from '../services/stream.service';
-import { CommentComponent } from "../components/comment.component";
-
-import { MessagePipe } from "../pipes/message.pipe.ts";
+import {Component, OnInit, Input, ViewChild, ElementRef, Renderer} from "angular2/core";
+import {Router} from "angular2/router";
+import {AnimationBuilder} from "angular2/src/animate/animation_builder";
+import {Animation} from "angular2/src/animate/animation";
+import {Post} from "../models/post";
+import {CommentComponent} from "../components/comment.component";
+import {MessagePipe} from "../pipes/message.pipe.ts";
 
 // 投稿ポストのコンポーネント
 @Component({

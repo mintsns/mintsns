@@ -1,12 +1,6 @@
-import {Post} from '../models/post';
-import {User} from '../models/user';
-import {Stream} from '../models/stream';
-import {Injectable, ElementRef, ViewChild, Renderer} from 'angular2/core';
-import { Router } from 'angular2/router';
-
-import { AnimationBuilder } from 'angular2/src/animate/animation_builder';
-import { Animation } from 'angular2/src/animate/animation';
-import {THROW_IF_NOT_FOUND} from "angular2/src/core/di/injector";
+import {Stream} from "../models/stream";
+import {Injectable} from "angular2/core";
+import {Router} from "angular2/router";
 
 @Injectable()
 export class StreamService {

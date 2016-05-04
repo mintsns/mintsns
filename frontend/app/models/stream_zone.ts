@@ -1,6 +1,5 @@
 "use strict";
-import { Condition } from "./condition";
-import { OrCondition } from "./or_condition";
+import {OrCondition} from "./or_condition";
 
 // ゾーンモデル
 export class StreamZone {

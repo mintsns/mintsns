@@ -1,19 +1,14 @@
-import {Component, OnInit, Input, Output, ElementRef, ViewChild, Renderer} from 'angular2/core';
-import {Observable} from 'rxjs/Observable';
-import {Observable} from "rxjs/Observable";
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router, RouteParams } from 'angular2/router';
-import { StreamComponent } from './components/stream.component';
+import {Component, OnInit, ElementRef, ViewChild, Renderer} from "angular2/core";
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Router, RouteParams} from "angular2/router";
+import {StreamComponent} from "./components/stream.component";
 import {StreamService} from "./services/stream.service";
-import { User } from "./models/user";
-import { Stream } from "./models/stream";
-
-import { UserService } from "./services/user.service";
-
-import { AppSharedService } from "./shared_services/app.shared_service";
-import { AuthSharedService } from "./shared_services/auth.shared_service";
-
-import { AnimationBuilder } from 'angular2/src/animate/animation_builder';
-import { Animation } from 'angular2/src/animate/animation';
+import {User} from "./models/user";
+import {Stream} from "./models/stream";
+import {UserService} from "./services/user.service";
+import {AppSharedService} from "./shared_services/app.shared_service";
+import {AuthSharedService} from "./shared_services/auth.shared_service";
+import {AnimationBuilder} from "angular2/src/animate/animation_builder";
+import {Animation} from "angular2/src/animate/animation";
 
 @Component({
     selector: 'my-app',

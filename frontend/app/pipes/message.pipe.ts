@@ -1,5 +1,5 @@
 "use strict";
-import {Pipe, PipeTransform} from 'angular2/core';
+import {Pipe, PipeTransform} from "angular2/core";
 
 
 @Pipe({
@@ -7,6 +7,7 @@ import {Pipe, PipeTransform} from 'angular2/core';
   pure: false
 })
 export class MessagePipe implements PipeTransform {
+
   transform(message: String) {
     return message
 
@@ -24,3 +25,6 @@ export class MessagePipe implements PipeTransform {
       .replace(/\n/g, "<br>")
       ;
   }
+
+};
+

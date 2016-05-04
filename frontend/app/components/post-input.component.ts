@@ -1,14 +1,12 @@
 "use strict";
 // 投稿画面のコンポーネント
-import { Component, OnInit, Output, EventEmitter } from 'angular2/core';
-import { Router } from 'angular2/router';
-import { Post } from '../models/post';
-import { CommentComponent } from "../components/comment.component";
-import { StreamService } from '../services/stream.service';
-import { AuthSharedService } from "../shared_services/auth.shared_service";
-import { AppSharedService } from "../shared_services/app.shared_service";
-import { User } from '../models/user';
-import { Stream } from '../models/stream';
+import {Component, OnInit, Output, EventEmitter} from "angular2/core";
+import {Router} from "angular2/router";
+import {Post} from "../models/post";
+import {AuthSharedService} from "../shared_services/auth.shared_service";
+import {AppSharedService} from "../shared_services/app.shared_service";
+import {User} from "../models/user";
+import {Stream} from "../models/stream";
 
 
 // 投稿入力欄のコンポーネント

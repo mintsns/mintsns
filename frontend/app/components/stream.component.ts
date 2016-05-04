@@ -1,20 +1,17 @@
 "use strict";
 // タイムライン全体のコンポーネント
-import { Component, OnInit, Input, Injector, ViewChild, ElementRef, Renderer } from 'angular2/core';
-import { Router, RouteParams, RouteData} from 'angular2/router';
-import { Post } from '../models/post';
-import { User } from '../models/user';
-import { Stream } from '../models/stream';
-
-import { PostComponent } from "../components/post.component";
-import { PostInputComponent } from "../components/post-input.component";
-import { ZoneEditorComponent } from "../components/zone-editor.component";
-
-import { StreamService } from '../services/stream.service';
-import { UserService } from "../services/user.service";
-
-import { AppSharedService } from "../shared_services/app.shared_service";
-import { AuthSharedService } from "../shared_services/auth.shared_service";
+import {Component, OnInit, Injector} from "angular2/core";
+import {Router, RouteParams, RouteData} from "angular2/router";
+import {Post} from "../models/post";
+import {User} from "../models/user";
+import {Stream} from "../models/stream";
+import {PostComponent} from "../components/post.component";
+import {PostInputComponent} from "../components/post-input.component";
+import {ZoneEditorComponent} from "../components/zone-editor.component";
+import {StreamService} from "../services/stream.service";
+import {UserService} from "../services/user.service";
+import {AppSharedService} from "../shared_services/app.shared_service";
+import {AuthSharedService} from "../shared_services/auth.shared_service";
 
 @Component({
   selector: "my-stream",

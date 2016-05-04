@@ -51,6 +51,64 @@ post, comment, my-stream, post-input {
   display: block;
 }
 
+zone-editor {
+}
+
+.modal-header {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+.modal-description {
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.modal-body {
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 13px;
+  border: 1px solid gray;
+  padding: 10px;
+  margin-right: 20px;
+  
+}
+
+.modal-cover {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 9999px;
+  height: 9999px;
+  background-color: rgba(0, 0, 0, 0.12);
+  z-index: 10000;
+}
+.modal-window {
+  position: fixed;
+  left: 50%;
+  top: 277px;
+  width: 530px;
+  height: 364px;
+  margin-left: -265px;
+  transform-origin: 0px 0px 0px;
+  background-color: white;
+  z-index: 10001;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+  border-radius: 2px;
+
+  .modal-close-button {
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    font-size: 16px;
+    color: gray;
+    cursor: pointer;
+  }
+
+}
+
 
 nav ul{ list-style:none; margin:0; padding:0;}
 .wrap{ margin:0 auto; width:90%;}

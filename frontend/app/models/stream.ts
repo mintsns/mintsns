@@ -1,5 +1,5 @@
 "use strict";
-import { StreamZone } from "./stream_zone";
+import {StreamZone} from "./stream_zone";
 // ストリームモデル
 export class Stream {
   id: number;

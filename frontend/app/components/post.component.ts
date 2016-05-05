@@ -6,6 +6,7 @@ import {Animation} from "angular2/src/animate/animation";
 import {Post} from "../models/post";
 import {CommentComponent} from "../components/comment.component";
 import {MessagePipe} from "../pipes/message.pipe.ts";
+import {TimeAgoPipe} from "../pipes/time_ago.pipe.ts";
 
 // 投稿ポストのコンポーネント
 @Component({
@@ -13,7 +14,8 @@ import {MessagePipe} from "../pipes/message.pipe.ts";
   templateUrl: "views/post.html",
   directives: [ CommentComponent ],
   pipes: [
-    MessagePipe
+    MessagePipe,
+    TimeAgoPipe
   ]
 })
 

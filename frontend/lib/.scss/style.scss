@@ -128,7 +128,84 @@ zone-editor {
     clear: both;
     margin-bottom: 10px;
   }
+}
 
+zone-detail-editor {
+
+  .zone-detail-or-condition-margin {
+    color: #C3C3C3;
+    text-align: center;
+    font-size: 11px;
+    margin-top: -4px;
+    margin-bottom: -2px;
+    .text {
+      margin-top: 0px;
+      margin-bottom: -3px;
+    }
+  }
+
+  .zone-detail-or-condition-item{
+    background-color: #ECECEC;
+    border: 1px solid #C3C3C3;
+    padding: 10px;
+    font-size: 12px;
+    position: relative;
+
+    .zone-detail-or-condition-item-close-button {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 13px;
+      height: 17px;
+      border: 1px solid #C3C3C3;
+      padding: 0px;
+      font-size: 11px;
+      padding-left: 5px;
+      border-right: 0;
+      border-top: 0;
+      background-color: white;
+      cursor: pointer;
+      &:hover {
+        background-color: #D2D2D2;
+      }
+    }
+
+    .zone-detail-or-condition-item-description {
+      color: gray;
+      margin-bottom: 7px;
+      margin-left: 1px;
+    }
+
+    .zone-detail-condition-item + .zone-detail-condition-item {
+      margin-top: 3px;
+    }
+
+    button.minus,
+    button.plus {
+      width: 22px;
+      padding: 0px;
+      height: 21px;
+      font-size: 13px;
+    }
+
+    input.tag {
+      width: 226px;
+    }
+
+    input.value {
+      width: 60px;
+      &[disabled] {
+        background-color: #EFEFEF;
+        border: 1px solid #CCCCCC;
+        color: #C1C1C1;
+      }
+    }
+
+    select {
+      vertical-align: -2px;
+    }
+
+  }
 }
 
 // modal
@@ -199,7 +276,7 @@ zone-editor {
     margin-left: -265px;
     transform-origin: 0px 0px 0px;
     background-color: white;
-    z-index: 10001;
+    z-index: 10000;
     box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
     border-radius: 2px;
 

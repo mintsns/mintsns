@@ -6,11 +6,13 @@ import { NgForm }    from 'angular2/common';
 // ゾーンエディタコンポーネント
 import {Component, OnInit, Input, ViewChild, ElementRef, Renderer, EventEmitter, Output} from "angular2/core";
 import {AppSharedService} from "../shared_services/app.shared_service";
+import { ZoneDetailEditorComponent} from "./zone-detail-editor.component";
 import {Stream} from "../models/stream";
 
 @Component({
   selector: "zone-editor",
   templateUrl: "views/zone-editor.html",
+  directives: [ ZoneDetailEditorComponent ]
 })
 
 export class ZoneEditorComponent implements OnInit {
@@ -21,6 +23,7 @@ export class ZoneEditorComponent implements OnInit {
   private streams: Stream[];
   @ViewChild("target") target: ElementRef;
   @ViewChild("form") form: ElementRef;
+  @ViewChild("zoneDetailEditor") zoneDetailEditor: ElementRef;
   @Output() onRenderZone = new EventEmitter();
 
   constructor(
@@ -144,6 +147,12 @@ export class ZoneEditorComponent implements OnInit {
           .each((stream: Stream) => { stream.isIncludedPostScope = false; } );
       }
     }, 5);
+  }
+
+  // ゾーン編集を開く
+  openZoneDetailEditor (stream: Stream) {
+    console.log("--> open zone detail editor");
+    this.zoneDetailEditor["openModal"](stream);
   }
 
 }

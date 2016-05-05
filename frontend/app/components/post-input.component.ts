@@ -78,9 +78,25 @@ export class PostInputComponent implements OnInit {
     });
 
     // 投稿フォームを消す
+    this.post = new Post;
+    setTimeout(() => {
+      this.post = new Post;
+    }, 0);
     setTimeout(() => {
       this.post = new Post;
     }, 1);
+    setTimeout(() => {
+      this.post = new Post;
+    }, 2);
+    setTimeout(() => {
+      this.post = new Post;
+    }, 3);
+    setTimeout(() => {
+      this.post = new Post;
+    }, 4);
+    setTimeout(() => {
+      this.post = new Post;
+    }, 5);
 
 
   }

@@ -10,7 +10,7 @@
                 ポストの公開範囲と、ストリームのカスタマイズが行えます。
             </div>
             <div class="modal-body" >
-                <div [hidden]="!stream.isHome" >
+                <div [hidden]="stream.isHome" >
                     <label class="label-checkbox"><input type="checkbox" [(ngModel)]="stream.useHomePostScope" > ホームのポスト公開範囲を使用する</label>
                     <hr>
                 </div>

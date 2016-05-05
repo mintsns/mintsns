@@ -4,7 +4,7 @@ import {Animation} from "angular2/src/animate/animation";
 import { NgForm }    from 'angular2/common';
 
 // ゾーンエディタコンポーネント
-import {Component, OnInit, Input, ViewChild, ElementRef, Renderer} from "angular2/core";
+import {Component, OnInit, Input, ViewChild, ElementRef, Renderer, EventEmitter, Output} from "angular2/core";
 import {AppSharedService} from "../shared_services/app.shared_service";
 import {Stream} from "../models/stream";
 
@@ -15,11 +15,13 @@ import {Stream} from "../models/stream";
 
 export class ZoneEditorComponent implements OnInit {
 
+  private isOpenModal: boolean;
   private animation: Animation;
   private stream: Stream;
   private streams: Stream[];
   @ViewChild("target") target: ElementRef;
   @ViewChild("form") form: ElementRef;
+  @Output() onRenderZone = new EventEmitter();
 
   constructor(
     private appSharedService: AppSharedService
@@ -34,26 +36,43 @@ export class ZoneEditorComponent implements OnInit {
       .tap((streams: Stream[]) => streams.unshift( _.clone(this.appSharedService.yourZoneStream) ) )
       .tap((streams: Stream[]) => streams.unshift( _.clone(this.appSharedService.publicStream) ) )
       .value();
-    this.stream = Object.assign(this.appSharedService.stream);
+    this.stream = _.clone(this.appSharedService.stream);
 
     const homeIndex = _(this.streams).findIndex(this.appSharedService.homeStream);
     if (homeIndex) {
       this.streams.splice( homeIndex, 1 );
     }
 
+    // ポストスコープの取得
+    const postScope = this.appSharedService.getPostScopeWithStream(this.stream);
+    console.log("--> postScope", postScope, this.stream);
+
     // 現在のストリームのポストスコープにストリームが含まれている場合、は true を代入
     _(this.streams).each((stream: Stream) => {
-      stream.isIncludedPostScope = !!_(this.stream.postScope).find(stream);
+      stream.isIncludedPostScope = !!_(postScope).find((scopeStream) => {
+        if (stream.isPublic) {
+          return scopeStream.isPublic === stream.isPublic;
+        }
+        else if (stream.isYourZone) {
+          return scopeStream.isYourZone === stream.isYourZone;
+        }
+        else {
+          return scopeStream.id === stream.id;
+        }
+      });
     });
 
   }
 
   ngAfterViewInit(){
-    this.openModal();
+    // this.openModal();
   }
 
   // モーダルを開く
   openModal () {
+
+    this.isOpenModal = true;
+
     this.ngOnInit();
     if (this.target) {
       const clientHeight = $(window).height();
@@ -69,12 +88,26 @@ export class ZoneEditorComponent implements OnInit {
 
   // モーダルを閉じる
   onClickDisableModal () {
+    this.isOpenModal = false;
     this.target.nativeElement.style.display = "none";
   }
 
   // 保存
   onSubmit() {
     this.target.nativeElement.style.display = "none";
+
+    // ポストスコープの更新
+    this.appSharedService.stream.postScope =
+      _(this.streams).filter((stream: Stream) => stream.isIncludedPostScope ).value();
+
+    // ホームのスコープを使用する情報の更新
+    this.appSharedService.stream.useHomePostScope = this.stream.useHomePostScope;
+
+    // 再描画要求を出す
+    this.onRenderZone.emit({});
+
+
+
   }
 
   // ストリームの追加
@@ -87,10 +120,8 @@ export class ZoneEditorComponent implements OnInit {
     alert("この機能は  v0.6 で実装予定です。");
   }
 
-  //
+  // スコープが変更された
   onChangeScopeStream(stream: Stream) {
-
-
     setTimeout(() => {
 
       const isCheck = _(this.streams).find(stream).isIncludedPostScope;
@@ -112,13 +143,7 @@ export class ZoneEditorComponent implements OnInit {
           .filter((stream: Stream) => stream.isPublic || stream.isYourZone )
           .each((stream: Stream) => { stream.isIncludedPostScope = false; } );
       }
-
     }, 5);
-
-
-
-
-
   }
 
 }

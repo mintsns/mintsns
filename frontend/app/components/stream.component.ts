@@ -1,6 +1,6 @@
 "use strict";
 // タイムライン全体のコンポーネント
-import {Component, OnInit, Injector} from "angular2/core";
+import {Component, OnInit, Injector, ViewChild, ElementRef} from "angular2/core";
 import {Router, RouteParams, RouteData} from "angular2/router";
 import {Post} from "../models/post";
 import {User} from "../models/user";
@@ -37,6 +37,10 @@ export class StreamComponent implements OnInit {
   // このストリームコンポーネントのストリームモデル
   stream: Stream;
 
+  //
+  @ViewChild("zoneEditor") zoneEditor: ElementRef;
+  @ViewChild("postInput") postInput: ElementRef;
+
   constructor(
     private data: RouteData,
     private params: RouteParams,
@@ -55,7 +59,7 @@ export class StreamComponent implements OnInit {
     console.log("--> initialize --> stream component");
 
     // このストリームで使用する
-    this.stream = this.appSharedService.homeStream;
+    this.stream = this.appSharedService.stream;
 
   }
 
@@ -86,6 +90,17 @@ export class StreamComponent implements OnInit {
       // TODO: エラーメッセージをServiceにまとめる
       alert("投稿するにはログインしてください");
     }
-
   }
+
+  // ゾーンエディタを開く
+  openZoneEditor () {
+    console.log("--> event emit -> open zone editor");
+    this.zoneEditor["openModal"]();
+  }
+
+  // PostInputのゾーンの再描画
+  renderPostInputZone() {
+    this.postInput["renderPostInputZone"]();
+  }
+
 }

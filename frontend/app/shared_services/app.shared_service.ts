@@ -40,7 +40,8 @@ export class AppSharedService {
     this.homeStream = this.streams[0]; // ホーム
     this.publicStream = { id: 0, name: "Public", zone: null, isPublic: true, isHome: false, isYourZone: false, postScope: [], useHomePostScope: false, isIncludedPostScope: false }; // ホーム
     this.yourZoneStream = { id: 0, name: "Your Zone", zone: null, isPublic: false, isHome: false, isYourZone: true, postScope: [], useHomePostScope: false, isIncludedPostScope: false };
-    this.stream = this.streams[0]; // ホーム
+
+    // this.stream = this.streams[0]; // ホーム
 
     // スコープ設定
     this.homeStream.postScope = [
@@ -50,6 +51,29 @@ export class AppSharedService {
       this.streams[7]
     ];
 
+  }
+
+  // 指定されたストリームのポストスコープを取得
+  getPostScopeWithStream(stream: Stream) {
+    if ( stream.useHomePostScope ) {
+      return this.homeStream.postScope;
+    }
+    else {
+      return this.stream.postScope;
+    }
+  }
+
+  // 現在のストリームをURLから取得
+  getCurrentStreamWithUrl(optionUrl: String = null) {
+    const url = optionUrl ? optionUrl : location.pathname.replace(/^./, "");
+    const match = url.match(/^stream\/(.+)$/);
+    const id = match ? url.match(/^stream\/(.+)$/)[1] : null;
+    if (id) {
+      return _(this.streams).find( { id: Number(id) } );
+    }
+    else {
+      return this.homeStream;
+    }
   }
 
 }

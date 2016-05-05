@@ -31,27 +31,17 @@ import {Animation} from "angular2/src/animate/animation";
     path: '/stream',
     name: 'Stream',
     component: StreamComponent,
-    data: {
-      "counter": false
-    },
     useAsDefault: true
   },
   {
     path: '/stream/:id',
     name: 'CustomStream',
     component: StreamComponent,
-    data: {
-      "counter": false
-    },
     useAsDefault: false
   }
 ])
 
-
-
 export class AppComponent implements OnInit {
-
-
 
   // サービス名
   title: String;
@@ -70,8 +60,6 @@ export class AppComponent implements OnInit {
 
   private animation: Animation;
   @ViewChild("target") target: ElementRef;
-
-  private routeParams: RouteParams;
 
   constructor(
     private userService: UserService,
@@ -93,8 +81,6 @@ export class AppComponent implements OnInit {
 
     this.title = "Mint SNS";
 
-    console.log("--> change page");
-
     // ログインチェック
     if ( this.authSharedService.isLogin() ) {
 
@@ -102,11 +88,14 @@ export class AppComponent implements OnInit {
       const user: User = this.authSharedService.getLoginUser();
       this.user = user;
 
+      // URLから現在のストリームを取得
+      this.appSharedService.stream = this.appSharedService.getCurrentStreamWithUrl();
+
       // ストリームリストの取得
       this.streams = this.appSharedService.streams;
 
       // 現在のストリーム
-      this.stream = this.streams[0];
+      this.stream = this.appSharedService.stream;
 
       // ビューストリームの取得
       this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
@@ -118,39 +107,46 @@ export class AppComponent implements OnInit {
     console.log("--> change page");
   }
 
+  // ルーターの変更を監視
   listenRouter() {
-
     this.router.subscribe( url => {
-      const match = url.match(/^stream\/(.+)$/);
-      const id = match ? url.match(/^stream\/(.+)$/)[1] : null;
-
-      const prevStream = this.streamService.getPrevViewStream(this.streams, this.stream);
-      const nextStream = this.streamService.getNextViewStream(this.streams, this.stream);
-
-      if ( id ) {
-        this.stream = this.appSharedService.stream = _(this.appSharedService.streams).find({ id: Number(id) });
-      }
-      else {
-        this.stream = this.appSharedService.stream = this.appSharedService.homeStream;
-      }
-
-      if ( prevStream === this.stream ) {
-        this.headerAnimationPrevStart().then( () => {
-          this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
-        });
-
-      }
-      else if (nextStream === this.stream) {
-        this.headerAnimationNextStart().then(() => {
-          this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
-        });
-      } else {
-        this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
-      }
-
-
+      this.renderStreamChanger( this.getStreamIdWithUrl(url) );
     });
+  }
 
+  // URLからIDを取得
+  getStreamIdWithUrl (url): number {
+    const match = url.match(/^stream\/(.+)$/);
+    const id = match ? url.match(/^stream\/(.+)$/)[1] : null;
+    return Number(id);
+  }
+
+  // ストリームチェンジャーの描画
+  renderStreamChanger(id: number) {
+
+    const prevStream = this.streamService.getPrevViewStream(this.streams, this.stream);
+    const nextStream = this.streamService.getNextViewStream(this.streams, this.stream);
+
+    if ( id ) {
+      this.stream = this.appSharedService.stream = _(this.appSharedService.streams).find({ id: Number(id) });
+    }
+    else {
+      this.stream = this.appSharedService.stream = this.appSharedService.homeStream;
+    }
+
+    if ( prevStream === this.stream ) {
+      this.headerAnimationPrevStart().then( () => {
+        this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
+      });
+
+    }
+    else if (nextStream === this.stream) {
+      this.headerAnimationNextStart().then(() => {
+        this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
+      });
+    } else {
+      this.viewStreams = this.streamService.getHeaderViewStreams(this.streams, this.stream);
+    }
   }
 
   // ストリームチェンジャーで前のボタンを押した

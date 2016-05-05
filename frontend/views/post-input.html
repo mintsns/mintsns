@@ -12,14 +12,21 @@
         ></textarea>
         <div class="zone-select" >
 
-            <div class="zone-item" *ngFor="let stream of postScope" [ngClass]="{ public: stream.isPublic, 'your-zone': stream.isYourZone }" >{{stream.name}}</div>
+            <div
+                    class="zone-item"
+                    *ngFor="let stream of postScope"
+                    [ngClass]="{ public: stream.isPublic, 'your-zone': stream.isYourZone }"
+                    (click)="openZoneEditor()"
+            >
+                {{stream.name}}
+            </div>
 
             <!--<div class="zone-item public" >Public</div>-->
             <!--<div class="zone-item your-zone" >Your zone</div>-->
             <!--<div class="zone-item" >紳士クラスタ</div>-->
             <!--<div class="zone-item" >N88-BASIC</div>-->
 
-            <div class="zone-plus" >+</div>
+            <div class="zone-plus" (click)="openZoneEditor()" >+</div>
 
         </div>
         <img class="user-icon" src="{{user.iconUrlMedium}}">

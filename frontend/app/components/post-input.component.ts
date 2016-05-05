@@ -32,6 +32,9 @@ export class PostInputComponent implements OnInit {
   // 新規ポストが押されたイベント
   @Output() newPost = new EventEmitter();
 
+  // ゾーンエディタを開くイベント
+  @Output() onOpenZoneEditor = new EventEmitter();
+
   constructor(
     private router: Router,
     private authSharedService: AuthSharedService,
@@ -52,15 +55,11 @@ export class PostInputComponent implements OnInit {
     }
 
     // このストリームで使用する
-    this.stream = this.appSharedService.homeStream;
+    this.stream = this.appSharedService.stream;
 
-    // ホームスコープを使用する場合
-    if ( this.stream.useHomePostScope ) {
-      this.postScope = this.appSharedService.homeStream.postScope;
-    }
-    else {
-      this.postScope = this.stream.postScope;
-    }
+    // ポストスコープの取得
+    this.postScope = this.appSharedService.getPostScopeWithStream(this.stream);
+
 
   }
 
@@ -115,6 +114,18 @@ export class PostInputComponent implements OnInit {
       this.sendPost();
     }
 
+  }
+
+  // ゾーンエディタを開く
+  openZoneEditor() {
+    this.onOpenZoneEditor.emit({});
+    console.log("--> event --> open zone editor");
+  }
+
+  // ゾーンエディタの再描画
+  renderPostInputZone() {
+    this.stream = this.appSharedService.stream;
+    this.postScope = this.appSharedService.getPostScopeWithStream(this.stream);
   }
 
 }

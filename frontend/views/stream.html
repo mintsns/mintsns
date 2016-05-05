@@ -1,5 +1,5 @@
 <!-- 新規ポスト -->
-<post-input (newPost)="newPost($event)" ></post-input>
+<post-input #postInput (newPost)="newPost($event)" (onOpenZoneEditor)="openZoneEditor($event)" ></post-input>
 
 <!-- タイムライン -->
 <section class="cf" id="main" role="main">
@@ -7,4 +7,4 @@
 </section>
 
 <!-- ゾーンエディタ -->
-<zone-editor></zone-editor>
+<zone-editor #zoneEditor (onRenderZone)="renderPostInputZone()" ></zone-editor>

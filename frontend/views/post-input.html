@@ -28,13 +28,15 @@
 
 </div>
 <div class="buttons" >
-    <a
+    <button
         tabindex="1"
-        class="input-button"
+        class="btn"
+        type="button"
         role="button"
         (click)="onSendPost(post)"
         (keydown)=" $event.keyCode === 13 && onSendPost(post)"
         [ngClass]="{active: post.message }"
-    ><i class="fa fa-pencil"></i> Post</a>
+        [disabled]="!post.message"
+    >Post</button>
 </div>
 <div class="clearfix" ></div>

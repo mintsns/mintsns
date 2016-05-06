@@ -16,7 +16,7 @@ import {Stream} from "../models/stream";
   templateUrl: "views/zone-detail-editor.html",
 })
 
-export class ZoneDetailEditorComponent implements OnInit {
+export class ZoneDetailEditorComponent {
 
   private isOpenModal: boolean;
   private animation: Animation;
@@ -31,8 +31,6 @@ export class ZoneDetailEditorComponent implements OnInit {
   constructor(
     private appSharedService: AppSharedService
   ) {}
-
-
 
   ngOnInit(stream: Stream) {
     if (stream) {

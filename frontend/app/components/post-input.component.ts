@@ -106,9 +106,9 @@ export class PostInputComponent implements OnInit {
   }
 
   // テキストエリアでキーダウン
+  // TODO: Service
   onInputAreaKeydown($event) {
-
-    const isActKey = $event.ctrlKey || $event.shiftKey || $event.metaKey;
+    const isActKey = $event.ctrlKey || $event.shiftKey || $event.metaKey || $event.altKey;
     const isEnter = $event.keyCode === 13;
     if ( isActKey && isEnter ) {
       this.sendPost();

@@ -32,6 +32,7 @@
 		</section>
 		<div class="aside cf">
 			<ul class="buttons">
+				<li [hidden]="isOpenComment" (click)="openComment()" ><a class="comment">コメントしよう</a></li>
 				<!-- TODO: share -->
 				<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
 				<!-- TODO: lamp -->
@@ -41,5 +42,27 @@
 	</section>
 	<section class="comments">
 		<comment *ngFor="let comment of post.comments" [comment]="comment" ></comment>
+	</section>
+
+	<!-- コメント投稿 -->
+	<section class="comment-input" [hidden]="!isOpenComment" [ngClass]="{ 'has-comments': post.comments.length }" >
+		<img class="ico" src="{{post.user.iconUrlMedium}}" alt="{{post.user.name}}" />
+		<textarea
+				#commentTextarea
+				class="comment-textarea"
+				[(ngModel)]="comment.message"
+                (keydown)=" onInputAreaKeydown($event) "
+        ></textarea>
+		<button
+				tabindex="1"
+				class="btn comment-button"
+				type="button"
+				role="button"
+				(click)="onSendComment()"
+				(keydown)=" $event.keyCode === 13 && onSendComment()"
+				[ngClass]="{active: comment.message }"
+				[disabled]="!comment.message"
+		>Comment</button>
+
 	</section>
 </article>

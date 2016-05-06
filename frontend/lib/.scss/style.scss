@@ -26,6 +26,10 @@
   * 50px = 3.1250rem
   **/
 
+:root {
+  font-size: 16px;
+}
+
 $mintKeyGreen:#0f9d58;
 $lightGreenGrey:#eef3ee;
 $lightGreenBorderGrey:#dde3dd;
@@ -35,12 +39,19 @@ $txtGrey:#9a9;
 $txtLightGrey:#cdc;
 $white:#fff;
 
+// アイコンサイズ
+$iconLarge: 2.875rem;
+$iconMedium: 2.25rem;
+$iconSmall: 2rem;
+$iconMicro: 1.75rem;
+$iconNano: 1rem;
+
 html{ background-color:$lightGreenGrey; color:$black; font-size:16px;}
 .cf::after{ content: ""; clear: both; display: block; }
 i.fa{margin-right:.375rem; overflow:hidden;}
 
 a {
-  font-size: 12px;
+  font-size: .7500rem;
   color: #4990e4;
   text-decoration: none;
   &:hover {
@@ -74,7 +85,7 @@ button.btn[type='submit'] {
   background-color: #8cb98c;
   border-radius: 2px;
   color: white;
-  font-size: 12px;
+  font-size: .7500rem;
   font-weight: 100;
   padding: 5px 10px;
   margin: 0px 0px;
@@ -109,12 +120,12 @@ zone-editor {
   }
   .stream-item-anchor {
     vertical-align: 1px;
-    font-size: 12px;
+    font-size: .7500rem;
     color: #4990e4;
     text-decoration: none;
   }
   .stream-item-span {
-    font-size: 12px;
+    font-size: .7500rem;
     color: darkgray;
   }
   .stream-item-anchor:hover {
@@ -135,7 +146,7 @@ zone-detail-editor {
   .zone-detail-or-condition-margin {
     color: #C3C3C3;
     text-align: center;
-    font-size: 11px;
+    font-size: .6250rem;
     margin-top: -4px;
     margin-bottom: -2px;
     .text {
@@ -148,7 +159,7 @@ zone-detail-editor {
     background-color: #ECECEC;
     border: 1px solid #C3C3C3;
     padding: 10px;
-    font-size: 12px;
+    font-size: .7500rem;
     position: relative;
 
     .zone-detail-or-condition-item-close-button {
@@ -159,7 +170,7 @@ zone-detail-editor {
       height: 17px;
       border: 1px solid #C3C3C3;
       padding: 0px;
-      font-size: 11px;
+      font-size: .6250rem;
       padding-left: 5px;
       border-right: 0;
       border-top: 0;
@@ -185,7 +196,7 @@ zone-detail-editor {
       width: 22px;
       padding: 0px;
       height: 21px;
-      font-size: 13px;
+      font-size: .8125rem;
     }
 
     input.tag {
@@ -225,12 +236,12 @@ zone-detail-editor {
   .modal-header {
     margin-top: 20px;
     margin-left: 20px;
-    font-size: 16px;
+    font-size: 1.0000rem;
     height: 20px;
   }
 
   .modal-description {
-    font-size: 12px;
+    font-size: .7500rem;
     margin-top: 5px;
     margin-left: 20px;
     height: 20px;
@@ -239,7 +250,7 @@ zone-detail-editor {
   .modal-body {
     margin-top: 10px;
     margin-left: 20px;
-    font-size: 13px;
+    font-size: .8125rem;
     border: 1px solid gray;
     padding: 10px;
     margin-right: 20px;
@@ -284,7 +295,7 @@ zone-detail-editor {
       position: absolute;
       right: 8px;
       top: 5px;
-      font-size: 16px;
+      font-size: 1.0000rem;
       color: gray;
       cursor: pointer;
     }
@@ -315,11 +326,11 @@ header[role=banner] {
   h1 {
     text-align:left;
     margin: 0px;
-    font-size: 19px;
+    font-size: 1.1250rem;
     color: #8CB98C;
 
     .logo {
-      height: 32px;
+      height: 2.0000rem;
       position: relative;
       z-index: 3000;
     }
@@ -329,8 +340,8 @@ header[role=banner] {
     position: absolute;
     top: 4px;
     right: 21px;
-    width: 32px;
-    height: 32px;
+    width: $iconSmall;
+    height: $iconSmall;
     border-radius: 5px;
     cursor: pointer;
     z-index: 3000;
@@ -346,7 +357,7 @@ header[role=banner] {
     padding: 5px;
     border-radius: 5px;
     background-color: #eef3ee;
-    font-size: 12px;
+    font-size: .7500rem;
     text-align: center;
     font-family: monospace;
     color: #B7B7B7;
@@ -372,7 +383,7 @@ header[role=banner] {
       width: 90px;
       text-align: center;
       margin-top: 10px;
-      font-size: 13px;
+      font-size: .8125rem;
       color: #1FB3A2;
       overflow: hidden;
       white-space: nowrap;
@@ -427,7 +438,7 @@ header[role=banner] {
       top: -1px;
       left: 155px;
       color: #5EC8BC;
-      font-size: 12px;
+      font-size: .7500rem;
       z-index: 1002;
       font-family: sans-serif;
       font-weight: 700;
@@ -439,7 +450,7 @@ header[role=banner] {
       top: -1px;
       right: 263px;
       color: #5EC8BC;
-      font-size: 12px;
+      font-size: .7500rem;
       z-index: 1002;
       font-family: sans-serif;
       font-weight: 700;
@@ -460,6 +471,7 @@ header[role=banner] {
   margin-top: 40px;
 }
 
+// ポスト投稿ボックス
 post-input {
 
   // TODO: スマホサイズの場合は調整
@@ -470,7 +482,7 @@ post-input {
   margin-top: 0px;
   padding-top: 0px;
   border-top: 10px solid $lightGreenGrey;
-  font-size: 13px;
+  font-size: .8125rem;
   display: block;
   position: relative;
   z-index: 1000;
@@ -482,7 +494,7 @@ post-input {
     height: 60px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-
+    resize: none;
   }
 
   // TODO: width スマホサイズの場合調整
@@ -502,7 +514,7 @@ post-input {
       border-radius: 3px;
       margin-top: 5px;
       margin-left: 6px;
-      font-size: 12px;
+      font-size: .7500rem;
       background-color: #5EC8BC;
       color: white;
       font-family: monospace;
@@ -522,7 +534,7 @@ post-input {
     .zone-plus {
       float: right;
       margin-right: 2px;
-      font-size: 16px;
+      font-size: 1.0000rem;
       font-weight: 700;
       color: #1AA160;
       margin-top: 1px;
@@ -534,8 +546,8 @@ post-input {
   }
 
   .user-icon {
-    width: 32px;
-    height: 32px;
+    width: $iconSmall;
+    height: $iconSmall;
     position: absolute;
     top: 13px;
     left: 13px;
@@ -577,34 +589,114 @@ post-input {
     [role=button]{ padding:.5rem 1rem;}
   }
 }
+
+// ストリーム
 #main[role=main]{
 
+  position: absolute;
+  top: 196px;
+  margin: 0 auto;
+  width: 100%;
+
+  // ポスト
   post {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
   }
-
-  position: absolute;
-  top: 196px;
-
-  margin:0 auto;
-  width:100%;
-  article:not(.img) section.img{display:none;}
+  article:not(.img) section.img {
+    display:none;
+  }
   article.post{
 
-    border-radius: 2px;
+    // ボタン
+    .buttons {
 
-    .buttons{ float:right; list-style:none; margin:0; padding:0;
-      &>*{ float:left;
-        &:not(:first-of-type){ margin-left:.5rem;}
+      float: right;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .comment {
+        border: 1px solid #DDE3DD;
+        padding: 0px 10px;
+        height: 23px;
+        display: block;
+        padding-top: 4px;
+        width: 410px;
+        color: #BDBDBD;
+        margin-top: -4px;
+        border-radius: 2px;
+        cursor: pointer;
       }
+
+      .share,
+      .pachun{
+        height: 23px;
+        margin-top: -4px;
+        padding-top: 4px;
+        display: block;
+      }
+
+      &>*{
+        float:left;
+        &:not(:first-of-type) {
+          margin-left:.5rem;
+        }
+      }
+
     }
 
+    // コメント投稿ボックス
+    .comment-input {
+
+      &has-comments {
+        border-top: 1px solid #dde3dd;
+      }
+
+      padding: 8px 16px;
+      position: relative;
+      padding-bottom: 3px;
+
+      img.ico {
+        border-radius: 5px;
+        height: $iconSmall;
+        width: $iconSmall;
+        margin-top: 6px;
+        position: absolute;
+        left: 21px;
+      }
+
+      textarea.comment-textarea {
+        width: 449px;
+        height: 40px;
+        font-size: .8125rem;
+        padding: 5px;
+        height: 43px;
+        border-radius: 2px;
+        resize: none;
+        padding-left: 43px;
+      }
+
+      .comment-button {
+        height: 30px;
+        font-size: 0.8125rem;
+        vertical-align: 16px;
+        margin-left: 5px;
+        width: 74px;
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+
+    }
+
+    border-radius: 2px;
     background-color:$white;
     border:1px solid $lightGreenBorderGrey;
     box-sizing:border-box; margin:1rem;
-    .main{padding:1rem;
+
+    .main {
+      padding:1rem;
       header{ position:relative;
         .menu.fa{ color:$txtGrey; cursor:pointer; float:right; margin:0;}
         >nav{background-color:$white; -webkit-box-shadow:0 0 2px 1px rgba(0,0,0,.2); -moz-box-shadow: 0 0 2px 1px rgba(0,0,0,.2); box-shadow:0 0 2px 1px rgba(0,0,0,.2); display:none; font-size:.75rem; position:absolute; right:0; top:1rem;
@@ -616,15 +708,34 @@ post-input {
             }
           }
         }
-        img.ico{ border-radius:5px; float:left; height:3.125rem; width:3.125rem; }
-        .info{ float:left; margin-left:1rem;
-          h2{ font-size:.875rem; margin:0; }
+        img.ico {
+          border-radius: 5px;
+          float: left;
+          height: $iconMedium;
+          width: $iconMedium;
+        }
+        .info{
+
+          float: left;
+          margin-left: 1rem;
+          margin-top: -0.2rem;
+
+          h2 {
+            font-size :.875rem;
+            margin :0;
+            margin-bottom: -0.2rem;
+          }
           time{ color:$txtLightGrey; font-size:.75rem; }
           small{ color:$txtGrey; margin-right:.5rem; }
         }
       }
       section.detail{
-        p{ font-size:.875rem; }
+        p {
+          font-size: .8125rem;
+          margin-top: 1rem;
+          margin-bottom: 1.5rem;
+          margin-left: .2rem;
+        }
         section.img{ margin-bottom:.5rem;
           img{ float:left; max-height:250px; max-width:100%;}
         }
@@ -633,19 +744,52 @@ post-input {
         .pachun[role=button]{ float:right; }
       }
     }
-    .comments{ background-color:$lightGreenHeavyGrey; border-top:1px solid $lightGreenBorderGrey; box-sizing:border-box; padding:0 1rem;
+
+    // コメント
+    .comments {
+      aside.cf {
+        position: absolute;
+        top: 1.25rem;
+        right: 0px;
+        width: auto;
+      }
+
+      background-color:$lightGreenHeavyGrey; border-top:1px solid $lightGreenBorderGrey; box-sizing:border-box; padding:0 1rem;
       &>comment>article aside, section.input{ bottom:0; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; padding:0 0 .5rem 66px; width:100%; }
       &>comment>article{position:relative; padding-top:1rem;
         &:not(:first-of-type){border-top:1px solid $lightGreenBorderGrey;}
         &:not(:last-of-type){padding-bottom:1rem;}
         header{
-          img.ico{ border-radius:5px; float:left; height:3.125rem; width:3.125rem; }
+          img.ico{
+            border-radius:5px;
+            float:left;
+            height: $iconMicro;
+            width: $iconMicro;
+          }
         }
-        section.detail, aside, section.input{ position:static;}
-        section.detail{top:1rem; margin-left:66px; margin-top: -50px; width:auto;
-          h2{ display:inline-block; font-size:.875rem; margin:0 .5rem 0 0; }
+
+        section.detail, aside, section.input{
+          position: static;
+        }
+        section.detail{
+
+          top: 1rem;
+          margin-left: 2.5rem;
+          margin-top: -2.1rem;
+          width: auto;
+          padding-bottom: 0.8rem;
+
+          h2 {
+            display:inline-block;
+            font-size:.875rem;
+            margin:0 .5rem 0 0;
+          }
+
           time{ color:$txtLightGrey; font-size:.75rem;}
-          p{ font-size:.875rem; margin:.5rem 0; }
+          p {
+            font-size: 0.8125rem;
+            margin: .1rem 0;
+          }
           section.img{
             img{ max-height:200px; max-width:100%;}
           }

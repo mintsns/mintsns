@@ -1,0 +1,10 @@
+<!-- 新規ポスト -->
+<post-input #postInput (newPost)="newPost($event)" (onOpenZoneEditor)="openZoneEditor($event)" ></post-input>
+
+<!-- タイムライン -->
+<section class="cf" id="main" role="main">
+    <post *ngFor="let post of posts" [post]="post" ></post>
+</section>
+
+<!-- ゾーンエディタ -->
+<zone-editor #zoneEditor (onRenderZone)="renderPostInputZone()" ></zone-editor>

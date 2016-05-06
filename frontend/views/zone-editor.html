@@ -1,0 +1,43 @@
+<div #target class="modal" style="display: none;" >
+    <form #form="ngForm" (ngSubmit)="onSubmit()" name="form">
+        <div class="modal-cover" ></div>
+        <div class="modal-window" >
+            <div class="modal-close-button" (click)="onClickDisableModal()" >✕</div>
+            <div class="modal-header" >
+                ゾーンエディタ({{stream.name}})
+            </div>
+            <div class="modal-description" >
+                ポストの公開範囲と、ストリームのカスタマイズが行えます。
+            </div>
+            <div class="modal-body" >
+                <div [hidden]="stream.isHome" >
+                    <label class="label-checkbox"><input type="checkbox" [(ngModel)]="stream.useHomePostScope" > ホームのポスト公開範囲を使用する</label>
+                    <hr>
+                </div>
+                <div>
+                    <ul>
+                        <li *ngFor="let scopeStream of streams" >
+                            <label class="label-checkbox stream-item-label ">
+                                <input type="checkbox" [(ngModel)]="scopeStream.isIncludedPostScope" [disabled]="stream.useHomePostScope" (change)="onChangeScopeStream(scopeStream)" > {{scopeStream.name}}
+                            </label>
+                            <a class="stream-item-anchor" [hidden]="scopeStream.isPublic||scopeStream.isYourZone"  href="javascript:;" (click)="openZoneDetailEditor(scopeStream)" >ゾーンの編集</a>
+                            <span class="stream-item-span" [hidden]="!scopeStream.isPublic||scopeStream.isYourZone" >一般公開されます。</span>
+                            <span class="stream-item-span" [hidden]="scopeStream.isPublic||!scopeStream.isYourZone" >全てのゾーンを範囲にして投稿します。</span>
+                            <a class="stream-item-anchor remove-stream" href="javascript:;" (click)="removeStream(scopeStream)">✕</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer" >
+                <a href="javascript:;" (click)="onClickAddStream()" >+ ストリームの追加</a>
+            </div>
+            <div class="modal-buttons" >
+                <button class="btn" type="button" (click)="onClickDisableModal()" >キャンセル</button>
+                <button class="btn" type="submit">保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- ゾーン編集 -->
+<zone-detail-editor #zoneDetailEditor ></zone-detail-editor>

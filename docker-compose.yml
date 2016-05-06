@@ -1,0 +1,116 @@
+version: '2'
+services:
+
+  # python django rest api server
+  web:
+    restart: always
+    build:
+      dockerfile: Dockerfile_web
+      context: ./
+    expose:
+      - "8000"
+    depends_on:
+      - postgres
+      - redis
+      - grpc-go-server
+    volumes:
+      - ./docker_django:/usr/src/app/docker_django # to Development
+    volumes_from:
+      - www_data
+    env_file: .env
+    command: /entrypoint.sh
+
+  # nginx router
+  nginx:
+    restart: always
+    build: ./nginx/
+    ports:
+      - "80:80"
+    volumes_from:
+      - web
+      - www_data
+    depends_on:
+      - web
+    expose:
+      - "80"
+
+  # h2o router
+  h2o:
+    restart: always
+    build: ./h2o/
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+      - "443:8081"
+    volumes_from:
+      - web
+      - www_data
+    depends_on:
+      - web
+      - grpc-go-server
+    expose:
+      - "80"
+      - "443"
+      - "8080"
+      - "8081"
+
+  # database
+  postgres:
+    restart: always
+    image: postgres:latest
+    volumes_from:
+      - data
+    ports:
+      - "5432:5432"
+    expose:
+      - "5342"
+
+  # cache
+  redis:
+    restart: always
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+
+  # static file storage
+  www_data:
+    image: postgres:latest
+    volumes:
+      - ./data/www/static:/www/static
+      - ./frontend:/www/html
+    command: "true"
+
+  # db data storage
+  data:
+    image: postgres:latest
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql
+    command: "true"
+
+  # grpc go server
+  grpc-go-server:
+    build:
+      dockerfile: Dockerfile_grpc-go
+      context: ./
+    expose:
+      - 11111
+    ports:
+      - "11111:11111"
+    command: go run src/server.go
+
+  # grpc go client sample
+  grpc-go-client-sample:
+    build:
+      dockerfile: Dockerfile_grpc-go
+      context: ./
+    command: go run src/client-sample.go
+    depends_on:
+      - grpc-go-server
+
+
+
+
+
+

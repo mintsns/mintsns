@@ -49,13 +49,12 @@ docker-compose up
 
 ### Migrate
 ```
-docker-compose run web /usr/local/bin/python manage.py migrate
+docker-compose exec web /usr/local/bin/python manage.py migrate
 ```
 
 ### Create the super user
 ```
-docker-compose run web /usr/local/bin/python manage.py createsuperuser
-
+docker-compose exec web /usr/local/bin/python manage.py createsuperuser
 ```
 
 ### FIXME: next

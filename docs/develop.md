@@ -22,6 +22,11 @@ docker-compose kill && docker-compose up
 docker-compose kill h2o && docker-compose build h2o && docker-compose create h2o && docker-compose start h2o
 ```
 
+### web 調整
+```
+docker-compose kill web && docker-compose build web && docker-compose create web && docker-compose start web
+```
+
 ### IPを調べる
 ```
 docker-machine ls 

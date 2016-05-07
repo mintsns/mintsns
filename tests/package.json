@@ -1,0 +1,19 @@
+{
+  "name": "mintsns-integration-tests",
+  "version": "0.0.0",
+  "description": "Mint SNSの統合テスト",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-ts 'specs/**/*.spec.ts'"
+  },
+  "author": "Mint SNS",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jasmine-ts": "0.0.1",
+    "karma": "~0.12.9",
+    "tslint": "^3.9.0",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1"
+  }
+}

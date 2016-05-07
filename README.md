@@ -50,6 +50,8 @@ docker-compose up
 ### Migrate
 ```
 docker-compose exec web /usr/local/bin/python manage.py migrate
+docker-compose exec web /usr/local/bin/python manage.py makemigrations mintsns
+docker-compose exec web /usr/local/bin/python manage.py migrate
 ```
 
 ### Create the super user

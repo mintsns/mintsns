@@ -7,6 +7,7 @@ class Item(models.Model):
 
 class User(models.Model):
     name = models.CharField(max_length=32)
+    google_id = models.CharField(max_length=32)
     mail = models.EmailField()
 
 class Entry(models.Model):

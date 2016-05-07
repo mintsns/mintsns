@@ -7,9 +7,19 @@
 
 ## docker-compose
 
+### 事前準備
+```
+bash pre_download.sh
+```
+
 ### サーバー起動
 ```
 docker-compose kill && docker-compose up
+```
+
+### h2o 調整
+```
+docker-compose kill h2o && docker-compose build h2o && docker-compose create h2o && docker-compose start h2o
 ```
 
 ### IPを調べる

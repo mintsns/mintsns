@@ -27,6 +27,7 @@ Download URL: https://www.docker.com/products/docker-toolbox
 ## Docker
 
 ```
+bash pre_download.sh
 docker-machine             create \
     --driver               virtualbox \
     --virtualbox-memory    4096 \

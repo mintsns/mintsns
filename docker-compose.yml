@@ -7,6 +7,8 @@ services:
     build:
       dockerfile: Dockerfile_web
       context: ./
+    ports:
+      - "8000:8000"
     expose:
       - "8000"
     depends_on:
@@ -21,18 +23,18 @@ services:
     command: /entrypoint.sh
 
   # nginx router
-  nginx:
-    restart: always
-    build: ./nginx/
-    ports:
-      - "80:80"
-    volumes_from:
-      - web
-      - www_data
-    depends_on:
-      - web
-    expose:
-      - "80"
+  # nginx:
+  #   restart: always
+  #   build: ./nginx/
+  #   ports:
+  #     - "80:80"
+  #   volumes_from:
+  #     - web
+  #     - www_data
+  #   depends_on:
+  #     - web
+  #   expose:
+  #     - "80"
 
   # h2o router
   h2o:
@@ -41,6 +43,7 @@ services:
     ports:
       - "8080:8080"
       - "8081:8081"
+      - "80:80"
       - "443:8081"
     volumes_from:
       - web

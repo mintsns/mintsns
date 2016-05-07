@@ -1,0 +1,50 @@
+<div #target class="modal" style="display: none;" >
+    <form #form="ngForm" (ngSubmit)="onSubmit()" name="form">
+        <div class="modal-cover" ></div>
+        <div class="modal-window" >
+            <div class="modal-close-button" (click)="onClickDisableModal()" >✕</div>
+            <div class="modal-header" >
+                ゾーンの編集({{stream.name}})
+            </div>
+            <div class="modal-description" >
+                ポストの公開範囲と、ストリームのカスタマイズが行えます。
+            </div>
+            <div class="modal-body" >
+                <div>
+                    <div *ngFor="let orCondition of orConditions; let orConditionIndex = index " >
+                        <div class="zone-detail-or-condition-item" >
+                            <div class="zone-detail-or-condition-item-close-button" (click)="onClickRemoveOrCondition( orConditionIndex )" >✕</div>
+                            <div class="zone-detail-or-condition-item-description" >全てのルールに一致</div>
+                            <div>
+                                <div class="zone-detail-condition-item" *ngFor="let condition of orCondition.conditions;  let conditionIndex = index" >
+                                    <input class="tag" type="text" [(ngModel)]="condition.name" >
+                                    が
+                                    <input class="value" type="number" [(ngModel)]="condition.value" [disabled]="condition.conditionType == 2" >
+                                    <select class="condition" type="text" [(ngModel)]="condition.conditionType" >
+                                        <option value="0">以上</option>
+                                        <option value="1">以下</option>
+                                        <option value="2">除外</option>
+                                    </select>
+                                    <button class="minus" type="button" (click)="onClickRemoveCondition(orCondition, conditionIndex, orConditionIndex)" >-</button>
+                                    <button class="plus" type="button" (click)="onClickAddConditionWithOrCondition(orCondition, conditionIndex)" >+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="zone-detail-or-condition-margin" [hidden]="orConditions.length < 2 || orCondition === orConditions[orConditions.length-1] " >
+                            |<br>
+                            <div class="text" >または</div>
+                            |<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" >
+                <a href="javascript:;" (click)="onClickAddOrCondition()" >+ OR条件の追加</a>
+            </div>
+            <div class="modal-buttons" >
+                <button class="btn" type="button" (click)="onClickDisableModal()" >キャンセル</button>
+                <button class="btn" type="submit">保存</button>
+            </div>
+        </div>
+    </form>
+</div>

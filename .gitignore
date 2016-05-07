@@ -8,6 +8,8 @@
 
 # frontend
 /frontend/dist
+/frontend/bundle.css
+/frontend/bundle.js
 
 # node
 /frontend/node_modules

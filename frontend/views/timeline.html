@@ -1,8 +1,0 @@
-<!-- 新規ポスト -->
-<post-input (newPost)="newPost($event)" ></post-input>
-
-<!-- タイムライン -->
-<section class="cf" id="main" role="main">
-    <post *ngFor="let post of posts" [post]="post" ></post>
-</section>
-

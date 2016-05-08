@@ -2,10 +2,20 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Item
 from redis import Redis
+from rest_framework import viewsets, filters
+from .serializer import AdminUserSerializer
+from django.contrib.auth.models import User as AdminUser
 
 # TODO: grpc
 # from grpc.beta import implementations
 # from protos import customer_service_pb2
+
+# TODO: *SECURITY RISK* DELETE
+# ViewSets define the view behavior.
+class AdminUserViewSet(viewsets.ModelViewSet):
+    queryset = AdminUser.objects.all()
+    serializer_class = AdminUserSerializer
+
 
 redis = Redis(host='redis', port=6379)
 

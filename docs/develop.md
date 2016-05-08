@@ -22,10 +22,18 @@ docker-compose kill && docker-compose up
 docker-compose kill h2o && docker-compose build h2o && docker-compose create h2o && docker-compose start h2o
 ```
 
-### web 調整
+### ウェブサーバー再起動
+
+ビルドあり
 ```
 docker-compose kill web && docker-compose build web && docker-compose create web && docker-compose start web
 ```
+
+ビルドなし
+```
+docker-compose kill web && docker-compose start web
+```
+
 
 ### IPを調べる
 ```

@@ -5,6 +5,7 @@ from .db.models.fields.custom_fields import PositiveBigIntegerField
 
 
 
+
 # ユーザー
 class User(Model):
     name = CharField(max_length=32)
@@ -46,6 +47,7 @@ class Stream(Model):
     post_scope = ForeignKey(u'self',blank=True,null=True)
     use_home_post_scope = BooleanField(default=False)
     is_included_post_scope = BooleanField(default=False)
+    user = ForeignKey(User, related_name='user', null=False, default=False)
 
 
 #----------------------------------------------------------------------------------------

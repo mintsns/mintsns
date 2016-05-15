@@ -12,9 +12,9 @@
 bash pre_download.sh
 ```
 
-### サーバー起動
+### サーバー強制再起動
 ```
-docker-compose kill && docker-compose up
+docker-compose kill && docker-compose up --remove-orphans
 ```
 
 ### h2o 調整
@@ -34,6 +34,11 @@ docker-compose kill web && docker-compose build web && docker-compose create web
 docker-compose kill web && docker-compose start web
 ```
 
+### DBマイグレーション(webが起動している状態で)
+```
+docker-compose exec web /usr/local/bin/python manage.py makemigrations mintsns
+docker-compose exec web /usr/local/bin/python manage.py migrate
+```
 
 ### IPを調べる
 ```

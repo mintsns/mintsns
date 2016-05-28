@@ -60,11 +60,38 @@ services:
   # database
   postgres:
     restart: always
-    image: postgres:latest
+    image: sameersbn/postgresql:9.4-21
     volumes_from:
       - data
+    environment:
+      - DB_USER=mintsns
+      - DB_PASS=mintsns
+      - DB_NAME=mintsns
+      - REPLICATION_USER=mintsns_repl
+      - REPLICATION_PASS=mintsns_repl
     ports:
       - "5432:5432"
+    expose:
+      - "5342"
+
+  # database node
+  postgres_node:
+    restart: always
+    image: sameersbn/postgresql:9.4-21
+    depends_on:
+      - postgres
+    environment:
+      - DB_USER=mintsns
+      - DB_PASS=mintsns
+      - DB_NAME=mintsns
+      - REPLICATION_MODE=slave
+      - REPLICATION_SSLMODE=prefer
+      - REPLICATION_HOST=postgres
+      - REPLICATION_PORT=5432
+      - REPLICATION_USER=mintsns_repl
+      - REPLICATION_PASS=mintsns_repl
+    volumes_from:
+      - data_node
     expose:
       - "5342"
 
@@ -79,7 +106,7 @@ services:
 
   # static file storage
   www_data:
-    image: postgres:latest
+    image: sameersbn/postgresql:9.4-21
     volumes:
       - ./data/www/static:/www/static
       - ./frontend:/www/html
@@ -87,9 +114,16 @@ services:
 
   # db data storage
   data:
-    image: postgres:latest
+    image: sameersbn/postgresql:9.4-21
     volumes:
       - ./data/postgresql:/var/lib/postgresql
+    command: "true"
+
+  # db data storage(dev)
+  data_node:
+    image: sameersbn/postgresql:9.4-21
+    volumes:
+      - ./data/postgresql_node:/var/lib/postgresql
     command: "true"
 
   # timeline data strage

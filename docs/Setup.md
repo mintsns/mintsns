@@ -1,6 +1,8 @@
 # Setup
 
-## Install the `node` and `npm` to your development environment
+## Node
+
+### Install the `node` and `npm` to your development environment
 
 Download URL: https://nodejs.org/en/
 
@@ -8,19 +10,19 @@ Download URL: https://nodejs.org/en/
 sudo chown -R <username>:staff /usr/local/lib/node_modules
 ```
 
-## Install the npm packages
+### Install the npm packages
 
 ```
 npm install
 ```
 
-## Install the `docker-machine` to your development environment
+## Docker
+
+### Install the `docker-machine` to your development environment
 
 Download URL: https://www.docker.com/products/docker-toolbox
 
 (or [Docker for Mac](https://blog.docker.com/2016/03/docker-for-mac-windows-beta/) )
-
-## Docker
 
 ```
 bash pre_download.sh
@@ -36,69 +38,55 @@ docker-compose build
 docker-compose up
 ```
 
-## Rebuild
+### Rebuild
 ```
 docker-compose stop
 docker-compose build
 docker-compose up
 ```
 
-## Migrate
+### Migrate
 ```
 docker-compose exec web /usr/local/bin/python manage.py migrate
 docker-compose exec web /usr/local/bin/python manage.py makemigrations mintsns
 docker-compose exec web /usr/local/bin/python manage.py migrate
 ```
 
-## Create the super user
+### Create the super user
 ```
 docker-compose exec web /usr/local/bin/python manage.py createsuperuser
 ```
 
-## FIXME: next
-
-## Features
-
-FIXME: write
-
 ## Git book
 
-## Install
+### Install
 ```
 npm install -g gitbook-cli(or -> sudo npm install -g gitbook-cli)
 cd docs
 ```
 
-## Build
+### Build
 ```
 cd docs
 gitbook build
 ```
 
-## serve
+### serve
 ```
 cd docs
 gitbook serve
 ```
 
-## Frontend
+### Frontend
 
-## build
+#### build
 ```
 cd frontend
 npm run build 
 ```
 
-## watch
+#### watch
 ```
 cd frontend
 npm run watch
 ```
-
-
-## Reference URL
-* [Django REST framework](http://www.django-rest-framework.org/)
-* [Django Development With Docker Compose and Machine](https://realpython.com/blog/python/django-development-with-docker-compose-and-machine/)
-
-## Features
-TODO: write

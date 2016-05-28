@@ -1,5 +1,6 @@
 # Summary
 
+* [Setup](Setup.md)
 * [mintsnsとは？](overview.md)
 * [開発系コマンド](develop.md)
 * [フロントエンド設計](frontend.md)

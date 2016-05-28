@@ -1,6 +1,7 @@
 # KVS設計
 
-Post と Comment に対して使用する
+* Post と Comment に対して使用する
+* 時系列データベース検討
 
 ## キー設計
 
@@ -26,3 +27,7 @@ Post と Comment に対して使用する
   * キーセパレータを使い XXX の部分を分割する
 * 例
   * `2001-08-02T10:45:23.5Z|1|XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX|@∃⊥∃@|post|@∃⊥∃@|YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY|@∃⊥∃@|0000000000000000|@∃⊥∃@|public|@∃⊥∃@|0|@∃⊥∃@|zone_name|∃∠⊥|u5|⊥∠∃∠⊥∃|`
+
+
+## 分散KVS
+

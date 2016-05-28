@@ -92,6 +92,20 @@ services:
       - ./data/postgresql:/var/lib/postgresql
     command: "true"
 
+  # timeline data strage
+  timeline_data:
+    image: tutum/influxdb
+    volumes:
+      - ./data/timeline:/data
+    command: "true"
+
+  # timeline data strage(dev)
+  timeline_node_data:
+    image: tutum/influxdb
+    volumes:
+      - ./data/timeline_node:/data
+    command: "true"
+
   # grpc go server
   grpc-go-server:
     build:
@@ -111,6 +125,36 @@ services:
     command: go run src/client-sample.go
     depends_on:
       - grpc-go-server
+
+  # influxdb for timeline
+  influxdb:
+    restart: always
+    build: ./influxdb/
+    volumes_from:
+      - timeline_data
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+      - "8099:8099"
+      - "8088:8088"
+    environment:
+      - FORCE_HOSTNAME=influxdb:8088
+
+  # influxdb node for timeline(dev)
+  influxdb_node:
+    restart: always
+    build: ./influxdb/
+    volumes_from:
+          - timeline_node_data
+    depends_on:
+      - influxdb
+    external_links:
+      - influxdb:influxdb_master
+    environment:
+      - FORCE_HOSTNAME=influxdb_node:8088
+      - JOIN=influxdb:8088
+
 
 
 

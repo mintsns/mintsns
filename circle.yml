@@ -8,7 +8,7 @@ machine:
 dependencies:
   pre:
     - pip install docker-compose
+    - bash pre_download.sh
 test:
   pre:
-    - bash pre_download.sh
     - docker-compose build

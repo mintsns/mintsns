@@ -36,6 +36,7 @@ docker-compose kill web && docker-compose start web
 
 ### DBマイグレーション(webが起動している状態で)
 ```
+docker-compose exec web /usr/local/bin/python manage.py migrate
 docker-compose exec web /usr/local/bin/python manage.py makemigrations mintsns
 docker-compose exec web /usr/local/bin/python manage.py migrate
 ```

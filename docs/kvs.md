@@ -1,5 +1,6 @@
 # KVS設計
 
+* <span style="color:red;"> InfluxDBによる設計になる可能性があります </span>
 * Post と Comment に対して使用する
 * 時系列データベース検討
 

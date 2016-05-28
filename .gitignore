@@ -39,3 +39,8 @@ __pycache__
 
 # cache
 *.swp
+
+
+# data
+/data/
+!/data/.gitkeep

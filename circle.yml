@@ -8,4 +8,5 @@ dependencies:
 
 test:
   pre:
+    - bash pre_download.sh
     - docker-compose up -d

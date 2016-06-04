@@ -118,6 +118,13 @@ services:
     volumes:
       - ./data/postgresql:/var/lib/postgresql
     command: "true"
+  
+  # db data storage
+  postgres_xl_data:
+    image: busybox
+    volumes:
+      - ./data/postgresql_xl:/var/lib/postgresql
+    command: "true"
 
   # db data storage(dev)
   data_node:
@@ -188,6 +195,23 @@ services:
     environment:
       - FORCE_HOSTNAME=influxdb_node:8088
       - JOIN=influxdb:8088
+  
+  # database
+  postgres_xl:
+    restart: always
+    build: ./postgres_xl/
+    volumes_from:
+      - postgres_xl_data
+    environment:
+      - DB_USER=mintsns
+      - DB_PASS=mintsns
+      - DB_NAME=mintsns
+      - REPLICATION_USER=mintsns_repl
+      - REPLICATION_PASS=mintsns_repl
+    # ports:
+    #   - "5432:5432"
+    expose:
+      - "5342"
 
 
 

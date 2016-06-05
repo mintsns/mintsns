@@ -123,7 +123,7 @@ services:
   postgres_xl_data:
     image: busybox
     volumes:
-      - ./data/postgresql_xl:/var/lib/postgresql
+      - ./data/postgresql_xl:/usr/local/pgsql/data/
     command: "true"
 
   # db data storage(dev)

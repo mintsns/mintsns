@@ -1,6 +1,6 @@
 FROM debian:jessie
 RUN apt-get update
-RUN apt-get install -y sudo supervisor make apt-utils unzip wget gcc bison flex libreadline6 libreadline6-dev zlib1g zlib1g-dev
+RUN apt-get install -y postgresql-client sudo supervisor make apt-utils unzip wget gcc bison flex libreadline6 libreadline6-dev zlib1g zlib1g-dev
 WORKDIR /usr/local/src
 
 # build
@@ -26,7 +26,9 @@ COPY create_db.sh /bin/create_db.sh
 RUN chmod +x /bin/create_db.sh
 WORKDIR /opt/supervisord
 COPY supervisord.conf /etc/supervisord.conf
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-
-# DB初期化
-# docker-compose exec postgres_xl /bin/create_db.sh
+COPY entrypoint.sh /bin/entrypoint.sh
+RUN chmod +x /bin/entrypoint.sh
+COPY create_node.sh /bin/create_node.sh
+RUN chmod +x /bin/create_node.sh
+CMD ["/bin/bash"]
+ENTRYPOINT /bin/entrypoint.sh

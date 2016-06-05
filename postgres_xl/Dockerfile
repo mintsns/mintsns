@@ -3,6 +3,9 @@ RUN apt-get update
 RUN apt-get install -y postgresql-client sudo supervisor make apt-utils unzip wget gcc bison flex libreadline6 libreadline6-dev zlib1g zlib1g-dev
 WORKDIR /usr/local/src
 
+# mode(master|node)
+ARG mode
+
 # build
 ARG postgres_xl_src=postgres-xl-9.5r1.1
 RUN wget http://files.postgres-xl.org/${postgres_xl_src}.tar.gz
@@ -19,16 +22,24 @@ RUN make install
 # add user
 RUN yes | adduser postgres
 
-# start server
-USER root
+# copy
 WORKDIR /usr/local/src
-COPY create_db.sh /bin/create_db.sh
-RUN chmod +x /bin/create_db.sh
-WORKDIR /opt/supervisord
-COPY supervisord.conf /etc/supervisord.conf
-COPY entrypoint.sh /bin/entrypoint.sh
+USER root
+
+# copy
+COPY supervisord_${mode}.conf /etc/supervisord.conf
+COPY create_${mode}.sh /bin/create_${mode}.sh
+COPY connect_${mode}.sh /bin/connect_${mode}.sh 
+COPY entrypoint_${mode}.sh /bin/entrypoint.sh
+
+# chmod
+RUN chmod +x /bin/create_${mode}.sh
+RUN chmod +x /bin/connect_${mode}.sh
 RUN chmod +x /bin/entrypoint.sh
-COPY create_node.sh /bin/create_node.sh
-RUN chmod +x /bin/create_node.sh
+
+RUN echo $mode
+
+# start server
+WORKDIR /opt/supervisord
 CMD ["/bin/bash"]
 ENTRYPOINT /bin/entrypoint.sh

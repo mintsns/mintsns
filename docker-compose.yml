@@ -126,6 +126,13 @@ services:
       - ./data/postgresql_xl:/usr/local/pgsql/data/
     command: "true"
 
+  # db data storage
+  postgres_xl_node_data:
+    image: busybox
+    volumes:
+      - ./data/postgresql_node_xl:/usr/local/pgsql/data/
+    command: "true"
+
   # db data storage(dev)
   data_node:
     image: sameersbn/postgresql:9.4-21
@@ -199,7 +206,10 @@ services:
   # database
   postgres_xl:
     restart: always
-    build: ./postgres_xl/
+    build: 
+      context: ./postgres_xl/
+      args:
+        mode: master
     volumes_from:
       - postgres_xl_data
     environment:
@@ -212,6 +222,25 @@ services:
     #   - "5432:5432"
     expose:
       - "5342"
+
+  # database
+  # postgres_xl_node:
+  #   restart: always
+  #   build: 
+  #     dockerfile: ./postgres_xl/
+  #     context: ./postgres_xl/
+  #   volumes_from:
+  #     - postgres_xl_node_data
+  #   environment:
+  #     - DB_USER=mintsns
+  #     - DB_PASS=mintsns
+  #     - DB_NAME=mintsns
+  #     - REPLICATION_USER=mintsns_repl
+  #     - REPLICATION_PASS=mintsns_repl
+  #   # ports:
+  #   #   - "5432:5432"
+  #   expose:
+  #     - "5342"
 
 
 

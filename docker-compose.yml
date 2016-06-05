@@ -130,7 +130,7 @@ services:
   postgres_xl_node_data:
     image: busybox
     volumes:
-      - ./data/postgresql_node_xl:/usr/local/pgsql/data/
+      - ./data/postgresql_xl_node:/usr/local/pgsql/data/
     command: "true"
 
   # db data storage(dev)

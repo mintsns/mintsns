@@ -222,25 +222,32 @@ services:
     #   - "5432:5432"
     expose:
       - "5342"
+      - "6666"
+      - "40100"
 
   # database
-  # postgres_xl_node:
-  #   restart: always
-  #   build: 
-  #     dockerfile: ./postgres_xl/
-  #     context: ./postgres_xl/
-  #   volumes_from:
-  #     - postgres_xl_node_data
-  #   environment:
-  #     - DB_USER=mintsns
-  #     - DB_PASS=mintsns
-  #     - DB_NAME=mintsns
-  #     - REPLICATION_USER=mintsns_repl
-  #     - REPLICATION_PASS=mintsns_repl
-  #   # ports:
-  #   #   - "5432:5432"
-  #   expose:
-  #     - "5342"
+  postgres_xl_node:
+    restart: always
+    build: 
+      context: ./postgres_xl/
+      args:
+        mode: node
+    volumes_from:
+      - postgres_xl_node_data
+    depends_on:
+      - postgres_xl
+    environment:
+      - DB_USER=mintsns
+      - DB_PASS=mintsns
+      - DB_NAME=mintsns
+      - REPLICATION_USER=mintsns_repl
+      - REPLICATION_PASS=mintsns_repl
+    # ports:
+    #   - "5432:5432"
+    expose:
+      - "5342"
+      - "6666"
+      - "40101"
 
 
 

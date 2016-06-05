@@ -1,6 +1,6 @@
 # create db
-if [ $(ls -1 /usr/local/pgsql/data/data_datanode | wc -l) -ge 1 ]; then
-  bash /bin/create_node.sh
+if [ ! -d /usr/local/pgsql/data/data_datanode ]; then
+  /bin/create_node.sh
 fi
 
 # connect 

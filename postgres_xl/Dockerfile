@@ -1,6 +1,9 @@
 FROM debian:jessie
 RUN apt-get update
-RUN apt-get install -y vim net-tools lsof postgresql-client sudo supervisor make apt-utils unzip wget gcc bison flex libreadline6 libreadline6-dev zlib1g zlib1g-dev
+RUN apt-get install -y vim net-tools lsof postgresql-client
+RUN apt-get install -y sudo supervisor make apt-utils
+RUN apt-get install -y unzip wget gcc bison flex
+RUN apt-get install -y libreadline6 libreadline6-dev zlib1g zlib1g-dev
 WORKDIR /usr/local/src
 
 # mode(master|node)

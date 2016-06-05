@@ -1,3 +1,5 @@
+#!/bin/bash
+
 is_loop=true
 while $is_loop; do
   echo "create_node --> 接続待機中..."
@@ -12,11 +14,10 @@ done
 
 echo "create_node --> ノード作成開始"
 
-# create node ( coord1 -> node1, node2 )
+# alter node coordinator
 sudo -u postgres  /usr/local/pgsql/bin/psql -c "ALTER NODE coord1 WITH (TYPE = 'coordinator', PORT = 5432)" postgres
 
 # test
 sudo -u postgres /usr/local/pgsql/bin/psql -c "SELECT pgxc_pool_reload()" postgres
-sudo -u postgres /usr/local/pgsql/bin/createdb test
 
 echo "create_node --> ノード作成完了"

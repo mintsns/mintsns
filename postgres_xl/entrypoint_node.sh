@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # create db
 if [ ! -d /usr/local/pgsql/data/data_datanode ]; then
   /bin/create_node.sh

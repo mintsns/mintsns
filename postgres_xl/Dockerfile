@@ -29,6 +29,9 @@ RUN yes | adduser postgres
 WORKDIR /usr/local/src
 USER root
 
+# debug
+RUN apt-get install -y nmap
+
 # copy
 COPY supervisord_${mode}.conf /etc/supervisord.conf
 COPY create_${mode}.sh /bin/create_${mode}.sh
@@ -39,8 +42,6 @@ COPY entrypoint_${mode}.sh /bin/entrypoint.sh
 RUN chmod +x /bin/create_${mode}.sh
 RUN chmod +x /bin/connect_${mode}.sh
 RUN chmod +x /bin/entrypoint.sh
-
-RUN echo $mode
 
 # start server
 WORKDIR /opt/supervisord

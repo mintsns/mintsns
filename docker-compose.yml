@@ -72,7 +72,7 @@ services:
     ports:
       - "5432:5432"
     expose:
-      - "5342"
+      - "5432"
 
   # database node
   postgres_node:
@@ -93,7 +93,7 @@ services:
     volumes_from:
       - data_node
     expose:
-      - "5342"
+      - "5432"
 
   # cache
   redis:
@@ -221,7 +221,7 @@ services:
     # ports:
     #   - "5432:5432"
     expose:
-      - "5342"
+      - "5432"
       - "6666"
       - "40100"
 
@@ -245,7 +245,7 @@ services:
     # ports:
     #   - "5432:5432"
     expose:
-      - "5342"
+      - "5432"
       - "6666"
       - "40101"
 

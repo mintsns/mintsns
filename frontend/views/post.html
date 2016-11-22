@@ -1,0 +1,68 @@
+<!-- ポスト -->
+<article #target class="post img">
+	<section class="main">
+		<header class="cf">
+			<i class="fa menu fa-sort-desc"></i>
+
+			<!-- TODO: nav -->
+			<nav role="navigation">
+				<ul>
+					<li><i class="fa fa-pencil-square-o"></i>edit</li>
+					<li><i class="fa fa-times"></i>delete</li>
+				</ul>
+			</nav>
+
+			<img class="ico" src="{{post.user.iconUrlMedium}}" alt="{{post.user.name}}" />
+			<section class="cf info">
+				<h2>{{post.user.name}}</h2>
+				<!--<small><i class="fa fa-tags"></i>進捗状況</small>-->
+				<!-- TODO: 人に対してタグは持っているが、投稿ごとにタグは持っていない(Google+と同じで限定公開サークル的なものはあるので、実質的にタグと同じセグメントが切れます) -->
+				<small>Public</small>
+				<time> {{post.addTime | timeAgo}}</time>
+			</section>
+		</header>
+		<section class="detail">
+			<p [innerHTML]="post.message | message" ></p>
+
+			<!-- TODO: 画像 -->
+			<!--<section class="img cf">-->
+				<!--<img src="/lib/img/img_dummy001.jpg" alt="dummy" />-->
+			<!--</section>-->
+
+		</section>
+		<div class="aside cf">
+			<ul class="buttons">
+				<li [hidden]="isOpenComment" (click)="openComment()" ><a class="comment">コメントしよう</a></li>
+				<!-- TODO: share -->
+				<li><a class="share" role="button"><i class="fa fa-share-alt"></i></a></li>
+				<!-- TODO: lamp -->
+				<li><a class="pachun" role="button"><i class="fa fa-lightbulb-o"></i></a></li>
+			</ul>
+		</div>
+	</section>
+	<section class="comments">
+		<comment *ngFor="let comment of post.comments" [comment]="comment" ></comment>
+	</section>
+
+	<!-- コメント投稿 -->
+	<section class="comment-input" [hidden]="!isOpenComment" [ngClass]="{ 'has-comments': post.comments.length }" >
+		<img class="ico" src="{{post.user.iconUrlMedium}}" alt="{{post.user.name}}" />
+		<textarea
+				#commentTextarea
+				class="comment-textarea"
+				[(ngModel)]="comment.message"
+                (keydown)=" onInputAreaKeydown($event) "
+        ></textarea>
+		<button
+				tabindex="1"
+				class="btn comment-button"
+				type="button"
+				role="button"
+				(click)="onSendComment()"
+				(keydown)=" $event.keyCode === 13 && onSendComment()"
+				[ngClass]="{active: comment.message }"
+				[disabled]="!comment.message"
+		>Comment</button>
+
+	</section>
+</article>

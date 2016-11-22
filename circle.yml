@@ -1,0 +1,14 @@
+machine:
+  pre:
+    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+  services:
+    - docker
+  timezone: Asia/Tokyo
+
+dependencies:
+  pre:
+    - pip install docker-compose
+    - bash pre_download.sh
+test:
+  pre:
+    - docker-compose build

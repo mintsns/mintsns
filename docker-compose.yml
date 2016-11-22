@@ -1,0 +1,257 @@
+version: '2'
+services:
+
+  # python django rest api server
+  web:
+    restart: always
+    build:
+      dockerfile: Dockerfile_web
+      context: ./
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+    depends_on:
+      - postgres
+      - redis
+      - grpc-go-server
+    volumes:
+      - ./docker_django:/usr/src/app/docker_django # to Development
+    volumes_from:
+      - www_data
+    env_file: .env
+    command: /entrypoint.sh
+
+  # nginx router
+  # nginx:
+  #   restart: always
+  #   build: ./nginx/
+  #   ports:
+  #     - "80:80"
+  #   volumes_from:
+  #     - web
+  #     - www_data
+  #   depends_on:
+  #     - web
+  #   expose:
+  #     - "80"
+
+  # h2o router
+  h2o:
+    restart: always
+    build: ./h2o/
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+      - "80:8080"
+      - "443:8081"
+    volumes_from:
+      - web
+      - www_data
+    depends_on:
+      - web
+      - grpc-go-server
+    expose:
+      - "80"
+      - "443"
+      - "8080"
+      - "8081"
+
+  # database
+  postgres:
+    restart: always
+    image: sameersbn/postgresql:9.4-21
+    volumes_from:
+      - data
+    environment:
+      - DB_USER=mintsns
+      - DB_PASS=mintsns
+      - DB_NAME=mintsns
+      - REPLICATION_USER=mintsns_repl
+      - REPLICATION_PASS=mintsns_repl
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+
+  # database node
+  postgres_node:
+    restart: always
+    image: sameersbn/postgresql:9.4-21
+    depends_on:
+      - postgres
+    environment:
+      - DB_USER=mintsns
+      - DB_PASS=mintsns
+      - DB_NAME=mintsns
+      - REPLICATION_MODE=slave
+      - REPLICATION_SSLMODE=prefer
+      - REPLICATION_HOST=postgres
+      - REPLICATION_PORT=5432
+      - REPLICATION_USER=mintsns_repl
+      - REPLICATION_PASS=mintsns_repl
+    volumes_from:
+      - data_node
+    expose:
+      - "5432"
+
+  # cache
+  redis:
+    restart: always
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+
+  # static file storage
+  www_data:
+    image: sameersbn/postgresql:9.4-21
+    volumes:
+      - ./data/www/static:/www/static
+      - ./frontend:/www/html
+    command: "true"
+
+  # db data storage
+  data:
+    image: sameersbn/postgresql:9.4-21
+    volumes:
+      - ./data/postgresql:/var/lib/postgresql
+    command: "true"
+  
+  # db data storage
+  postgres_xl_data:
+    image: busybox
+    volumes:
+      - ./data/postgresql_xl:/usr/local/pgsql/data/
+    command: "true"
+
+  # db data storage
+  postgres_xl_node_data:
+    image: busybox
+    volumes:
+      - ./data/postgresql_xl_node:/usr/local/pgsql/data/
+    command: "true"
+
+  # db data storage(dev)
+  data_node:
+    image: sameersbn/postgresql:9.4-21
+    volumes:
+      - ./data/postgresql_node:/var/lib/postgresql
+    command: "true"
+
+  # timeline data strage
+  timeline_data:
+    image: tutum/influxdb
+    volumes:
+      - ./data/timeline:/data
+    command: "true"
+
+  # timeline data strage(dev)
+  timeline_node_data:
+    image: tutum/influxdb
+    volumes:
+      - ./data/timeline_node:/data
+    command: "true"
+
+  # grpc go server
+  grpc-go-server:
+    build:
+      dockerfile: Dockerfile_grpc-go
+      context: ./
+    expose:
+      - 11111
+    ports:
+      - "11111:11111"
+    command: go run src/server.go
+
+  # grpc go client sample
+  grpc-go-client-sample:
+    build:
+      dockerfile: Dockerfile_grpc-go
+      context: ./
+    command: go run src/client-sample.go
+    depends_on:
+      - grpc-go-server
+
+  # influxdb for timeline
+  influxdb:
+    restart: always
+    build: ./influxdb/
+    volumes_from:
+      - timeline_data
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+      - "8099:8099"
+      - "8088:8088"
+    environment:
+      - FORCE_HOSTNAME=influxdb:8088
+
+  # influxdb node for timeline(dev)
+  influxdb_node:
+    restart: always
+    build: ./influxdb/
+    volumes_from:
+          - timeline_node_data
+    depends_on:
+      - influxdb
+    external_links:
+      - influxdb:influxdb_master
+    environment:
+      - FORCE_HOSTNAME=influxdb_node:8088
+      - JOIN=influxdb:8088
+  
+  # database
+  postgres_xl:
+    restart: always
+    build: 
+      context: ./postgres_xl/
+      args:
+        mode: master
+    volumes_from:
+      - postgres_xl_data
+    environment:
+      - DB_USER=mintsns
+      - DB_PASS=mintsns
+      - DB_NAME=mintsns
+      - REPLICATION_USER=mintsns_repl
+      - REPLICATION_PASS=mintsns_repl
+    # ports:
+    #   - "5432:5432"
+    expose:
+      - "5432"
+      - "6666"
+      - "40100"
+
+  # database
+  postgres_xl_node:
+    restart: always
+    build: 
+      context: ./postgres_xl/
+      args:
+        mode: node
+    volumes_from:
+      - postgres_xl_node_data
+    depends_on:
+      - postgres_xl
+    environment:
+      - DB_USER=mintsns
+      - DB_PASS=mintsns
+      - DB_NAME=mintsns
+      - REPLICATION_USER=mintsns_repl
+      - REPLICATION_PASS=mintsns_repl
+    # ports:
+    #   - "5432:5432"
+    expose:
+      - "5432"
+      - "6666"
+      - "40101"
+
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+# Ansible
+/setup/ansible/group_vars/development.yml
+/setup/ansible/group_vars/production.yml
+/setup/ansible/group_vars/staging.yml
+
+#Mac
+.DS_Store
+
+# frontend
+/frontend/dist
+/frontend/bundle.css
+/frontend/bundle.js
+
+# node
+/frontend/node_modules
+/node_modules/
+node_modules
+npm-debug.log
+
+# InteliJ IDEA
+.idea
+*.iml
+*.db
+.DS_Store
+venv
+env
+
+# python
+__pycache__
+
+# data
+/data/postgresql/*
+/data/www/static/*
+!/data/www/static/.gitkeep
+/tmp
+
+# gitbook
+/docs/_book
+
+# cache
+*.swp
+
+
+# data
+/data/
+!/data/.gitkeep

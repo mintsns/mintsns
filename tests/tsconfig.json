@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "declaration": true,
+        "removeComments": true,
+        "sourceMap": true
+    },
+    "exclude": [
+        "typings/main/ambient/jasmine/index.d.ts",
+        "typings/browser/ambient/jasmine/index.d.ts",
+        "typings/browser.d.ts",
+        "node_modules"
+    ]
+}

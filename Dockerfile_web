@@ -1,0 +1,102 @@
+FROM python:3.5.1
+
+# build protos
+WORKDIR /usr/src/app
+COPY tmp/protoc /usr/local/bin/protoc
+COPY protos /usr/src/app/protos
+RUN bash -c "source /etc/profile && source ~/.bashrc && cd /usr/src/app/protos && protoc --python_out=plugins=grpc:. customer_service.proto"
+
+# protobuf
+WORKDIR /usr/src/app
+COPY tmp/protobuf-3.0.0-beta-2/python/google google
+RUN cp google/protobuf/descriptor.py google/protobuf/descriptor_pb2.py
+
+# pip
+WORKDIR /usr/src/app
+RUN pip install --upgrade pip
+
+# library
+WORKDIR /usr/src/app
+RUN apt-get update
+RUN apt-get install -y build-essential
+RUN apt-get install -y curl
+RUN apt-get install -y git
+RUN apt-get install -y ruby
+RUN apt-get install -y sudo
+RUN apt-get install -y gcc
+RUN apt-get install -y libevent-dev
+RUN apt-get install -y autoconf
+RUN apt-get install -y libtool
+
+# python permission
+# RUN chmod -R 777 /usr/local/lib/python3.4 || true
+WORKDIR /usr/src/app
+RUN chmod -R 777 /usr/local/lib/python3.5 || true
+
+# TODO: grpcが3.5に対応したら導入する
+
+# TODO: # linuxbrew
+# TODO: RUN useradd -m -s /bin/bash linuxbrew
+# TODO: RUN echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
+# TODO: USER linuxbrew
+# TODO: WORKDIR /home/linuxbrew
+# TODO: ENV PATH /home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH
+# TODO: USER root
+# TODO: 
+# TODO: # grpc
+# TODO: USER linuxbrew
+# TODO: WORKDIR /home/linuxbrew
+# TODO: ENV SHELL /bin/bash
+# TODO: RUN yes |ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/linuxbrew/go/install)"
+# TODO: RUN brew doctor || true
+# TODO: RUN curl -fsSL https://goo.gl/getgrpc | bash -s python
+# TODO: USER root
+
+# grpc
+# COPY tmp/grpc-release-0_12_0 grpc-release-0_12_0
+# RUN cd grpc-release-0_12_0/src/python/grpcio && \
+#     python setup.py install
+
+# grpc
+# WORKDIR /usr/src/
+# COPY tmp/grpc-release-0_13_1 grpc-release-0_13_1
+# RUN echo "done";
+# RUN cd grpc-release-0_13_1 && \
+#     python setup.py install
+
+# grpc
+# RUN pip install --upgrade grpcio
+# RUN pip install grpcio==0.13.1 --global-option=build_ext --global-option="-I/usr/local/Cellar/grpc/0.11.1/include" --global-option="-L/usr/local/Cellar/grpc/0.11.1/lib"
+    
+# COPY tmp/grpc-release-0_12_0/src/python/grpcio/grpc grpc
+# FIXME: grpcを pythonからimportできるようにする
+
+# TODO: RUN cd protobuf-3.0.0-beta-2 && \
+# TODO:     ./configure && \
+# TODO:     make && \
+# TODO:     make intall
+
+# grpc
+# RUN echo "deb http://ftp.us.debian.org/debian jessie-backports main" | tee -a /etc/apt/sources.list
+# ENV GRPC_VERSION 2.19-18+deb8u4
+# ENV GRPC_PYTHON_VERSION 0.13.1
+# RUN apt-get update 
+# RUN apt-get install -y -q libgrpc-dev=${GRPC_VERSION}
+# RUN pip install --upgrade grpcio==${GRPC_PYTHON_VERSION}
+
+# django
+WORKDIR /usr/src/app
+RUN pip install django
+RUN pip install djangorestframework
+RUN pip install markdown
+RUN pip install django-filter 
+RUN pip install six
+RUN pip install gunicorn
+RUN pip install psycopg2
+RUN pip install redis
+
+# config
+WORKDIR /usr/src/app
+COPY web/manage.py /usr/src/app/manage.py
+COPY web/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh

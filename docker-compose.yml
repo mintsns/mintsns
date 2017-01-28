@@ -3,7 +3,7 @@ services:
 
   # python django rest api server
   web:
-    restart: always
+    restart: none
     build:
       dockerfile: Dockerfile_web
       context: ./
@@ -24,7 +24,7 @@ services:
 
   # nginx router
   # nginx:
-  #   restart: always
+  #   restart: none
   #   build: ./nginx/
   #   ports:
   #     - "80:80"
@@ -38,7 +38,7 @@ services:
 
   # h2o router
   h2o:
-    restart: always
+    restart: none
     build: ./h2o/
     ports:
       - "8080:8080"
@@ -59,7 +59,7 @@ services:
 
   # database
   postgres:
-    restart: always
+    restart: none
     image: sameersbn/postgresql:9.4-21
     volumes_from:
       - data
@@ -76,7 +76,7 @@ services:
 
   # database node
   postgres_node:
-    restart: always
+    restart: none
     image: sameersbn/postgresql:9.4-21
     depends_on:
       - postgres
@@ -97,7 +97,7 @@ services:
 
   # cache
   redis:
-    restart: always
+    restart: none
     image: redis:latest
     ports:
       - "6379:6379"
@@ -169,7 +169,7 @@ services:
 
   # influxdb for timeline
   influxdb:
-    restart: always
+    restart: none
     build: ./influxdb/
     volumes_from:
       - timeline_data
@@ -184,7 +184,7 @@ services:
 
   # influxdb node for timeline(dev)
   influxdb_node:
-    restart: always
+    restart: none
     build: ./influxdb/
     volumes_from:
           - timeline_node_data
@@ -198,7 +198,7 @@ services:
   
   # database
   postgres_xl:
-    restart: always
+    restart: none
     build: ./postgres_xl/
     volumes_from:
       - postgres_xl_data

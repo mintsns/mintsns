@@ -1,5 +1,7 @@
 # MintSNS
 
+[![Join the chat at https://gitter.im/mintsns/mintsns](https://badges.gitter.im/mintsns/mintsns.svg)](https://gitter.im/mintsns/mintsns?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## OverView
 
 SNS to make with everyone!

@@ -72,7 +72,7 @@ services:
     ports:
       - "5432:5432"
     expose:
-      - "5342"
+      - "5432"
 
   # database node
   postgres_node:
@@ -93,7 +93,7 @@ services:
     volumes_from:
       - data_node
     expose:
-      - "5342"
+      - "5432"
 
   # cache
   redis:
@@ -123,7 +123,14 @@ services:
   postgres_xl_data:
     image: busybox
     volumes:
-      - ./data/postgresql_xl:/var/lib/postgresql
+      - ./data/postgresql_xl:/usr/local/pgsql/data/
+    command: "true"
+
+  # db data storage
+  postgres_xl_node_data:
+    image: busybox
+    volumes:
+      - ./data/postgresql_xl_node:/usr/local/pgsql/data/
     command: "true"
 
   # db data storage(dev)
@@ -199,7 +206,10 @@ services:
   # database
   postgres_xl:
     restart: none
-    build: ./postgres_xl/
+    build: 
+      context: ./postgres_xl/
+      args:
+        mode: master
     volumes_from:
       - postgres_xl_data
     environment:
@@ -211,7 +221,33 @@ services:
     # ports:
     #   - "5432:5432"
     expose:
-      - "5342"
+      - "5432"
+      - "6666"
+      - "40100"
+
+  # database
+  postgres_xl_node:
+    restart: always
+    build: 
+      context: ./postgres_xl/
+      args:
+        mode: node
+    volumes_from:
+      - postgres_xl_node_data
+    depends_on:
+      - postgres_xl
+    environment:
+      - DB_USER=mintsns
+      - DB_PASS=mintsns
+      - DB_NAME=mintsns
+      - REPLICATION_USER=mintsns_repl
+      - REPLICATION_PASS=mintsns_repl
+    # ports:
+    #   - "5432:5432"
+    expose:
+      - "5432"
+      - "6666"
+      - "40101"
 
 
 

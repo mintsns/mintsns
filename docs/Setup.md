@@ -1,6 +1,6 @@
 # Setup
 
-## Node
+## 1. Node
 
 ### Install the `node` and `npm` to your development environment
 
@@ -16,7 +16,7 @@ sudo chown -R <username>:staff /usr/local/lib/node_modules
 npm install
 ```
 
-## Docker
+## 2. Docker
 
 ### Install the `docker-machine` to your development environment
 
@@ -26,13 +26,19 @@ Download URL: https://www.docker.com/products/docker-toolbox
 
 ```
 bash pre_download.sh
+```
+```
 docker-machine             create \
     --driver               virtualbox \
     --virtualbox-memory    4096 \
     --virtualbox-disk-size 20000 \
     dev
+```
+```
 docker-machine start dev2
 eval $(docker-machine env dev2)
+```
+```
 docker ps
 docker-compose build
 docker-compose up
@@ -57,7 +63,7 @@ docker-compose exec web /usr/local/bin/python manage.py migrate
 docker-compose exec web /usr/local/bin/python manage.py createsuperuser
 ```
 
-## Git book
+## 3. Git book
 
 ### Install
 ```
@@ -77,15 +83,15 @@ cd docs
 gitbook serve
 ```
 
-### Frontend
+## 4. Frontend
 
-#### build
+### build
 ```
 cd frontend
 npm run build 
 ```
 
-#### watch
+### watch
 ```
 cd frontend
 npm run watch

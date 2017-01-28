@@ -10,7 +10,7 @@ WORKDIR /usr/local/src
 ARG mode
 
 # build
-ARG postgres_xl_src=postgres-xl-9.5r1.1
+ARG postgres_xl_src=postgres-xl-9.5r1.4
 RUN wget http://files.postgres-xl.org/${postgres_xl_src}.tar.gz
 RUN mv ${postgres_xl_src}.tar.gz postgres-xl.tar.gz
 RUN ls -lha

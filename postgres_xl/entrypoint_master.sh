@@ -1,12 +1,25 @@
 #!/bin/bash
 
+echo "start entrypoint"
+
 # create db
 if [ ! -d /usr/local/pgsql/data/data_gtm ]; then
+  echo "create db"
   /bin/create_master.sh
 fi
 
-# connect 
-/bin/connect_master.sh &
+# rm pid
+rm -f /usr/local/pgsql/data/data_coord1/postmaster.pid
 
 # start supervisord
-/usr/bin/supervisord -c /etc/supervisord.conf
+echo "start supervisord"
+/usr/bin/supervisord -c /etc/supervisord.conf &
+sleep 10
+
+# connect
+echo "connect"
+/bin/connect_master.sh
+
+while true; do
+  sleep 10
+done

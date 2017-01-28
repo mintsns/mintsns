@@ -13,7 +13,8 @@ mkdir -p /usr/local/pgsql/data/data_datanode
 chown postgres /usr/local/pgsql/data/data_datanode
 sudo -u postgres /usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data/data_datanode --nodename datanode
 
-sed "s/^#listen_addresses = 'localhost'/listen_addresses = '*'/g" /usr/local/pgsql/data/data_datanode/postgresql.conf > /usr/local/pgsql/data/data_datanode/postgresql.tmp.conf
-mv /usr/local/pgsql/data/data_datanode/postgresql.tmp.conf /usr/local/pgsql/data/data_datanode/postgresql.conf
+sed -i "s/^#listen_addresses = 'localhost'/listen_addresses = '*'/g" /usr/local/pgsql/data/data_datanode/postgresql.conf
+sed -i "s/^max_connections = 100/max_connections = 1000/g" /usr/local/pgsql/data/data_datanode/postgresql.conf
+sed -i "s/^#max_pool_size = 100/max_pool_size = 1000/g" /usr/local/pgsql/data/data_datanode/postgresql.conf
 
 echo "host all all 0.0.0.0/0 trust" >> /usr/local/pgsql/data/data_datanode/pg_hba.conf

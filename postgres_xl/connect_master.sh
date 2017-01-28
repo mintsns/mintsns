@@ -26,3 +26,4 @@ echo "connect_master --> [B]"
 sudo -u postgres /usr/local/pgsql/bin/psql -c "SELECT pgxc_pool_reload()" postgres
 
 echo "connect_master --> ノード作成完了"
+

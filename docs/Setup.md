@@ -10,10 +10,10 @@ Download URL: https://nodejs.org/en/
 sudo chown -R <username>:staff /usr/local/lib/node_modules
 ```
 
-### Install the npm packages
+### Install yarn
 
 ```
-npm install
+brew install yarn
 ```
 
 ## 2. Docker
@@ -35,8 +35,8 @@ docker-machine             create \
     dev
 ```
 ```
-docker-machine start dev2
-eval $(docker-machine env dev2)
+docker-machine start dev
+eval $(docker-machine env dev)
 ```
 ```
 docker ps
@@ -85,14 +85,20 @@ gitbook serve
 
 ## 4. Frontend
 
+### install npm packages
+```
+cd frontend
+yarn install
+```
+
 ### build
 ```
 cd frontend
-npm run build 
+yarn run build 
 ```
 
 ### watch
 ```
 cd frontend
-npm run watch
+yarn run watch
 ```
